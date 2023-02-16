@@ -9,7 +9,7 @@ int main (void){
     int size = sizeof(array) / sizeof (array[0]);
 
     for(int i = 0; i < size; ++i){
-        bool ans = space.test(array, i, ">", i + 1);
+        bool ans = space.test(array, size, i, ">", i + 1);
     }
     
     space.done();

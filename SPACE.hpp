@@ -12,7 +12,7 @@ public:
         
     }
 
-    bool test(int *array, int i, std::string op, int j){
+    bool test(int array[] ,int size, int i, std::string op, int j){
         bool check = false;
         const std::vector<std::string> valid = {"<", "<=", ">", ">="};
 
@@ -24,6 +24,12 @@ public:
         tIndicies.vector::push_back(i);
         tIndicies.vector::push_back(j);
         indicies.vector::push_back(tIndicies);
+
+        for (int i = 0; i < size; ++i){
+            tElements.vector::push_back(array[i]);
+        }
+
+        elements.push_back(tElements);
 
         if (op == valid[0]){
             return i < j;
@@ -50,11 +56,19 @@ public:
             }
             data << "]" << ((i == indicies.size() - 1) ? "" : ",");
         }
-        data << "]\n}\n}";
 
-        
+        data << "],\n\t\"Elements\" : [";
+        for (int i = 0; i < elements.size(); ++i){
+            data << "[";
+            for (int j = 0; j < elements.size(); ++j){
+                data << elements[i][j] << ((j == elements[0].size() - 1)? "" : ",");
+            }
+            data << "]" << ((i == elements.size() - 1) ? "" : ",");
+        }
 
+        data << "]\n\t}\n}";
 
+    
         data.close();
     }
 
