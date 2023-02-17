@@ -15,9 +15,8 @@ public:
         //Do nothing
     }
 
-    bool test(int array[], int size, int i, std::string op, int j)
+    bool test(int array[], size_t size, size_t i, std::string op, size_t j)
     {
-        bool check = false;
         const std::vector<std::string> valid = {"<", "<=", ">", ">="};
 
         while (!std::count(valid.begin(), valid.end(), op))
@@ -30,7 +29,7 @@ public:
         tIndicies.vector::push_back(j);
         indicies.vector::push_back(tIndicies);
 
-        for (int i = 0; i < size; i++)
+        for (size_t i = 0; i < size; i++)
         {
             tElements.vector::push_back(array[i]);
         }
@@ -63,10 +62,10 @@ public:
 
         data << "{\n\"Data\" : {\n\t\"Indicies\" : [";
 
-        for (int i = 0; i < indicies.size(); i++)
+        for (size_t i = 0; i < indicies.size(); i++)
         {
             data << "[";
-            for (int j = 0; j < indicies[0].size(); j++)
+            for (size_t j = 0; j < indicies[0].size(); j++)
             {
                 data << indicies[i][j] << ((j == indicies[0].size() - 1) ? "" : ",");
             }
@@ -74,10 +73,10 @@ public:
         }
 
         data << "],\n\t\"Elements\" : [";
-        for (int i = 0; i < elements.size(); i++)
+        for (size_t i = 0; i < elements.size(); i++)
         {
             data << "[";
-            for (int j = 0; j < elements.size(); j++)
+            for (size_t j = 0; j < elements.size(); j++)
             {
                 data << elements[i][j] << ((j == elements[0].size() - 1) ? "" : ",");
             }
