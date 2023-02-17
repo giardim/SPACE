@@ -12,6 +12,7 @@ class SPACE
 public:
     SPACE()
     {
+        //Do nothing
     }
 
     bool test(int array[], int size, int i, std::string op, int j)
