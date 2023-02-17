@@ -60,7 +60,7 @@ public:
     {
         data.open("data.json");
 
-        data << "{\n\"Data\" : {\n\t\"Indicies\" : [";
+        data << "{\n\"data\" : {\n\t\"indicies\" : [";
 
         for (size_t i = 0; i < indicies.size(); i++)
         {
@@ -72,7 +72,7 @@ public:
             data << "]" << ((i == indicies.size() - 1) ? "" : ",");
         }
 
-        data << "],\n\t\"Elements\" : [";
+        data << "],\n\t\"elements\" : [";
         for (size_t i = 0; i < elements.size(); i++)
         {
             data << "[";
