@@ -38,19 +38,19 @@ public:
 
         if (op == valid[0])
         {
-            return i < j;
+            return array[i] < array[j];
         }
         else if (op == valid[1])
         {
-            return i <= j;
+            return array[i] <= array[j];
         }
         else if (op == valid[2])
         {
-            return i > j;
+            return array[i] > array[j];
         }
         else if (op == valid[3])
         {
-            return i >= j;
+            return array[i] >= array[j];
         }
 
         return true;
@@ -59,6 +59,7 @@ public:
     void done()
     {
         data.open("data.json");
+       
 
         data << "{\n\"data\" : {\n\t\"indicies\" : [";
 
