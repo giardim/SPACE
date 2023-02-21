@@ -1,0 +1,60 @@
+* {
+  background: #161923;
+  color: #BCBDD0;
+}
+
+html,
+body {
+  display: flex;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  width: 100%;
+}
+
+canvas {
+  display: block;
+}
+
+#explorer {
+  display: flex;
+  flex-flow: column;
+  height: 100%;
+  width: 25%;
+}
+
+#player {
+  display: flex;
+  flex-flow: column;
+  height: 100%;
+  width: 75%;
+}
+
+#explorer_h,
+#player_h {
+  height: 15%;
+}
+
+#data_structures,
+#canvas {
+  height: 75%;
+}
+
+#documentation,
+#controls {
+  height: 10%;
+}
+
+#data_structures {
+  display: flex;
+  flex-flow: column;
+}
+
+.data_structure {
+  cursor: pointer;
+  font-size: 1.25em;
+  height: 6.25%;
+  margin: 0 auto;
+  width: 75%;
+}
