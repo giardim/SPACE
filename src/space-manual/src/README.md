@@ -26,9 +26,9 @@ This project will help students in the Data Structures and Algorithms class at S
 
 #### Windows
 
-g++ .\main.cpp .\SPACE.cpp 
+g++ .\main.cpp 
 
 #### Linux
 
-g++ main.cpp SPACE.cpp 
+g++ main.cpp  
 
