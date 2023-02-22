@@ -1,100 +1,71 @@
-#ifndef SPACE_HPP
-#define SPACE_HPP
+#ifndef SPACE
+#define SPACE
 
-#include <algorithm>
+#include <cstdlib>
 #include <fstream>
-#include <iostream>
-#include <string>
-#include <vector>
+#include <sstream>
+#include <map>
 
-class SPACE
+namespace space
 {
-public:
-    SPACE()
+  namespace
+  {
+    std::stringstream str;
+    std::map<std::string, std::map<std::string, std::string> > data;
+    void save()
     {
-        //Do nothing
+      std::ofstream file("data.json");
+      file << "{\n";
+      for (std::map<std::string, std::map<std::string, std::string> >::iterator key = data.begin(); key != data.end(); key++)
+      {
+        file << "  "
+             << "\"" << key->first << "\""
+             << ": "
+             << "{\n"
+             << "    "
+             << "\"type\""
+             << ": "
+             << "\"" << key->second["type"] << "\""
+             << ",\n"
+             << "    "
+             << "\"data\""
+             << ": "
+             << "[\n"
+             << key->second["data"];
+        file.seekp(-2, std::ios::cur);
+        file << "\n"
+             << "    "
+             << "]\n"
+             << "  "
+             << "}"
+             << ",\n";
+      }
+      file.seekp(-2, std::ios::cur);
+      file << "\n}";
+      file.close();
     }
-
-    bool test(int array[], size_t size, size_t i, std::string op, size_t j)
+    class space
     {
-        const std::vector<std::string> valid = {"<", "<=", ">", ">="};
+    public:
+      space()
+      {
+        std::atexit(save);
+      }
+    } space;
+  }
 
-        while (!std::count(valid.begin(), valid.end(), op))
-        {
-            std::cout << "You did not enter a valid operator, please try again: ";
-            std::cin >> op;
-        }
-
-        tIndicies.vector::push_back(i);
-        tIndicies.vector::push_back(j);
-        indicies.vector::push_back(tIndicies);
-
-        for (size_t i = 0; i < size; i++)
-        {
-            tElements.vector::push_back(array[i]);
-        }
-
-        elements.push_back(tElements);
-
-        if (op == valid[0])
-        {
-            return array[i] < array[j];
-        }
-        else if (op == valid[1])
-        {
-            return array[i] <= array[j];
-        }
-        else if (op == valid[2])
-        {
-            return array[i] > array[j];
-        }
-        else if (op == valid[3])
-        {
-            return array[i] >= array[j];
-        }
-
-        return true;
-    }
-
-    void done()
+  void sout(std::string name, int array[], int size)
+  {
+    str.str("");
+    data[name]["type"] = "Array1D";
+    str << "[";
+    for (size_t i = 0; i < size; i++)
     {
-        data.open("data.json");
-       
-
-        data << "{\n\"data\" : {\n\t\"indicies\" : [";
-
-        for (size_t i = 0; i < indicies.size(); i++)
-        {
-            data << "[";
-            for (size_t j = 0; j < indicies[0].size(); j++)
-            {
-                data << indicies[i][j] << ((j == indicies[0].size() - 1) ? "" : ",");
-            }
-            data << "]" << ((i == indicies.size() - 1) ? "" : ",");
-        }
-
-        data << "],\n\t\"elements\" : [";
-        for (size_t i = 0; i < elements.size(); i++)
-        {
-            data << "[";
-            for (size_t j = 0; j < elements.size(); j++)
-            {
-                data << elements[i][j] << ((j == elements[0].size() - 1) ? "" : ",");
-            }
-            data << "]" << ((i == elements.size() - 1) ? "" : ",");
-        }
-
-        data << "]\n\t}\n}";
-
-        data.close();
+      str << array[i] << (i < size - 1 ? "," : "");
     }
-
-private:
-    std::vector<std::vector<int>> elements;
-    std::vector<std::vector<int>> indicies;
-    std::vector<int> tIndicies;
-    std::vector<int> tElements;
-    std::ofstream data;
-};
+    str << "]";
+    data[name]["data"] += "      " + str.str() + ",\n";
+  }
+}
 
 #endif
