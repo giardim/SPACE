@@ -1,19 +1,39 @@
+#include <ctime>
+#include <cstdlib>
 #include <iostream>
 
-#include "SPACE.hpp"
+#include "space.hpp"
 
-int main (void){
-    int array[5] = {5, 8, 9, 3, 1};
-    SPACE space;
+int main()
+{
+    srand(time(0));
 
-    int size = sizeof(array) / sizeof (array[0]);
-
-    for(int i = 0; i < size; ++i){
-        bool ans = space.test(array, size, i, ">", i + 1);
+    int size = 32, array[size];
+    for (size_t i = 0; i < size; i++)
+    {
+        array[i] = rand() % 64;
     }
-    
-    space.done();
+    space::sout("array", array, size);
 
+    // Bubble Sort
+    for (int i = 0; i < size - 1; i++)
+    {
+        bool swap = false;
+        for (int j = 0; j < size - i - 1; j++)
+        {
+            if (array[j] > array[j + 1])
+            {
+                std::swap(array[j], array[j + 1]);
+                space::sout("array", array, size);
+                swap = true;
+            }
+        }
+
+        if (swap == false)
+        {
+            break;
+        }
+    }
 
     return 0;
 }
