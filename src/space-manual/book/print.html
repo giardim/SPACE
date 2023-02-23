@@ -82,7 +82,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="index.html"><strong aria-hidden="true">1.</strong> README</a></li><li class="chapter-item expanded "><a href="data-file.html"><strong aria-hidden="true">2.</strong> data.json</a></li><li class="chapter-item expanded "><a href="space-sout.html"><strong aria-hidden="true">3.</strong> space::sout()</a></li><li class="chapter-item expanded "><a href="space-save.html"><strong aria-hidden="true">4.</strong> space::save()</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="index.html">Introduction</a></li><li class="chapter-item expanded "><a href="design.html"><strong aria-hidden="true">1.</strong> Design documents</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ui.html"><strong aria-hidden="true">1.1.</strong> UI/UX</a></li><li class="chapter-item expanded "><a href="data-file.html"><strong aria-hidden="true">1.2.</strong> data.json</a></li></ol></li><li class="chapter-item expanded "><a href="functions.html"><strong aria-hidden="true">2.</strong> Functions</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="space-sout.html"><strong aria-hidden="true">2.1.</strong> space::sout()</a></li><li class="chapter-item expanded "><a href="space-save.html"><strong aria-hidden="true">2.2.</strong> space::save()</a></li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -172,6 +172,28 @@
 <p>g++ .\main.cpp </p>
 <h4 id="linux"><a class="header" href="#linux">Linux</a></h4>
 <p>g++ main.cpp</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="design"><a class="header" href="#design">Design</a></h1>
+<p>This chapter contains the design documents for the SPACE program.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="uiux"><a class="header" href="#uiux">UI/UX</a></h1>
+<p><img src="assets/sketch.jpg" alt="mockup" /></p>
+<h3 id="overview"><a class="header" href="#overview">Overview</a></h3>
+<p>The general layout of our application is a main visualization area on the 
+right with a sidebar on the left.</p>
+<h3 id="functionality"><a class="header" href="#functionality">Functionality</a></h3>
+<p>The user may drag a data.json file from their file explorer into the webpage. 
+The data structures saved in the data.json file will populate the side bar. 
+To visualize a data structure, click one of the elements in the side bar. 
+This will fill the visualization pane with a view of that data structure.</p>
+<h3 id="the-visualization-pane"><a class="header" href="#the-visualization-pane">The visualization pane</a></h3>
+<p>Hover your mouse over an element to see its value. 
+Use the media controls at the bottom to play/pause automatic iteration through 
+the save states of your structure. Use the bar to scrub through the save 
+states of your structure.</p>
+<h3 id="the-side-bar"><a class="header" href="#the-side-bar">The side bar</a></h3>
+<p>The sidebar contains a list of all data structures present in the data.json 
+file. Clicking on one will open it in the visualization pane. Only one 
+data structure may be visualized at a time. You can open the SPACE manual 
+by clicking the button at the bottom of the side bar.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="about-the-save-file"><a class="header" href="#about-the-save-file">About the save file</a></h1>
 <p>Each datastructure is an object.</p>
 <p>They main key for each object will be what the students variable name for that datastructure is
@@ -202,6 +224,13 @@ If multiple saves of the same datastructure occur, each datastructure save array
 }
 }
 </code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="functions"><a class="header" href="#functions">Functions</a></h1>
+<p>SPACE.hpp contains two main functions. The space::sout() function is used 
+by the student in their programs to output their data structures into a 
+data.json file. The space::save() function is used by the SPACE.hpp 
+program to take the output of space::sout(), convert it to JSON, and output 
+it into a data.json file. The student never uses space::save() in their 
+program.</p>
 <div style="break-before: page; page-break-before: always;"></div><pre><code>void space::sout()
 </code></pre>
 <h3 id="example-1"><a class="header" href="#example-1">Example</a></h3>

@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>space::sout() - space-manual</title>
+        <title>Design documents - space-manual</title>
 
 
         <!-- Custom HTML head -->
@@ -81,7 +81,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="index.html">Introduction</a></li><li class="chapter-item expanded "><a href="design.html"><strong aria-hidden="true">1.</strong> Design documents</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ui.html"><strong aria-hidden="true">1.1.</strong> UI/UX</a></li><li class="chapter-item expanded "><a href="data-file.html"><strong aria-hidden="true">1.2.</strong> data.json</a></li></ol></li><li class="chapter-item expanded "><a href="functions.html"><strong aria-hidden="true">2.</strong> Functions</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="space-sout.html" class="active"><strong aria-hidden="true">2.1.</strong> space::sout()</a></li><li class="chapter-item expanded "><a href="space-save.html"><strong aria-hidden="true">2.2.</strong> space::save()</a></li></ol></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="index.html">Introduction</a></li><li class="chapter-item expanded "><a href="design.html" class="active"><strong aria-hidden="true">1.</strong> Design documents</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ui.html"><strong aria-hidden="true">1.1.</strong> UI/UX</a></li><li class="chapter-item expanded "><a href="data-file.html"><strong aria-hidden="true">1.2.</strong> data.json</a></li></ol></li><li class="chapter-item expanded "><a href="functions.html"><strong aria-hidden="true">2.</strong> Functions</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="space-sout.html"><strong aria-hidden="true">2.1.</strong> space::sout()</a></li><li class="chapter-item expanded "><a href="space-save.html"><strong aria-hidden="true">2.2.</strong> space::save()</a></li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -142,39 +142,18 @@
 
                 <div id="content" class="content">
                     <main>
-                        <pre><code>void space::sout()
-</code></pre>
-<h3 id="example"><a class="header" href="#example">Example</a></h3>
-<pre><code>int array_size = 3;
-int joke[array_size] = [6,7,8,9];
-space::sout(&quot;joke&quot;, joke, array_size);
-</code></pre>
-<h3 id="description"><a class="header" href="#description">Description</a></h3>
-<p>Stores the data structure to memory AS IS (just like std::cout) 
-If you modify the data structure you must call space::sout() again if you 
-want to save the updated structure. At the end of your program the stored 
-memory will be outout to the data.json file.</p>
-<h3 id="syntax"><a class="header" href="#syntax">Syntax</a></h3>
-<pre><code>space::sout(STRING name_of_array, INT array, INT size_of_array);
-</code></pre>
-<h3 id="parameters"><a class="header" href="#parameters">Parameters</a></h3>
-<pre><code>space::sout(
-STRING name_of_array, /* if your array is named &quot;joke&quot; pass in &quot;joke&quot; as a string in double quotes */
-INT array, /* pass in the array */
-INT size_of_array /* pass in the size of the array */
-</code></pre>
-<h3 id="returns"><a class="header" href="#returns">Returns</a></h3>
-<p>N/A because space::sout() is a void function.</p>
+                        <h1 id="design"><a class="header" href="#design">Design</a></h1>
+<p>This chapter contains the design documents for the SPACE program.</p>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                            <a rel="prev" href="functions.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="index.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
 
-                            <a rel="next" href="space-save.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next" href="ui.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
 
@@ -184,11 +163,11 @@ INT size_of_array /* pass in the size of the array */
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                    <a rel="prev" href="functions.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="index.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
 
-                    <a rel="next" href="space-save.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next" href="ui.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
             </nav>
