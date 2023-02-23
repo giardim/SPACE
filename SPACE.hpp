@@ -32,7 +32,7 @@ namespace space
              << ": "
              << "[\n"
              << key->second["data"];
-        file.seekp(-2, std::ios::cur);
+        file.seekp(-3, std::ios::cur);
         file << "\n"
              << "    "
              << "]\n"
@@ -40,7 +40,7 @@ namespace space
              << "}"
              << ",\n";
       }
-      file.seekp(-2, std::ios::cur);
+      file.seekp(-3, std::ios::cur);
       file << "\n}";
       file.close();
     }
@@ -59,7 +59,7 @@ namespace space
     str.str("");
     data[name]["type"] = "Array1D";
     str << "[";
-    for (size_t i = 0; i < size; i++)
+    for (int i = 0; i < size; i++)
     {
       str << array[i] << (i < size - 1 ? "," : "");
     }
