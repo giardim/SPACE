@@ -8,8 +8,8 @@ int main()
 {
     srand(time(0));
 
-    int size = 32, array[size];
-    for (int i = 0; i < size; i++)
+    int size = 7, array[size];
+    for (size_t i = 0; i < size; i++)
     {
         array[i] = rand() % 64;
     }
