@@ -17,9 +17,9 @@ class Array1D {
   graph() {
     for (let i = 0; i < this.data.data[this.step].length; i++) {
       const D = this.data.data[this.step][i];
-      const X0 = (i + 0) * width / 32;
+      const X0 = (i + 0) * width / this.data.data[this.step].length;
       const Y0 = map(0, this.min, this.max, height, 0);
-      const X1 = (i + 1) * width / 32;
+      const X1 = (i + 1) * width / this.data.data[this.step].length;
       const Y1 = map(D, this.min, this.max, height, 0);
       rect(X0, Y0, X1, Y1);
     }
