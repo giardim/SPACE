@@ -21,14 +21,3 @@ This project will help students in the Data Structures and Algorithms class at S
 ##### C++
 * stdlib
 
-
-### Compiling
-
-#### Windows
-
-g++ .\main.cpp .\SPACE.cpp 
-
-#### Linux
-
-g++ main.cpp SPACE.cpp 
-
