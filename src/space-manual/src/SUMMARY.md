@@ -4,7 +4,7 @@
 
 - [Design documents](design.md)
 	- [UI/UX](ui.md)
-	- [data.json](data-file.md)
+	- [data.json](output-file.md)
 
 - [Functions](functions.md)
 	- [space::sout()](space-sout.md)
