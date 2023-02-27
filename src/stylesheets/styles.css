@@ -1,11 +1,8 @@
-* {
+html,
+body {
   background: #161923;
   color: #BCBDD0;
   font-family: "Open Sans", sans-serif;
-}
-
-html,
-body {
   display: flex;
   height: 100vh;
   margin: 0;
@@ -18,7 +15,24 @@ canvas {
   display: block;
 }
 
+h5 {
+  margin: 1em;
+  text-align: left;
+  font-style: normal;
+  font-weight: 400;
+}
+
+a {
+  text-decoration: none;
+  color: #c8c9db;
+}
+
+a:hover {
+  color: #2b79a2;
+}
+
 #explorer {
+  background:#282d3f;
   display: flex;
   flex-flow: column;
   height: 100%;
@@ -44,7 +58,6 @@ canvas {
 
 #manual,
 #controls {
-  height: 10%;
 }
 
 #data_structures {
