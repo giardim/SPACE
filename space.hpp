@@ -12,26 +12,39 @@ namespace space
   {
     std::stringstream str;
     std::map<std::string, std::map<std::string, std::string> > data;
+    std::stringstream indicies;
     void save()
     {
       std::ofstream file("data.json");
       file << "{\n";
-      for (std::map<std::string, std::map<std::string, std::string> >::iterator key = data.begin(); key != data.end(); key++)
+      for (std::map<std::string, std::map<std::string, std::string> >::iterator entry = data.begin(); entry != data.end(); entry++)
       {
         file << "  "
-             << "\"" << key->first << "\""
+             << "\"" << entry->first << "\""
              << ": "
              << "{\n"
              << "    "
              << "\"type\""
              << ": "
-             << "\"" << key->second["type"] << "\""
+             << "\"" << entry->second["type"] << "\""
              << ",\n"
+             << "    "
+             "\"is_char\""
+             << ": "
+             << entry-> second["is_char"]
+             << ",\n"
+             << "    "
+             "\"indicies\""
+             << ": "
+             <<"["
+             << entry-> second["indicies"]
+             << "\n"
+             << "],"
              << "    "
              << "\"data\""
              << ": "
              << "[\n"
-             << key->second["data"];
+             << entry->second["data"];
         file.seekp(-3, std::ios::cur);
         file << "\n"
              << "    "
@@ -39,7 +52,7 @@ namespace space
              << "  "
              << "}"
              << ",\n";
-      }
+      }      
       file.seekp(-3, std::ios::cur);
       file << "\n}";
       file.close();
@@ -54,10 +67,68 @@ namespace space
     } space;
   }
 
-  void sout(std::string name, int array[], int size)
+  void sout(std::string name, int array[], int size, int i, int j)
+  { 
+    str.str("");
+    indicies.str("");
+    indicies << "[" << i << ", " << j << "]";
+    data[name]["type"] = "Array1D";
+    data[name]["is_char"] = "0";
+    
+    str << "[";
+    for (int i = 0; i < size; i++)
+    {
+      str << array[i] << (i < size - 1 ? "," : "");
+    }
+    str << "]";
+    data[name]["data"] += "      " + str.str() + ",\n";
+    data[name]["indicies"] += "     " + indicies.str() + ",\n";
+  }
+
+  void sout(std::string name, double array[], int size)
   {
     str.str("");
     data[name]["type"] = "Array1D";
+    data[name]["is_char"] = "0";
+    str << "[";
+    for (int i = 0; i < size; i++)
+    {
+      str << array[i] << (i < size - 1 ? "," : "");
+    }
+    str << "]";
+    data[name]["data"] += "      " + str.str() + ",\n";
+  }
+
+  void sout (std::string name, float array[], int size){
+    str.str("");
+    data[name]["type"] = "Array1D";
+    data[name]["is_char"] = "0";
+    str << "[";
+    for (int i = 0; i < size; i++)
+    {
+      str << array[i] << (i < size - 1 ? "," : "");
+    }
+    str << "]";
+    data[name]["data"] += "      " + str.str() + ",\n";
+  }
+
+  void sout (std::string name, char array[], int size){
+    str.str("");
+    data[name]["type"] = "Array1D";
+    data[name]["is_char"] = "1";
+    str << "[";
+    for (int i = 0; i < size; i++)
+    {
+      str <<  (int)array[i] << (i < size - 1 ? "," : "");
+    }
+    str << "]";
+    data[name]["data"] += "      " + str.str() + ",\n";
+  }
+
+  void sout (std::string name, bool array[], int size){
+    str.str("");
+    data[name]["type"] = "Array1D";
+    data[name]["is_char"] = "0";
     str << "[";
     for (int i = 0; i < size; i++)
     {
