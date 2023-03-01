@@ -16,45 +16,49 @@ namespace space
     void save()
     {
       std::ofstream file("data.json");
-      file << "{\r\n";
+      file << "{\n";
       for (std::map<std::string, std::map<std::string, std::string> >::iterator entry = data.begin(); entry != data.end(); entry++)
       {
         file << "  "
              << "\"" << entry->first << "\""
              << ": "
-             << "{\r\n"
+             << "{\n"
              << "    "
              << "\"type\""
              << ": "
              << "\"" << entry->second["type"] << "\""
-             << ",\r\n"
+             << ",\n"
              << "    "
              << "\"is_char\""
              << ": "
              << entry->second["is_char"]
-             << ",\r\n"
+             << ",\n"
              << "    "
              << "\"indicies\""
              << ": "
              << "["
              << entry->second["indicies"]
-             << "\r\n"
+             << "\n"
              << "],"
              << "    "
              << "\"data\""
              << ": "
-             << "[\r\n"
+             << "[\n"
              << entry->second["data"];
+#ifdef _WIN32             
         file.seekp(-3, std::ios::cur);
-        file << "\r\n"
+#else
+        file.seekp(-2, std::ios::cur);
+#endif // WIN32
+        file << "\n"
              << "    "
-             << "]\r\n"
+             << "]\n"
              << "  "
              << "}"
-             << ",\r\n";
+             << ",\n";
       }
       file.seekp(-3, std::ios::cur);
-      file << "\r\n}";
+      file << "\n}";
       file.close();
     }
     class space
@@ -71,13 +75,14 @@ namespace space
   {
     str.str("");
     data[name]["type"] = "Array1D";
+    data[name]["is_char"] = "0";
     str << "[";
     for (int i = 0; i < size; i++)
     {
       str << array[i] << (i < size - 1 ? "," : "");
     }
     str << "]";
-    data[name]["data"] += "      " + str.str() + ",\r\n";
+    data[name]["data"] += "      " + str.str() + ",\n";
   }
 
   void sout(std::string name, int array[], int size, int i, int j)
@@ -93,8 +98,8 @@ namespace space
       str << array[i] << (i < size - 1 ? "," : "");
     }
     str << "]";
-    data[name]["data"] += "      " + str.str() + ",\r\n";
-    data[name]["indicies"] += "     " + indicies.str() + ",\r\n";
+    data[name]["data"] += "      " + str.str() + ",\n";
+    data[name]["indicies"] += "     " + indicies.str() + ",\n";
   }
 
   void sout(std::string name, double array[], int size)
@@ -108,7 +113,7 @@ namespace space
       str << array[i] << (i < size - 1 ? "," : "");
     }
     str << "]";
-    data[name]["data"] += "      " + str.str() + ",\r\n";
+    data[name]["data"] += "      " + str.str() + ",\n";
   }
 
   void sout(std::string name, float array[], int size)
@@ -122,7 +127,7 @@ namespace space
       str << array[i] << (i < size - 1 ? "," : "");
     }
     str << "]";
-    data[name]["data"] += "      " + str.str() + ",\r\n";
+    data[name]["data"] += "      " + str.str() + ",\n";
   }
 
   void sout(std::string name, char array[], int size)
@@ -136,7 +141,7 @@ namespace space
       str << (int)array[i] << (i < size - 1 ? "," : "");
     }
     str << "]";
-    data[name]["data"] += "      " + str.str() + ",\r\n";
+    data[name]["data"] += "      " + str.str() + ",\n";
   }
 
   void sout(std::string name, bool array[], int size)
@@ -150,7 +155,7 @@ namespace space
       str << array[i] << (i < size - 1 ? "," : "");
     }
     str << "]";
-    data[name]["data"] += "      " + str.str() + ",\r\n";
+    data[name]["data"] += "      " + str.str() + ",\n";
   }
 }
 
