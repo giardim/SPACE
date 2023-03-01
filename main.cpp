@@ -18,7 +18,7 @@ int main()
         {
             array[i] = rand() % 64 - offset;
         }
-        space::sout("array" + std::to_string(n + 1), array, size);
+        space::sout("array" + std::to_string(n + 1), array, size, 1, 2);
         delete[] array;
     }
 
