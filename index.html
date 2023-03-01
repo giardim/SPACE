@@ -4,6 +4,8 @@
 <head>
   <title>SPACE</title>
 
+  <link rel="stylesheet" href="src/stylesheets/font-awesome.min.css">
+  <link rel="stylesheet" href="src/stylesheets/themes.css">
   <link rel="stylesheet" href="src/stylesheets/styles.css">
 
   <script src="src/scripts/jquery.min.js"></script>
@@ -14,19 +16,46 @@
 </head>
 
 <body>
-  <div id="explorer">
-    <div id="explorer_h">
-	<h5>Data Structure Visualizer</h5>
+  <div id="sidebar">
+    <div id="sidebar-h">
+      <h1>Data Structures</h1>
     </div>
-    <div id="data_structures"></div>
+    <div id="data-structures"></div>
     <div id="manual">
       <a href="src/space-manual/book/index.html" target="_blank">
-        <h5>📖 MANUAL</h5>
+        <h1>📖 MANUAL</h1>
       </a>
     </div>
   </div>
   <div id="player">
-    <div id="player_h"></div>
+    <div id="player-h">
+      <div id="theme-settings">
+        <div>
+          <button id="theme-toggle" title="Change Theme">
+            <i class="fa-solid fa-paintbrush"></i>
+          </button>
+          <div id="themes">
+            <button class="theme" id="light">Light</button>
+            <button class="theme" id="rust">Rust</button>
+            <button class="theme" id="coal">Coal</button>
+            <button class="theme" id="navy">Navy</button>
+            <button class="theme" id="ayu">Ayu</button>
+          </div>
+        </div>
+        <div></div>
+      </div>
+      <div id="data-type">
+        <h1> </h1>
+      </div>
+      <div id="view-settings">
+        <button id="graph" title="Graph">
+          <i class="fa-solid fa-chart-simple"></i>
+        </button>
+        <button id="table" title="Table">
+          <i class="fa-solid fa-table"></i>
+        </button>
+      </div>
+    </div>
     <div id="canvas"></div>
     <div id="controls"></div>
   </div>

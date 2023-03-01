@@ -15,6 +15,8 @@ class Array1D {
   }
 
   graph() {
+    fill(fg);
+    stroke(bg);
     for (let i = 0; i < this.data.data[this.step].length; i++) {
       const D = this.data.data[this.step][i];
       const X0 = (i + 0) * width / this.data.data[this.step].length;

@@ -1,17 +1,34 @@
 const space = { Array1D };
 
+let bg = '';
+let fg = '';
 let data = {};
 let data_structure = {};
 let view = '';
 
 function setup() {
-  createCanvas(windowWidth * 0.75, windowHeight * 0.75);
+  createCanvas($('#canvas').width(), $('#canvas').height());
   $('#canvas').append($('canvas'));
+  setTimeout(windowResized);
   $('main').remove();
 
-  fill('#BCBDD0');
-  stroke('#161923');
   rectMode(CORNERS);
+
+  $('#theme-toggle').click(() => $('#themes').toggleClass('active'));
+  $('.theme').click(function () {
+    $('html').attr('class', $(this).attr('id'));
+    bg = $('html').css('--bg');
+    fg = $('html').css('--fg');
+    $('.theme').removeClass('active');
+    $(this).addClass('active');
+  });
+  $('#navy').click();
+
+  $('#view-settings button').click(function () {
+    view = $(this).attr('id');
+    $('#view-settings button').removeClass('active');
+    $(this).addClass('active');
+  });
 
   $('canvas').on('dragover', e => e.preventDefault()).on('drop', e => {
     e.preventDefault();
@@ -19,26 +36,28 @@ function setup() {
       if (item.kind === 'file') {
         data = JSON.parse(await item.getAsFile().text());
         for (const [key, value] of Object.entries(data)) {
-          $('#data_structures').append(`<button class="data_structure" data-key="${key}">${key}</button>`);
+          $('#data-structures').append(`<button class="data-structure" data-key="${key}"><code>${key}</code></button>`);
         }
-        $('.data_structure').on('click', function () {
+        $('.data-structure').click(function () {
           const key = $(this).data('key');
           data_structure = new space[data[key].type](data[key]);
-          $('#player_h').html(`<h1> </h1><h2>${data[key].type}</h2>`);
+          $('#data-type').html(`<h1>${data[key].type || ' '}</h1>`);
+          $('.data-structure').removeClass('active');
+          $(this).addClass('active');
         });
-        $('.data_structure').eq(0).trigger('click');
-        view = 'graph';
+        $('.data-structure').eq(0).click();
+        $('#view-settings button').eq(0).click();
       }
     });
   });
 }
 
 function draw() {
-  background('#161923');
+  background(bg);
   data_structure[view]?.();
   data_structure.next?.();
 }
 
 function windowResized() {
-  resizeCanvas(windowWidth * 0.75, windowHeight * 0.75);
+  resizeCanvas($('#canvas').width(), $('#canvas').height());
 }

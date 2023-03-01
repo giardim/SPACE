@@ -1,0 +1,45 @@
+.ayu {
+  --bg: #0F141A;
+  --fg: #C5C5C5;
+  --sidebar-bg: #14191F;
+  --sidebar-fg: #C8C9DB;
+  --icons: #737480;
+  --icons-hover: #B7B9CC;
+}
+
+.coal {
+  --bg: #131516;
+  --fg: #98A3AD;
+  --sidebar-bg: #292C2F;
+  --sidebar-fg: #A1ADB8;
+  --icons: #43484D;
+  --icons-hover: #B3C0CC;
+}
+
+.light {
+  --bg: #FFFFFF;
+  --fg: #000000;
+
+  --sidebar-bg: #FAFAFA;
+  --sidebar-fg: #000000;
+  --icons: #747474;
+  --icons-hover: #000000;
+}
+
+.navy {
+  --bg: #161923;
+  --fg: #BCBDD0;
+  --sidebar-bg: #282D3F;
+  --sidebar-fg: #C8C9DB;
+  --icons: #737480;
+  --icons-hover: #B7B9CC;
+}
+
+.rust {
+  --bg: #E1E1DB;
+  --fg: #262625;
+  --sidebar-bg: #3B2E2A;
+  --sidebar-fg: #C8C9DB;
+  --icons: #737480;
+  --icons-hover: #262625;
+}
