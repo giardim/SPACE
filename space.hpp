@@ -37,8 +37,14 @@ namespace space
              << "\"indicies\""
              << ": "
              << "["
-             << entry->second["indicies"]
-             << "\n"
+             << entry->second["indicies"];
+             #ifdef _WIN32             
+        file.seekp(-3, std::ios::cur);
+#else
+        file.seekp(-2, std::ios::cur);
+#endif // WIN32
+
+             file << "\n"
              << "],"
              << "    "
              << "\"data\""
@@ -57,7 +63,11 @@ namespace space
              << "}"
              << ",\n";
       }
-      file.seekp(-3, std::ios::cur);
+      #ifdef _WIN32             
+        file.seekp(-3, std::ios::cur);
+#else
+        file.seekp(-2, std::ios::cur);
+#endif // WIN32
       file << "\n}";
       file.close();
     }
