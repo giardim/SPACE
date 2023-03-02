@@ -12,8 +12,6 @@ function setup() {
   setTimeout(windowResized);
   $('main').remove();
 
-  rectMode(CORNERS);
-
   $('#theme-toggle').click(() => $('#themes').toggleClass('active'));
   $('.theme').click(function () {
     $('html').attr('class', $(this).attr('id'));
@@ -41,7 +39,7 @@ function setup() {
         $('.data-structure').click(function () {
           const key = $(this).data('key');
           data_structure = new space[data[key].type](data[key]);
-          $('#data-type').html(`<h1>${data[key].type || ' '}</h1>`);
+          $('#data-type').html(`<h2>${data[key].type || ' '}</h2>`);
           $('.data-structure').removeClass('active');
           $(this).addClass('active');
         });
