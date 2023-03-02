@@ -15,19 +15,30 @@ class Array1D {
   }
 
   graph() {
-    fill(fg);
-    stroke(bg);
+    rectMode(CORNERS);
     for (let i = 0; i < this.data.data[this.step].length; i++) {
       const D = this.data.data[this.step][i];
-      const X0 = (i + 0) * width / this.data.data[this.step].length;
+      const X0 = (i + 0.0) * width / this.data.data[this.step].length;
       const Y0 = map(0, this.min, this.max, height, 0);
-      const X1 = (i + 1) * width / this.data.data[this.step].length;
+      const X1 = (i + 1.0) * width / this.data.data[this.step].length;
       const Y1 = map(D, this.min, this.max, height, 0);
+      fill(fg); stroke(bg);
       rect(X0, Y0, X1, Y1);
     }
   }
 
   table() {
-
+    rectMode(CENTER);
+    textAlign(CENTER, CENTER);
+    for (let i = 0; i < this.data.data[this.step].length; i++) {
+      const D = this.data.data[this.step][i];
+      const X = (i + 0.5) * width / this.data.data[this.step].length;
+      const Y = height / 2;
+      const S = width / this.data.data[this.step].length;
+      fill(bg); stroke(fg);
+      square(X, Y, S);
+      fill(fg); stroke(bg);
+      text(D, X, Y);
+    }
   }
 }
