@@ -39,7 +39,7 @@ function setup() {
         $('.data-structure').click(function () {
           const key = $(this).data('key');
           data_structure = new space[data[key].type](data[key]);
-          $('#data-type').html(`<h2>${data[key].type || ' '}</h2>`);
+          $('#data-type>button').text(data[key].type || ' ');
           $('.data-structure').removeClass('active');
           $(this).addClass('active');
         });
