@@ -81,9 +81,12 @@ namespace space
     } space;
   }
 
+  //Passed tests
   void sout(std::string name, int array[], int size)
   {
     str.str("");
+    indicies.str("");
+    indicies << "";
     data[name]["type"] = "Array1D";
     data[name]["is_char"] = "0";
     str << "[";
@@ -93,8 +96,10 @@ namespace space
     }
     str << "]";
     data[name]["data"] += "      " + str.str() + ",\n";
+    data[name]["indicies"] += "     " + indicies.str();
   }
 
+  //Passed tests
   void sout(std::string name, int array[], int size, int i, int j)
   {
     str.str("");
@@ -112,9 +117,12 @@ namespace space
     data[name]["indicies"] += "     " + indicies.str() + ",\n";
   }
 
+  //Passed tests
   void sout(std::string name, double array[], int size)
   {
     str.str("");
+    indicies.str("");
+    indicies << "";
     data[name]["type"] = "Array1D";
     data[name]["is_char"] = "0";
     str << "[";
@@ -124,8 +132,10 @@ namespace space
     }
     str << "]";
     data[name]["data"] += "      " + str.str() + ",\n";
+    data[name]["indicies"] += "     " + indicies.str();
   }
 
+  //Passed tests
   void sout(std::string name, double array[], int size, int i, int j)
   {
     str.str("");
@@ -143,9 +153,12 @@ namespace space
     data[name]["indicies"] += "     " + indicies.str() + ",\n";
   }
 
+  //Passed tests
   void sout(std::string name, float array[], int size)
   {
     str.str("");
+    indicies.str("");
+    indicies << "";
     data[name]["type"] = "Array1D";
     data[name]["is_char"] = "0";
     str << "[";
@@ -155,8 +168,10 @@ namespace space
     }
     str << "]";
     data[name]["data"] += "      " + str.str() + ",\n";
+    data[name]["indicies"] += "     " + indicies.str();
   }
 
+  //Passed tests
   void sout(std::string name, float array[], int size, int i, int j)
   {
     str.str("");
@@ -174,9 +189,12 @@ namespace space
     data[name]["indicies"] += "     " + indicies.str() + ",\n";
   }
 
+  //Passed tests
   void sout(std::string name, char array[], int size)
   {
     str.str("");
+    indicies.str("");
+    indicies << "";
     data[name]["type"] = "Array1D";
     data[name]["is_char"] = "1";
     str << "[";
@@ -186,8 +204,10 @@ namespace space
     }
     str << "]";
     data[name]["data"] += "      " + str.str() + ",\n";
+    data[name]["indicies"] += "     " + indicies.str();
   }
 
+  //Passed tests
   void sout(std::string name, char array[], int size, int i, int j)
   {
     str.str("");
@@ -205,9 +225,12 @@ namespace space
     data[name]["indicies"] += "     " + indicies.str() + ",\n";
   }
 
+  //Passed Tests
   void sout(std::string name, bool array[], int size)
   {
     str.str("");
+    indicies.str("");
+    indicies << "";
     data[name]["type"] = "Array1D";
     data[name]["is_char"] = "0";
     str << "[";
@@ -217,8 +240,10 @@ namespace space
     }
     str << "]";
     data[name]["data"] += "      " + str.str() + ",\n";
+    data[name]["indicies"] += "     " + indicies.str();
   }
 
+  //Passed Tests
   void sout(std::string name, bool array[], int size, int i, int j)
   {
     str.str("");
