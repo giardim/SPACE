@@ -19,7 +19,7 @@ body {
   display: flex;
   flex: 0;
   flex-flow: column;
-  min-height: 600px;
+  min-height: 500px;
   min-width: 300px;
   padding: 10px;
 }
@@ -36,8 +36,8 @@ body {
   display: flex;
   flex: 1;
   flex-flow: column;
-  min-height: 600px;
-  min-width: 400px;
+  min-height: 500px;
+  min-width: 300px;
   padding: 10px;
 }
 
@@ -55,7 +55,7 @@ body {
 #data-structures,
 #canvas {
   flex: 1;
-  min-height: 400px;
+  min-height: 300px;
 }
 
 #manual,
@@ -93,8 +93,8 @@ body {
 }
 
 #canvas {
-  min-height: 400px;
-  min-width: 400px;
+  min-height: 300px;
+  min-width: 300px;
 }
 
 #manual>button {
@@ -110,7 +110,7 @@ body {
 
 #data-type {
   flex: 1;
-  min-width: 200px;
+  min-width: 100px;
 }
 
 #view-settings {
