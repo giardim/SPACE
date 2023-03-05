@@ -1,7 +1,6 @@
 const space = { Array1D };
+const theme = {};
 
-let bg = '';
-let fg = '';
 let data = {};
 let data_structure = {};
 let view = '';
@@ -15,8 +14,10 @@ function setup() {
   $('#theme-toggle').click(() => $('#themes').toggleClass('active'));
   $('.theme').click(function () {
     $('html').attr('class', $(this).attr('id'));
-    bg = $('html').css('--bg');
-    fg = $('html').css('--fg');
+    theme.bg = $('html').css('--bg');
+    theme.fg = $('html').css('--fg');
+    theme.sbg = $('html').css('--sidebar-bg');
+    theme.sfg = $('html').css('--sidebar-fg');
     $('.theme').removeClass('active');
     $(this).addClass('active');
     localStorage.setItem('theme', $(this).attr('id'));
@@ -52,7 +53,7 @@ function setup() {
 }
 
 function draw() {
-  background(bg);
+  background(theme.bg);
   data_structure[view]?.();
   data_structure.next?.();
 }
