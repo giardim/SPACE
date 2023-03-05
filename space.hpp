@@ -11,7 +11,7 @@ namespace space
   namespace
   {
     std::stringstream str;
-    std::stringstream indicies;
+    std::stringstream indices;
     std::map<std::string, std::map<std::string, std::string> > data;
     void save()
     {
@@ -34,10 +34,10 @@ namespace space
              << entry->second["is_char"]
              << ",\n"
              << "    "
-             << "\"indicies\""
+             << "\"indices\""
              << ": "
              << "["
-             << entry->second["indicies"];
+             << entry->second["indices"];
              #ifdef _WIN32             
         file.seekp(-3, std::ios::cur);
 #else
@@ -85,8 +85,8 @@ namespace space
   void sout(std::string name, int array[], int size)
   {
     str.str("");
-    indicies.str("");
-    indicies << "";
+    indices.str("");
+    indices << "";
     data[name]["type"] = "Array1D";
     data[name]["is_char"] = "0";
     str << "[";
@@ -96,15 +96,15 @@ namespace space
     }
     str << "]";
     data[name]["data"] += "      " + str.str() + ",\n";
-    data[name]["indicies"] += "     " + indicies.str();
+    data[name]["indices"] += "     " + indices.str();
   }
 
   //Passed tests
   void sout(std::string name, int array[], int size, int i, int j)
   {
     str.str("");
-    indicies.str("");
-    indicies << "[" << i << ", " << j << "]";
+    indices.str("");
+    indices << "[" << i << ", " << j << "]";
     data[name]["type"] = "Array1D";
     data[name]["is_char"] = "0";
     str << "[";
@@ -114,15 +114,15 @@ namespace space
     }
     str << "]";
     data[name]["data"] += "      " + str.str() + ",\n";
-    data[name]["indicies"] += "     " + indicies.str() + ",\n";
+    data[name]["indices"] += "     " + indices.str() + ",\n";
   }
 
   //Passed tests
   void sout(std::string name, double array[], int size)
   {
     str.str("");
-    indicies.str("");
-    indicies << "";
+    indices.str("");
+    indices << "";
     data[name]["type"] = "Array1D";
     data[name]["is_char"] = "0";
     str << "[";
@@ -132,15 +132,15 @@ namespace space
     }
     str << "]";
     data[name]["data"] += "      " + str.str() + ",\n";
-    data[name]["indicies"] += "     " + indicies.str();
+    data[name]["indices"] += "     " + indices.str();
   }
 
   //Passed tests
   void sout(std::string name, double array[], int size, int i, int j)
   {
     str.str("");
-    indicies.str("");
-    indicies << "[" << i << ", " << j << "]";
+    indices.str("");
+    indices << "[" << i << ", " << j << "]";
     data[name]["type"] = "Array1D";
     data[name]["is_char"] = "0";
     str << "[";
@@ -150,15 +150,15 @@ namespace space
     }
     str << "]";
     data[name]["data"] += "      " + str.str() + ",\n";
-    data[name]["indicies"] += "     " + indicies.str() + ",\n";
+    data[name]["indices"] += "     " + indices.str() + ",\n";
   }
 
   //Passed tests
   void sout(std::string name, float array[], int size)
   {
     str.str("");
-    indicies.str("");
-    indicies << "";
+    indices.str("");
+    indices << "";
     data[name]["type"] = "Array1D";
     data[name]["is_char"] = "0";
     str << "[";
@@ -168,15 +168,15 @@ namespace space
     }
     str << "]";
     data[name]["data"] += "      " + str.str() + ",\n";
-    data[name]["indicies"] += "     " + indicies.str();
+    data[name]["indices"] += "     " + indices.str();
   }
 
   //Passed tests
   void sout(std::string name, float array[], int size, int i, int j)
   {
     str.str("");
-    indicies.str("");
-    indicies << "[" << i << ", " << j << "]";
+    indices.str("");
+    indices << "[" << i << ", " << j << "]";
     data[name]["type"] = "Array1D";
     data[name]["is_char"] = "0";
     str << "[";
@@ -186,15 +186,15 @@ namespace space
     }
     str << "]";
     data[name]["data"] += "      " + str.str() + ",\n";
-    data[name]["indicies"] += "     " + indicies.str() + ",\n";
+    data[name]["indices"] += "     " + indices.str() + ",\n";
   }
 
   //Passed tests
   void sout(std::string name, char array[], int size)
   {
     str.str("");
-    indicies.str("");
-    indicies << "";
+    indices.str("");
+    indices << "";
     data[name]["type"] = "Array1D";
     data[name]["is_char"] = "1";
     str << "[";
@@ -204,15 +204,15 @@ namespace space
     }
     str << "]";
     data[name]["data"] += "      " + str.str() + ",\n";
-    data[name]["indicies"] += "     " + indicies.str();
+    data[name]["indices"] += "     " + indices.str();
   }
 
   //Passed tests
   void sout(std::string name, char array[], int size, int i, int j)
   {
     str.str("");
-    indicies.str("");
-    indicies << "[" << i << ", " << j << "]";
+    indices.str("");
+    indices << "[" << i << ", " << j << "]";
     data[name]["type"] = "Array1D";
     data[name]["is_char"] = "1";
     str << "[";
@@ -222,15 +222,15 @@ namespace space
     }
     str << "]";
     data[name]["data"] += "      " + str.str() + ",\n";
-    data[name]["indicies"] += "     " + indicies.str() + ",\n";
+    data[name]["indices"] += "     " + indices.str() + ",\n";
   }
 
   //Passed Tests
   void sout(std::string name, bool array[], int size)
   {
     str.str("");
-    indicies.str("");
-    indicies << "";
+    indices.str("");
+    indices << "";
     data[name]["type"] = "Array1D";
     data[name]["is_char"] = "0";
     str << "[";
@@ -240,15 +240,15 @@ namespace space
     }
     str << "]";
     data[name]["data"] += "      " + str.str() + ",\n";
-    data[name]["indicies"] += "     " + indicies.str();
+    data[name]["indices"] += "     " + indices.str();
   }
 
   //Passed Tests
   void sout(std::string name, bool array[], int size, int i, int j)
   {
     str.str("");
-    indicies.str("");
-    indicies << "[" << i << ", " << j << "]";
+    indices.str("");
+    indices << "[" << i << ", " << j << "]";
     data[name]["type"] = "Array1D";
     data[name]["is_char"] = "0";
     str << "[";
@@ -258,7 +258,7 @@ namespace space
     }
     str << "]";
     data[name]["data"] += "      " + str.str() + ",\n";
-    data[name]["indicies"] += "     " + indicies.str() + ",\n";
+    data[name]["indices"] += "     " + indices.str() + ",\n";
   }
 }
 
