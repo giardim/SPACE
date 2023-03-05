@@ -13,6 +13,7 @@ namespace space
     std::stringstream str;
     std::stringstream indices;
     std::map<std::string, std::map<std::string, std::string> > data;
+
     void save()
     {
       std::ofstream file("data.json");
@@ -36,26 +37,30 @@ namespace space
              << "    "
              << "\"indices\""
              << ": "
-             << "["
+             << "[\n"
              << entry->second["indices"];
-             #ifdef _WIN32             
+
+#ifdef _WIN32
         file.seekp(-3, std::ios::cur);
 #else
         file.seekp(-2, std::ios::cur);
-#endif // WIN32
+#endif
 
-             file << "\n"
-             << "],"
+        file << "\n"
+             << "    "
+             << "],\n"
              << "    "
              << "\"data\""
              << ": "
              << "[\n"
              << entry->second["data"];
-#ifdef _WIN32             
+
+#ifdef _WIN32
         file.seekp(-3, std::ios::cur);
 #else
         file.seekp(-2, std::ios::cur);
-#endif // WIN32
+#endif
+
         file << "\n"
              << "    "
              << "]\n"
@@ -63,14 +68,17 @@ namespace space
              << "}"
              << ",\n";
       }
-      #ifdef _WIN32             
-        file.seekp(-3, std::ios::cur);
+
+#ifdef _WIN32
+      file.seekp(-3, std::ios::cur);
 #else
-        file.seekp(-2, std::ios::cur);
-#endif // WIN32
+      file.seekp(-2, std::ios::cur);
+#endif
+
       file << "\n}";
       file.close();
     }
+
     class space
     {
     public:
@@ -81,184 +89,220 @@ namespace space
     } space;
   }
 
-  //Passed tests
-  void sout(std::string name, int array[], int size)
-  {
-    str.str("");
-    indices.str("");
-    indices << "";
-    data[name]["type"] = "Array1D";
-    data[name]["is_char"] = "0";
-    str << "[";
-    for (int i = 0; i < size; i++)
-    {
-      str << array[i] << (i < size - 1 ? "," : "");
-    }
-    str << "]";
-    data[name]["data"] += "      " + str.str() + ",\n";
-    data[name]["indices"] += "     " + indices.str();
-  }
-
-  //Passed tests
-  void sout(std::string name, int array[], int size, int i, int j)
-  {
-    str.str("");
-    indices.str("");
-    indices << "[" << i << ", " << j << "]";
-    data[name]["type"] = "Array1D";
-    data[name]["is_char"] = "0";
-    str << "[";
-    for (int i = 0; i < size; i++)
-    {
-      str << array[i] << (i < size - 1 ? "," : "");
-    }
-    str << "]";
-    data[name]["data"] += "      " + str.str() + ",\n";
-    data[name]["indices"] += "     " + indices.str() + ",\n";
-  }
-
-  //Passed tests
-  void sout(std::string name, double array[], int size)
-  {
-    str.str("");
-    indices.str("");
-    indices << "";
-    data[name]["type"] = "Array1D";
-    data[name]["is_char"] = "0";
-    str << "[";
-    for (int i = 0; i < size; i++)
-    {
-      str << array[i] << (i < size - 1 ? "," : "");
-    }
-    str << "]";
-    data[name]["data"] += "      " + str.str() + ",\n";
-    data[name]["indices"] += "     " + indices.str();
-  }
-
-  //Passed tests
-  void sout(std::string name, double array[], int size, int i, int j)
-  {
-    str.str("");
-    indices.str("");
-    indices << "[" << i << ", " << j << "]";
-    data[name]["type"] = "Array1D";
-    data[name]["is_char"] = "0";
-    str << "[";
-    for (int i = 0; i < size; i++)
-    {
-      str << array[i] << (i < size - 1 ? "," : "");
-    }
-    str << "]";
-    data[name]["data"] += "      " + str.str() + ",\n";
-    data[name]["indices"] += "     " + indices.str() + ",\n";
-  }
-
-  //Passed tests
-  void sout(std::string name, float array[], int size)
-  {
-    str.str("");
-    indices.str("");
-    indices << "";
-    data[name]["type"] = "Array1D";
-    data[name]["is_char"] = "0";
-    str << "[";
-    for (int i = 0; i < size; i++)
-    {
-      str << array[i] << (i < size - 1 ? "," : "");
-    }
-    str << "]";
-    data[name]["data"] += "      " + str.str() + ",\n";
-    data[name]["indices"] += "     " + indices.str();
-  }
-
-  //Passed tests
-  void sout(std::string name, float array[], int size, int i, int j)
-  {
-    str.str("");
-    indices.str("");
-    indices << "[" << i << ", " << j << "]";
-    data[name]["type"] = "Array1D";
-    data[name]["is_char"] = "0";
-    str << "[";
-    for (int i = 0; i < size; i++)
-    {
-      str << array[i] << (i < size - 1 ? "," : "");
-    }
-    str << "]";
-    data[name]["data"] += "      " + str.str() + ",\n";
-    data[name]["indices"] += "     " + indices.str() + ",\n";
-  }
-
-  //Passed tests
-  void sout(std::string name, char array[], int size)
-  {
-    str.str("");
-    indices.str("");
-    indices << "";
-    data[name]["type"] = "Array1D";
-    data[name]["is_char"] = "1";
-    str << "[";
-    for (int i = 0; i < size; i++)
-    {
-      str << (int)array[i] << (i < size - 1 ? "," : "");
-    }
-    str << "]";
-    data[name]["data"] += "      " + str.str() + ",\n";
-    data[name]["indices"] += "     " + indices.str();
-  }
-
-  //Passed tests
-  void sout(std::string name, char array[], int size, int i, int j)
-  {
-    str.str("");
-    indices.str("");
-    indices << "[" << i << ", " << j << "]";
-    data[name]["type"] = "Array1D";
-    data[name]["is_char"] = "1";
-    str << "[";
-    for (int i = 0; i < size; i++)
-    {
-      str << (int)array[i] << (i < size - 1 ? "," : "");
-    }
-    str << "]";
-    data[name]["data"] += "      " + str.str() + ",\n";
-    data[name]["indices"] += "     " + indices.str() + ",\n";
-  }
-
-  //Passed Tests
+  // passed tests
   void sout(std::string name, bool array[], int size)
   {
-    str.str("");
-    indices.str("");
-    indices << "";
     data[name]["type"] = "Array1D";
     data[name]["is_char"] = "0";
+    indices.str("");
+    indices << "[" << -1 << ", " << -1 << "]";
+    str.str("");
     str << "[";
     for (int i = 0; i < size; i++)
     {
-      str << array[i] << (i < size - 1 ? "," : "");
+      str << array[i] << (i < size - 1 ? ", " : "");
     }
     str << "]";
+    data[name]["indices"] += "      " + indices.str() + ",\n";
     data[name]["data"] += "      " + str.str() + ",\n";
-    data[name]["indices"] += "     " + indices.str();
   }
 
-  //Passed Tests
+  // passed tests
   void sout(std::string name, bool array[], int size, int i, int j)
   {
-    str.str("");
-    indices.str("");
-    indices << "[" << i << ", " << j << "]";
     data[name]["type"] = "Array1D";
     data[name]["is_char"] = "0";
+    indices.str("");
+    indices << "[" << i << ", " << j << "]";
+    str.str("");
     str << "[";
     for (int i = 0; i < size; i++)
     {
-      str << array[i] << (i < size - 1 ? "," : "");
+      str << array[i] << (i < size - 1 ? ", " : "");
     }
     str << "]";
+    data[name]["indices"] += "      " + indices.str() + ",\n";
     data[name]["data"] += "      " + str.str() + ",\n";
-    data[name]["indices"] += "     " + indices.str() + ",\n";
+  }
+
+  // passed tests
+  void sout(std::string name, char array[], int size)
+  {
+    data[name]["type"] = "Array1D";
+    data[name]["is_char"] = "1";
+    indices.str("");
+    indices << "[" << -1 << ", " << -1 << "]";
+    str.str("");
+    str << "[";
+    for (int i = 0; i < size; i++)
+    {
+      str << (int)array[i] << (i < size - 1 ? ", " : "");
+    }
+    str << "]";
+    data[name]["indices"] += "      " + indices.str() + ",\n";
+    data[name]["data"] += "      " + str.str() + ",\n";
+  }
+
+  // passed tests
+  void sout(std::string name, char array[], int size, int i, int j)
+  {
+    data[name]["type"] = "Array1D";
+    data[name]["is_char"] = "1";
+    indices.str("");
+    indices << "[" << i << ", " << j << "]";
+    str.str("");
+    str << "[";
+    for (int i = 0; i < size; i++)
+    {
+      str << (int)array[i] << (i < size - 1 ? ", " : "");
+    }
+    str << "]";
+    data[name]["indices"] += "      " + indices.str() + ",\n";
+    data[name]["data"] += "      " + str.str() + ",\n";
+  }
+
+  // passed tests
+  void sout(std::string name, double array[], int size)
+  {
+    data[name]["type"] = "Array1D";
+    data[name]["is_char"] = "0";
+    indices.str("");
+    indices << "[" << -1 << ", " << -1 << "]";
+    str.str("");
+    str << "[";
+    for (int i = 0; i < size; i++)
+    {
+      str << array[i] << (i < size - 1 ? ", " : "");
+    }
+    str << "]";
+    data[name]["indices"] += "      " + indices.str() + ",\n";
+    data[name]["data"] += "      " + str.str() + ",\n";
+  }
+
+  // passed tests
+  void sout(std::string name, double array[], int size, int i, int j)
+  {
+    data[name]["type"] = "Array1D";
+    data[name]["is_char"] = "0";
+    indices.str("");
+    indices << "[" << i << ", " << j << "]";
+    str.str("");
+    str << "[";
+    for (int i = 0; i < size; i++)
+    {
+      str << array[i] << (i < size - 1 ? ", " : "");
+    }
+    str << "]";
+    data[name]["indices"] += "      " + indices.str() + ",\n";
+    data[name]["data"] += "      " + str.str() + ",\n";
+  }
+
+  // passed tests
+  void sout(std::string name, float array[], int size)
+  {
+    data[name]["type"] = "Array1D";
+    data[name]["is_char"] = "0";
+    indices.str("");
+    indices << "[" << -1 << ", " << -1 << "]";
+    str.str("");
+    str << "[";
+    for (int i = 0; i < size; i++)
+    {
+      str << array[i] << (i < size - 1 ? ", " : "");
+    }
+    str << "]";
+    data[name]["indices"] += "      " + indices.str() + ",\n";
+    data[name]["data"] += "      " + str.str() + ",\n";
+  }
+
+  // passed tests
+  void sout(std::string name, float array[], int size, int i, int j)
+  {
+    data[name]["type"] = "Array1D";
+    data[name]["is_char"] = "0";
+    indices.str("");
+    indices << "[" << i << ", " << j << "]";
+    str.str("");
+    str << "[";
+    for (int i = 0; i < size; i++)
+    {
+      str << array[i] << (i < size - 1 ? ", " : "");
+    }
+    str << "]";
+    data[name]["indices"] += "      " + indices.str() + ",\n";
+    data[name]["data"] += "      " + str.str() + ",\n";
+  }
+
+  // passed tests
+  void sout(std::string name, int array[], int size)
+  {
+    data[name]["type"] = "Array1D";
+    data[name]["is_char"] = "0";
+    indices.str("");
+    indices << "[" << -1 << ", " << -1 << "]";
+    str.str("");
+    str << "[";
+    for (int i = 0; i < size; i++)
+    {
+      str << array[i] << (i < size - 1 ? ", " : "");
+    }
+    str << "]";
+    data[name]["indices"] += "      " + indices.str() + ",\n";
+    data[name]["data"] += "      " + str.str() + ",\n";
+  }
+
+  // passed tests
+  void sout(std::string name, int array[], int size, int i, int j)
+  {
+    data[name]["type"] = "Array1D";
+    data[name]["is_char"] = "0";
+    indices.str("");
+    indices << "[" << i << ", " << j << "]";
+    str.str("");
+    str << "[";
+    for (int i = 0; i < size; i++)
+    {
+      str << array[i] << (i < size - 1 ? ", " : "");
+    }
+    str << "]";
+    data[name]["indices"] += "      " + indices.str() + ",\n";
+    data[name]["data"] += "      " + str.str() + ",\n";
+  }
+
+  // passed tests
+  void sout(std::string name, wchar_t array[], int size)
+  {
+    data[name]["type"] = "Array1D";
+    data[name]["is_char"] = "1";
+    indices.str("");
+    indices << "[" << -1 << ", " << -1 << "]";
+    str.str("");
+    str << "[";
+    for (int i = 0; i < size; i++)
+    {
+      str << (int)array[i] << (i < size - 1 ? ", " : "");
+    }
+    str << "]";
+    data[name]["indices"] += "      " + indices.str() + ",\n";
+    data[name]["data"] += "      " + str.str() + ",\n";
+  }
+
+  // passed tests
+  void sout(std::string name, wchar_t array[], int size, int i, int j)
+  {
+    data[name]["type"] = "Array1D";
+    data[name]["is_char"] = "1";
+    indices.str("");
+    indices << "[" << i << ", " << j << "]";
+    str.str("");
+    str << "[";
+    for (int i = 0; i < size; i++)
+    {
+      str << (int)array[i] << (i < size - 1 ? ", " : "");
+    }
+    str << "]";
+    data[name]["indices"] += "      " + indices.str() + ",\n";
+    data[name]["data"] += "      " + str.str() + ",\n";
   }
 }
 
