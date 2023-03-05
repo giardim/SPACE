@@ -19,8 +19,9 @@ function setup() {
     fg = $('html').css('--fg');
     $('.theme').removeClass('active');
     $(this).addClass('active');
+    localStorage.setItem('theme', $(this).attr('id'));
   });
-  $('#navy').click();
+  $(`#${localStorage.getItem('theme') || 'navy'}`).click();
 
   $('#view-settings button').click(function () {
     view = $(this).attr('id');
