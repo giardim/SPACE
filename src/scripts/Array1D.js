@@ -16,6 +16,7 @@ class Array1D {
 
   graph() {
     rectMode(CORNERS);
+    textAlign(CENTER, BOTTOM);
     for (let i = 0; i < this.data.data[this.step].length; i++) {
       const D = this.data.data[this.step][i];
       const X0 = (i + 0.0) * width / this.data.data[this.step].length;
@@ -24,6 +25,20 @@ class Array1D {
       const Y1 = map(D, this.min, this.max, height, 0);
       fill(fg); stroke(bg);
       rect(X0, Y0, X1, Y1);
+    }
+    for (let i = 0; i < this.data.data[this.step].length; i++) {
+      const D = this.data.data[this.step][i];
+      const X0 = (i + 0.0) * width / this.data.data[this.step].length;
+      const Y0 = map(0, this.min, this.max, height, 0);
+      const X1 = (i + 1.0) * width / this.data.data[this.step].length;
+      const Y1 = map(D, this.min, this.max, height, 0);
+      if (
+        (X0 <= mouseX && mouseX <= X1 || X1 <= mouseX && mouseX <= X0) &&
+        (Y0 <= mouseY && mouseY <= Y1 || Y1 <= mouseY && mouseY <= Y0)
+      ) {
+        fill(bg); stroke(fg);
+        text(this.data.is_char ? String.fromCodePoint(D) : D, mouseX, mouseY);
+      }
     }
   }
 
