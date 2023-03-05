@@ -38,7 +38,7 @@ class Array1D {
       fill(bg); stroke(fg);
       square(X, Y, S);
       fill(fg); stroke(bg);
-      text(D, X, Y);
+      text(this.data.is_char ? String.fromCodePoint(D) : D, X, Y);
     }
   }
 }
