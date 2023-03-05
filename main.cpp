@@ -9,40 +9,40 @@ int main()
 {
     srand(time(0));
 
-    // int size = 0, *array = 0;
-    // for (int n = 0; n < 16; n++)
-    // {
-    //     int offset = rand() % 3 * 32;
-    //     size = rand() % 64 + 16, array = new int[size];
-    //     for (int i = 0; i < size; i++)
-    //     {
-    //         array[i] = rand() % 64 - offset;
-    //     }
-    //     space::sout("array" + std::to_string(n + 1), array, size, 1, 2);
-    //     delete[] array;
-    // }
+    int diff = 0;
+    std::string name = "";
+    int size = 0, *array = 0;
 
-    //Bubble Sort
-
-    int size = 5, array[5] = {5, 4, 3, 2, 1};
-
-    for (int i = 0; i < size - 1; i++)
+    for (int n = 0; n < 16; n++)
     {
-        bool swap = false;
-        for (int j = 0; j < size - i - 1; j++)
+        name = "";
+        for (int i = 0; i < 8; i++)
         {
-         space::sout("array", array, size, i , j);
-            if (array[j] > array[j + 1])
+            name += rand() % 26 + 97;
+        }
+
+        diff = rand() % 3 * 32;
+        size = rand() % 32 + 32, array = new int[size];
+        for (int i = 0; i < size; i++)
+        {
+            array[i] = rand() % 64 - diff;
+        }
+
+        // Bubble Sort
+        for (int i = 0; i < size - 1; i++)
+        {
+            for (int j = 0; j < size - i - 1; j++)
             {
-                std::swap(array[j], array[j + 1]);
-                space::sout("array", array, size, j , j + 1);
-                swap = true;
+                space::sout(name, array, size, j, j + 1);
+                if (array[j] > array[j + 1])
+                {
+                    std::swap(array[j], array[j + 1]);
+                    space::sout(name, array, size, j, j + 1);
+                }
             }
         }
-        if (swap == false)
-        {
-            break;
-        }
+
+        delete[] array;
     }
 
     return 0;
