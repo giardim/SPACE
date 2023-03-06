@@ -1,4 +1,4 @@
-const space = { Array1D };
+const space = { Array1D, Array2D };
 const theme = {};
 
 let data = {};
