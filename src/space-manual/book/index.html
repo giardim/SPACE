@@ -144,33 +144,22 @@
                     <main>
                         <h1 id="space-data-structure-visualizer"><a class="header" href="#space-data-structure-visualizer">SPACE Data Structure Visualizer</a></h1>
 <p>This project will help students in the Data Structures and Algorithms class at SUNY Poly.</p>
-<h3 id="project-goals"><a class="header" href="#project-goals">Project Goals</a></h3>
-<ul>
-<li>Display datastructures visually in a web browser</li>
-<li>Abstract as much complexity away from the user as possible</li>
-</ul>
-<h3 id="architecture"><a class="header" href="#architecture">Architecture</a></h3>
-<ul>
-<li>A header file for students to include in their C++ programs</li>
-<li>Functions to extract datastructures from the students C++ programs</li>
-<li>Functions to convert datastructures into a JSON file</li>
-<li>A local HTML file that visualizes datastructures &amp; does not require a server to function</li>
-</ul>
-<h3 id="technologies-used"><a class="header" href="#technologies-used">Technologies used</a></h3>
-<h5 id="browser"><a class="header" href="#browser">Browser</a></h5>
-<ul>
-<li>p5.js</li>
-<li>jQuery</li>
-</ul>
-<h5 id="c"><a class="header" href="#c">C++</a></h5>
-<ul>
-<li>stdlib</li>
-</ul>
-<h3 id="compiling"><a class="header" href="#compiling">Compiling</a></h3>
-<h4 id="windows"><a class="header" href="#windows">Windows</a></h4>
-<p>g++ .\main.cpp </p>
-<h4 id="linux"><a class="header" href="#linux">Linux</a></h4>
-<p>g++ main.cpp</p>
+<h3 id="installation"><a class="header" href="#installation">Installation</a></h3>
+<pre><code>git clone https://github.com/giardim/SPACE
+</code></pre>
+<p>Or </p>
+<ol>
+<li>Click the green button labeled &quot;Code&quot;</li>
+<li>Click download zip </li>
+<li>In your file browser right click the zip file</li>
+<li>Extract it</li>
+</ol>
+<h3 id="usage"><a class="header" href="#usage">Usage</a></h3>
+<ol>
+<li>Copy the space.hpp file into your project directory (do not move or delete any other files in the extracted folder)</li>
+<li>Open the index.html file with a web browser</li>
+<li>Click the manual button on the browser app to view detailed instructions on using SPACE</li>
+</ol>
 
                     </main>
 
@@ -195,6 +184,22 @@
 
         </div>
 
+        <!-- Livereload script (if served using the cli tool) -->
+        <script>
+            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
+            const socket = new WebSocket(wsAddress);
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
 
 
 
