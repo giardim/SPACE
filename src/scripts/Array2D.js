@@ -31,7 +31,7 @@ class Array2D {
         const S = min(W, H);
         const X = (c + 0.5 - R / 2) * S + width / 2;
         const Y = (r + 0.5 - C / 2) * S + height / 2;
-        if (this.data.indices[this.step].some(index => index[0] == r && index[1] == c)) {
+        if (this.data.indices[this.step].some(index => index[0] === r && index[1] === c)) {
           fill(lerpColor(color(theme.sfg), color(theme.sbg), map(D, this.min, this.max, 0, 1))); stroke(theme.bg);
         } else {
           fill(lerpColor(color(theme.bg), color(theme.fg), map(D, this.min, this.max, 0, 1))); stroke(theme.bg);
@@ -53,7 +53,7 @@ class Array2D {
           X - S / 2 <= mouseX && mouseX <= X + S / 2 &&
           Y - S / 2 <= mouseY && mouseY <= Y + S / 2
         ) {
-          if (this.data.indices[this.step].some(index => index[0] == r && index[1] == c)) {
+          if (this.data.indices[this.step].some(index => index[0] === r && index[1] === c)) {
             fill(lerpColor(color(theme.bg), color(theme.fg), map(D, this.min, this.max, 0, 1))); stroke(theme.sfg);
           } else {
             fill(lerpColor(color(theme.sfg), color(theme.sbg), map(D, this.min, this.max, 0, 1))); stroke(theme.sfg);
@@ -77,7 +77,7 @@ class Array2D {
         const S = min(W, H);
         const X = (c + 0.5 - R / 2) * S + width / 2;
         const Y = (r + 0.5 - C / 2) * S + height / 2;
-        if (this.data.indices[this.step].some(index => index[0] == r && index[1] == c)) {
+        if (this.data.indices[this.step].some(index => index[0] === r && index[1] === c)) {
           fill(theme.sbg); stroke(theme.bg);
           square(X, Y, S);
           fill(theme.fg); stroke(theme.sfg);
