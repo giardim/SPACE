@@ -4,9 +4,6 @@
 #include <string>
 #include <cassert> 
 
-#include "space.hpp"
-#include "main.cpp"
-
 
 using namespace std;
 
@@ -23,6 +20,13 @@ int main(){
     cout<<"Passed"<<endl;
     assert(neg_Array == array);
     cout<<"Passed"<<endl;
+    assert(testy == array);
+    cout<<"Passed"<<endl;
+    //assert(char_Array == array);
+    //cout<<"Passed"<<endl;
+    //assert (char_Array_with_indices == array);
+    //cout<<"Passed"<<endl;
+    //do the same thing going down with chars and keep going from there 
 
 
     
