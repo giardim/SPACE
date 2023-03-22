@@ -89,7 +89,6 @@ namespace space
     } space;
   }
 
-  // passed tests
   void sout(std::string name, bool array[], int size)
   {
     data[name]["type"] = "Array1D";
@@ -107,7 +106,6 @@ namespace space
     data[name]["data"] += "      " + str.str() + ",\n";
   }
 
-  // passed tests
   void sout(std::string name, bool array[], int size, int i, int j)
   {
     data[name]["type"] = "Array1D";
@@ -125,7 +123,6 @@ namespace space
     data[name]["data"] += "      " + str.str() + ",\n";
   }
 
-  // passed tests
   void sout(std::string name, char array[], int size)
   {
     data[name]["type"] = "Array1D";
@@ -143,7 +140,6 @@ namespace space
     data[name]["data"] += "      " + str.str() + ",\n";
   }
 
-  // passed tests
   void sout(std::string name, char array[], int size, int i, int j)
   {
     data[name]["type"] = "Array1D";
@@ -161,7 +157,6 @@ namespace space
     data[name]["data"] += "      " + str.str() + ",\n";
   }
 
-  // passed tests
   void sout(std::string name, double array[], int size)
   {
     data[name]["type"] = "Array1D";
@@ -178,8 +173,7 @@ namespace space
     data[name]["indices"] += "      " + indices.str() + ",\n";
     data[name]["data"] += "      " + str.str() + ",\n";
   }
-
-  // passed tests
+  
   void sout(std::string name, double array[], int size, int i, int j)
   {
     data[name]["type"] = "Array1D";
@@ -197,7 +191,6 @@ namespace space
     data[name]["data"] += "      " + str.str() + ",\n";
   }
 
-  // passed tests
   void sout(std::string name, float array[], int size)
   {
     data[name]["type"] = "Array1D";
@@ -215,7 +208,6 @@ namespace space
     data[name]["data"] += "      " + str.str() + ",\n";
   }
 
-  // passed tests
   void sout(std::string name, float array[], int size, int i, int j)
   {
     data[name]["type"] = "Array1D";
@@ -233,7 +225,6 @@ namespace space
     data[name]["data"] += "      " + str.str() + ",\n";
   }
 
-  // passed tests
   void sout(std::string name, int array[], int size)
   {
     data[name]["type"] = "Array1D";
@@ -251,7 +242,6 @@ namespace space
     data[name]["data"] += "      " + str.str() + ",\n";
   }
 
-  // passed tests
   void sout(std::string name, int array[], int size, int i, int j)
   {
     data[name]["type"] = "Array1D";
@@ -269,7 +259,21 @@ namespace space
     data[name]["data"] += "      " + str.str() + ",\n";
   }
 
-  // passed tests
+#define p2d(a, r, c) { \
+  std::cout << "before" << std::endl; \
+  auto pass2D = [](decltype(a) aaa, int row, int col) { \
+  std::cout << "during" << std::endl; \
+    for (int i = 0; i < row; ++i){ \
+      for (int j = 0; j < col; ++j){ \
+        std::cout << aaa[i][j] << " "; \
+      } \
+      std::cout << "\n"; \
+    } \
+  }; \
+  pass2D(a, r, c); \
+  std::cout << "after" << std::endl; \
+  } 
+
   void sout(std::string name, wchar_t array[], int size)
   {
     data[name]["type"] = "Array1D";
@@ -287,7 +291,6 @@ namespace space
     data[name]["data"] += "      " + str.str() + ",\n";
   }
 
-  // passed tests
   void sout(std::string name, wchar_t array[], int size, int i, int j)
   {
     data[name]["type"] = "Array1D";

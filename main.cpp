@@ -3,7 +3,7 @@
 #include <iostream>
 #include <string>
 
-#include "space.hpp"
+#include "space.hpp" 
 
 int main()
 {
@@ -11,39 +11,22 @@ int main()
 
     int diff = 0;
     std::string name = "";
-    int size = 0, *array = 0;
+    int row = 5, col = 5;
 
-    for (int n = 0; n < 2; n++)
-    {
-        name = "";
-        for (int i = 0; i < 8; i++)
-        {
-            name += rand() % 26 + 97;
+    float array[5][5];
+
+    for (int i = 0; i < row; ++i){
+        for (int j = 0; j < col; ++j){
+            array[i][j] = rand() % 1000;
         }
-
-        diff = rand() % 3 * 32;
-        size = rand() % 7 + 7, array = new int[size];
-        for (int i = 0; i < size; i++)
-        {
-            array[i] = rand() % 64 - diff;
-        }
-
-        // Bubble Sort
-        for (int i = 0; i < size - 1; i++)
-        {
-            for (int j = 0; j < size - i - 1; j++)
-            {
-                space::sout(name, array, size, j, j + 1);
-                if (array[j] > array[j + 1])
-                {
-                    std::swap(array[j], array[j + 1]);
-                    space::sout(name, array, size, j, j + 1);
-                }
-            }
-        }
-
-        delete[] array;
     }
+
+
+    space::sout2D(array, row, col);
+
+    
+
+    
 
     return 0;
 }
