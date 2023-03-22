@@ -22,7 +22,7 @@ int main()
     }
 
 
-    space::sout2D(array, row, col);
+    p2d(array, row, col);
 
     
 
