@@ -1,5 +1,6 @@
+//import from p5.sound.min.js;
 class Array1D {
-  constructor(data) {
+    constructor(data) {
     this.data = data;
     this.step = 0;
     this.min = min(min(this.data.data[this.step]), 0);

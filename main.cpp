@@ -47,3 +47,16 @@ int main()
 
     return 0;
 }
+
+/* bool testing(int tarray){
+    int new_array[6] = {1,2,3,4,5,6};
+    int neg_array[6] = {1,};
+    char char_array[6] = {};
+    int neg_array[6] = {};
+    char char_array_with_indices[6] = {};
+    double db_array[6] = {};
+    double double_array_with_indices[6] = {};
+
+    return true;
+}
+*/
