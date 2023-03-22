@@ -13,7 +13,7 @@ int main()
     std::string name = "";
     int size = 0, *array = 0;
 
-    for (int n = 0; n < 16; n++)
+    for (int n = 0; n < 2; n++)
     {
         name = "";
         for (int i = 0; i < 8; i++)
@@ -22,7 +22,7 @@ int main()
         }
 
         diff = rand() % 3 * 32;
-        size = rand() % 32 + 32, array = new int[size];
+        size = rand() % 7 + 7, array = new int[size];
         for (int i = 0; i < size; i++)
         {
             array[i] = rand() % 64 - diff;
