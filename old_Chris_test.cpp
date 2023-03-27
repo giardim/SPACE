@@ -13,7 +13,7 @@ int main(){
     bool b_array[6];
     char c_array[6];
     double d_array[6];
-    int i_array[6] = {1, 2, 3, 4, 5, 6};
+    int i_array[6] = {1,2,3,4,5,6};
     int neg_Array[6] = {-1,-2,-3,-4,-5,-6};
     int testy[6] = {3,6,4,1,4,3};
     int array_with_indices[6] = {1,2,3,4,5,6};
@@ -27,17 +27,28 @@ int main(){
 
 //add another message in the case of failing assertion or switch to bool as a backup with
 //check if == int assert checks values or just pointers
+//once done with all tests make sure to make them into their own functions
 int i_length = sizeof(i_array)/sizeof(int);
 int s_length = sizeof(s_array)/sizeof(string);
-std::cout<<" "<<i_length<<endl;
 
-    for(int i=0; i<i_length; i++){
+    for(int i=0; i<i_length; i++){ //puts all values from testing array into regular array
         array[i] = i_array[i];
-        
-        std::cout<<" "<<array[i]<<endl;   
+        std::cout<<" "<<array[i]<<endl;
     }
 
-    assert(array == i_array);
+    for(int i=0; i<i_length; i++){ // tests the int arrays
+        assert(array[i] == i_array[i]);
+        std::cout<<"Passed"<<endl;
+        if( array[i] != i_array[i]){
+             std::cout<<"The test for int arrays has failed"<<endl;
+        }
+    }
+    //reg array testing done
+
+    for(int i=0; i<i_length; i++){
+        
+    }
+
     cout<<"Passed"<<endl;
     assert(neg_Array == array);
     cout<<"Passed"<<endl;
