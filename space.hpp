@@ -10,11 +10,12 @@
 
 namespace space
 {
+    std::map<std::string, std::map<std::string, std::string> > data;
+
   namespace
   {
     std::stringstream str;
     std::stringstream indices;
-    std::map<std::string, std::map<std::string, std::string> > data;
 
     void save()
     {
