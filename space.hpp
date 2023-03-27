@@ -5,6 +5,7 @@
 #include <fstream>
 #include <map>
 #include <sstream>
+#include <string.h>
 
 namespace space
 {
@@ -89,7 +90,7 @@ namespace space
     } space;
   }
 
-  // passed tests
+  //Algorithms
   void sout(std::string name, bool array[], int size)
   {
     data[name]["type"] = "Array1D";
@@ -107,7 +108,7 @@ namespace space
     data[name]["data"] += "      " + str.str() + ",\n";
   }
 
-  // passed tests
+  
   void sout(std::string name, bool array[], int size, int i, int j)
   {
     data[name]["type"] = "Array1D";
@@ -125,7 +126,7 @@ namespace space
     data[name]["data"] += "      " + str.str() + ",\n";
   }
 
-  // passed tests
+  
   void sout(std::string name, char array[], int size)
   {
     data[name]["type"] = "Array1D";
@@ -143,7 +144,7 @@ namespace space
     data[name]["data"] += "      " + str.str() + ",\n";
   }
 
-  // passed tests
+  
   void sout(std::string name, char array[], int size, int i, int j)
   {
     data[name]["type"] = "Array1D";
@@ -161,7 +162,7 @@ namespace space
     data[name]["data"] += "      " + str.str() + ",\n";
   }
 
-  // passed tests
+  
   void sout(std::string name, double array[], int size)
   {
     data[name]["type"] = "Array1D";
@@ -179,7 +180,7 @@ namespace space
     data[name]["data"] += "      " + str.str() + ",\n";
   }
 
-  // passed tests
+  
   void sout(std::string name, double array[], int size, int i, int j)
   {
     data[name]["type"] = "Array1D";
@@ -197,7 +198,7 @@ namespace space
     data[name]["data"] += "      " + str.str() + ",\n";
   }
 
-  // passed tests
+  
   void sout(std::string name, float array[], int size)
   {
     data[name]["type"] = "Array1D";
@@ -215,7 +216,7 @@ namespace space
     data[name]["data"] += "      " + str.str() + ",\n";
   }
 
-  // passed tests
+  
   void sout(std::string name, float array[], int size, int i, int j)
   {
     data[name]["type"] = "Array1D";
@@ -233,7 +234,7 @@ namespace space
     data[name]["data"] += "      " + str.str() + ",\n";
   }
 
-  // passed tests
+  
   void sout(std::string name, int array[], int size)
   {
     data[name]["type"] = "Array1D";
@@ -251,7 +252,7 @@ namespace space
     data[name]["data"] += "      " + str.str() + ",\n";
   }
 
-  // passed tests
+  
   void sout(std::string name, int array[], int size, int i, int j)
   {
     data[name]["type"] = "Array1D";
@@ -269,7 +270,7 @@ namespace space
     data[name]["data"] += "      " + str.str() + ",\n";
   }
 
-  // passed tests
+  
   void sout(std::string name, wchar_t array[], int size)
   {
     data[name]["type"] = "Array1D";
@@ -287,7 +288,7 @@ namespace space
     data[name]["data"] += "      " + str.str() + ",\n";
   }
 
-  // passed tests
+  
   void sout(std::string name, wchar_t array[], int size, int i, int j)
   {
     data[name]["type"] = "Array1D";
@@ -304,6 +305,44 @@ namespace space
     data[name]["indices"] += "      " + indices.str() + ",\n";
     data[name]["data"] += "      " + str.str() + ",\n";
   }
+  //Data structures
+  void sout (std::string name, std::string &type, int array[], int size){
+    std::string fixedType = "";
+    for (int i = 0; i < type.length(); ++i){
+      fixedType += char(std::tolower(type[i]));
+      }
+
+  
+    while (fixedType != "stack" && fixedType != "queue" && fixedType != "dequeue"){
+      fixedType = "";
+      type = "";
+      std::cout << "You did not enter a valid data structure, please indicate if you are visualizing";
+      std::cout << "a 'stack', 'queue', or 'dequeue': ";
+      std::cin >> fixedType;
+
+      for (int i = 0; i < type.length(); ++i){
+        fixedType += char(std::tolower(type[i]));
+      }
+
+      type = fixedType;
+      std::cout << fixedType << " " << type << "\n";
+    }
+
+    data[name]["type"] = fixedType;
+    data[name]["is_char"] = "0";
+    indices.str("");
+    indices << "[" << -1 << ", " << -1 << "]";
+    str.str("");
+    str << "[";
+    for (int i = 0; i < size; ++i){
+      str << array[i] << (i < size - 1 ? ", " : "");
+    }
+    str << "]";
+    data[name]["data"] += "      " + str.str() + ",\n";
+    data[name]["indices"] += "      " + indices.str() + ",\n";
+  }
 }
+
+
 
 #endif
