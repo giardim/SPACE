@@ -1,6 +1,7 @@
 html,
 body {
-  background: linear-gradient(090deg, var(--sidebar-bg) 300px, var(--bg) 300px);
+  background: var(--bg);
+  color: var(--fg);
   display: flex;
   font-family: "Open Sans", sans-serif;
   height: 100vh;
@@ -20,8 +21,17 @@ body {
   flex: 0;
   flex-flow: column;
   min-height: 500px;
+  min-width: 000px;
+  padding: 000px;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: min-width 250ms ease-in-out, padding 250ms ease-in-out, transform 250ms ease-in-out;
+}
+
+#sidebar.active {
   min-width: 300px;
-  padding: 10px;
+  padding: 010px;
+  transform: scaleX(1);
 }
 
 #sidebar * {
@@ -50,18 +60,42 @@ body {
 #player-h {
   flex: 0;
   min-height: 050px;
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform 250ms ease-in-out;
+}
+
+#sidebar-h.active,
+#player-h.active {
+  transform: scaleY(1);
 }
 
 #data-structures,
 #canvas {
   flex: 1;
   min-height: 400px;
+  transform: scaleY(0);
+  transform-origin: center;
+  transition: transform 250ms ease-in-out;
+}
+
+#data-structures.active,
+#canvas.active {
+  transform: scaleY(1);
 }
 
 #manual,
 #controls {
   flex: 0;
   min-height: 050px;
+  transform: scaleY(0);
+  transform-origin: bottom;
+  transition: transform 250ms ease-in-out;
+}
+
+#manual.active,
+#controls.active {
+  transform: scaleY(1);
 }
 
 #data-structures,
@@ -77,7 +111,7 @@ body {
 
 #player-h {
   display: flex;
-  z-index: 0;
+  z-index: 1;
 }
 
 #data-structures {
@@ -95,6 +129,26 @@ body {
   border: none;
   font-size: 24px;
   height: 50px;
+}
+
+#controls {
+  display: flex;
+}
+
+#controls>.l {
+  flex: 0;
+}
+
+#controls>.c {
+  flex: 1;
+}
+
+#controls>.r {
+  flex: 0;
+}
+
+#controls>div {
+  display: flex;
 }
 
 #theme-settings {
@@ -131,10 +185,10 @@ body {
 .data-structure {
   border-color: var(--sidebar-bg);
   border-style: solid;
-  border-width: 0 0 0 10px;
+  border-width: 00px 00px 00px 10px;
   cursor: pointer;
   font-size: 16px;
-  margin: 10px auto;
+  margin: 10px 00px;
   min-height: 50px;
   min-width: 100%;
   padding: 10px;
@@ -155,33 +209,27 @@ a {
 }
 
 #theme-toggle {
-  border: none;
-  color: var(--icons);
-  cursor: pointer;
   flex: 0;
-  min-height: 50px;
-  min-width: 50px;
-  transition: color 0.5s;
-}
-
-#theme-toggle:hover {
-  color: var(--icons-hover);
 }
 
 #themes {
-  display: none;
+  display: flex;
   flex: 1;
   flex-flow: column;
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform 250ms ease-in-out;
 }
 
-#themes.active {
-  display: flex;
+#theme-container:hover>#themes,
+#themes:focus-within {
+  transform: scaleY(1);
 }
 
 .theme {
   border-color: var(--bg);
   border-style: solid;
-  border-width: 0 0 0 5px;
+  border-width: 00px 00px 00px 05px;
   cursor: pointer;
   height: 25px;
   margin: 5px auto;
@@ -195,30 +243,91 @@ a {
   border-color: var(--sidebar-bg);
 }
 
-#graph {
+.icon {
   border: none;
-  color: var(--icons);
+  color: var(--icons) !important;
   cursor: pointer;
   height: 50px;
-  transition: color 0.5s;
+  transition: color 250ms ease-in-out;
   width: 50px;
 }
 
-#graph:hover,
-#graph.active {
-  color: var(--icons-hover);
+.icon:hover,
+.icon.active {
+  color: var(--icons-hover) !important;
 }
 
-#table {
+.fa-play,
+.fa-pause {
+  display: none;
+}
+
+#controls[data-play="1"] .fa-play {
+  display: block;
+}
+
+#controls[data-play="0"] .fa-pause {
+  display: block;
+}
+
+.fa-volume-low,
+.fa-volume-high,
+.fa-volume-xmark {
+  display: none;
+}
+
+#controls[data-volume="low"] .fa-volume-low {
+  display: block;
+}
+
+#controls[data-volume="high"] .fa-volume-high {
+  display: block;
+}
+
+#controls[data-volume="muted"] .fa-volume-xmark {
+  display: block;
+}
+
+#volume-container {
+  align-items: center;
+  display: flex;
+}
+
+#volume-slider {
+  margin: 00px 00px 00px 00px;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: margin 250ms ease-in-out, transform 250ms ease-in-out, width 250ms ease-in-out;
+  width: 000px;
+}
+
+#volume-container:hover>#volume-slider,
+#volume-slider:focus-within {
+  margin: 00px 10px 00px 00px;
+  transform: scaleX(1);
+  width: 100px;
+}
+
+#step-container {
+  align-items: center;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  min-width: 50px;
+  padding: 00px 10px;
+}
+
+#step {
   border: none;
-  color: var(--icons);
-  cursor: pointer;
-  height: 50px;
-  transition: color 0.5s;
-  width: 50px;
+  font: 1em monospace;
 }
 
-#table:hover,
-#table.active {
-  color: var(--icons-hover);
+#controls>.c {
+  box-sizing: border-box;
+  min-width: 50px;
+  padding: 00px 10px;
+}
+
+#step-slider {
+  width: 100%;
 }
