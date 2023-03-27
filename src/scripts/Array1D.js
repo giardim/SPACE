@@ -1,17 +1,29 @@
+//import from p5.sound.min.js;
 class Array1D {
-  constructor(data) {
+    constructor(data) {
     this.data = data;
     this.step = 0;
     this.min = min(min(this.data.data[this.step]), 0);
     this.max = max(max(this.data.data[this.step]), 0);
   }
 
-  next(step = 1) {
-    if (this.step + step < this.data.data.length) {
-      this.step += step;
-    } else {
-      this.step = this.data.data.length - 1;
-    }
+  getStep() {
+    return this.step;
+  }
+
+  setStep(step) {
+    this.step = constrain(step | 0, 0, this.data.data.length - 1);
+    $('#step').val(this.step.toString().padStart((this.data.data.length - 1).toString().length, 0));
+    $('#step-slider').val(this.step);
+    return 0 < this.step && this.step < this.data.data.length - 1;
+  }
+
+  prev() {
+    return this.setStep(this.getStep() - 1);
+  }
+
+  next() {
+    return this.setStep(this.getStep() + 1);
   }
 
   graph() {
