@@ -416,7 +416,7 @@ namespace space
     data[name]["indices"] += "      " + indices.str() + ",\n";
   }
 
-  void sout (std::string name, std::string &type, boolean array[], int size){
+  void sout (std::string name, std::string &type, bool array[], int size){
     std::string fixedType = "";
     for (int i = 0; i < type.length(); ++i){
       fixedType += char(std::tolower(type[i]));
@@ -527,7 +527,7 @@ namespace space
   void sout (std::string name, std::stack<int> stack){
     int initSize = stack.size();
     data[name]["type"] = "stack";
-    data[name]["is_char"] = "1";
+    data[name]["is_char"] = "0";
     indices.str("");
     indices << "[" << -1 << ", " << -1 << "]";
     str.str("");
@@ -542,10 +542,100 @@ namespace space
     data[name]["data"] += "      " + str.str() + ",\n";
   }
 
+  void sout (std::string name, std::stack<float> stack){
+    int initSize = stack.size();
+    data[name]["type"] = "stack";
+    data[name]["is_char"] = "0";
+    indices.str("");
+    indices << "[" << -1 << ", " << -1 << "]";
+    str.str("");
+    str << "[";
+    for (int i = 0; i < initSize; i++)
+    {
+      str << stack.top() << (i < initSize - 1 ? ", " : "");
+      stack.pop();
+    }
+    str << "]";
+    data[name]["indices"] += "      " + indices.str() + ",\n";
+    data[name]["data"] += "      " + str.str() + ",\n";
+  }
+
+  void sout (std::string name, std::stack<double> stack){
+    int initSize = stack.size();
+    data[name]["type"] = "stack";
+    data[name]["is_char"] = "0";
+    indices.str("");
+    indices << "[" << -1 << ", " << -1 << "]";
+    str.str("");
+    str << "[";
+    for (int i = 0; i < initSize; i++)
+    {
+      str << stack.top() << (i < initSize - 1 ? ", " : "");
+      stack.pop();
+    }
+    str << "]";
+    data[name]["indices"] += "      " + indices.str() + ",\n";
+    data[name]["data"] += "      " + str.str() + ",\n";
+  }
+
+  void sout (std::string name, std::stack<bool> stack){
+    int initSize = stack.size();
+    data[name]["type"] = "stack";
+    data[name]["is_char"] = "0";
+    indices.str("");
+    indices << "[" << -1 << ", " << -1 << "]";
+    str.str("");
+    str << "[";
+    for (int i = 0; i < initSize; i++)
+    {
+      str << stack.top() << (i < initSize - 1 ? ", " : "");
+      stack.pop();
+    }
+    str << "]";
+    data[name]["indices"] += "      " + indices.str() + ",\n";
+    data[name]["data"] += "      " + str.str() + ",\n";
+  }
+
+  void sout (std::string name, std::stack<char> stack){
+    int initSize = stack.size();
+    data[name]["type"] = "stack";
+    data[name]["is_char"] = "1";
+    indices.str("");
+    indices << "[" << -1 << ", " << -1 << "]";
+    str.str("");
+    str << "[";
+    for (int i = 0; i < initSize; i++)
+    {
+      str << (int)stack.top() << (i < initSize - 1 ? ", " : "");
+      stack.pop();
+    }
+    str << "]";
+    data[name]["indices"] += "      " + indices.str() + ",\n";
+    data[name]["data"] += "      " + str.str() + ",\n";
+  }
+
+  void sout (std::string name, std::stack<wchar_t> stack){
+    int initSize = stack.size();
+    data[name]["type"] = "stack";
+    data[name]["is_char"] = "1";
+    indices.str("");
+    indices << "[" << -1 << ", " << -1 << "]";
+    str.str("");
+    str << "[";
+    for (int i = 0; i < initSize; i++)
+    {
+      str << (int)stack.top() << (i < initSize - 1 ? ", " : "");
+      stack.pop();
+    }
+    str << "]";
+    data[name]["indices"] += "      " + indices.str() + ",\n";
+    data[name]["data"] += "      " + str.str() + ",\n";
+  }
+
   void sout (std::string name, std::queue<int> queue){
     int initSize = queue.size();
     data[name]["type"] = "queue";
-    data[name]["is_char"] = "1";
+    data[name]["is_char"] = "0";
     indices.str("");
     indices << "[" << -1 << ", " << -1 << "]";
     str.str("");
@@ -560,8 +650,96 @@ namespace space
     data[name]["data"] += "      " + str.str() + ",\n";
   }
 
+  void sout (std::string name, std::queue<float> queue){
+    int initSize = queue.size();
+    data[name]["type"] = "queue";
+    data[name]["is_char"] = "0";
+    indices.str("");
+    indices << "[" << -1 << ", " << -1 << "]";
+    str.str("");
+    str << "[";
+    for (int i = 0; i < initSize; i++)
+    {
+      str << queue.front() << (i < initSize - 1 ? ", " : "");
+      queue.pop();
+    }
+    str << "]";
+    data[name]["indices"] += "      " + indices.str() + ",\n";
+    data[name]["data"] += "      " + str.str() + ",\n";
+  }
+
+  void sout (std::string name, std::queue<double> queue){
+    int initSize = queue.size();
+    data[name]["type"] = "queue";
+    data[name]["is_char"] = "0";
+    indices.str("");
+    indices << "[" << -1 << ", " << -1 << "]";
+    str.str("");
+    str << "[";
+    for (int i = 0; i < initSize; i++)
+    {
+      str << queue.front() << (i < initSize - 1 ? ", " : "");
+      queue.pop();
+    }
+    str << "]";
+    data[name]["indices"] += "      " + indices.str() + ",\n";
+    data[name]["data"] += "      " + str.str() + ",\n";
+  }
+
+  void sout (std::string name, std::queue<bool> queue){
+    int initSize = queue.size();
+    data[name]["type"] = "queue";
+    data[name]["is_char"] = "0";
+    indices.str("");
+    indices << "[" << -1 << ", " << -1 << "]";
+    str.str("");
+    str << "[";
+    for (int i = 0; i < initSize; i++)
+    {
+      str << queue.front() << (i < initSize - 1 ? ", " : "");
+      queue.pop();
+    }
+    str << "]";
+    data[name]["indices"] += "      " + indices.str() + ",\n";
+    data[name]["data"] += "      " + str.str() + ",\n";
+  }
+
+  void sout (std::string name, std::queue<char> queue){
+    int initSize = queue.size();
+    data[name]["type"] = "queue";
+    data[name]["is_char"] = "1";
+    indices.str("");
+    indices << "[" << -1 << ", " << -1 << "]";
+    str.str("");
+    str << "[";
+    for (int i = 0; i < initSize; i++)
+    {
+      str << (int)queue.front() << (i < initSize - 1 ? ", " : "");
+      queue.pop();
+    }
+    str << "]";
+    data[name]["indices"] += "      " + indices.str() + ",\n";
+    data[name]["data"] += "      " + str.str() + ",\n";
+  }
+
+  void sout (std::string name, std::queue<wchar_t> queue){
+    int initSize = queue.size();
+    data[name]["type"] = "queue";
+    data[name]["is_char"] = "1";
+    indices.str("");
+    indices << "[" << -1 << ", " << -1 << "]";
+    str.str("");
+    str << "[";
+    for (int i = 0; i < initSize; i++)
+    {
+      str << (int)queue.front() << (i < initSize - 1 ? ", " : "");
+      queue.pop();
+    }
+    str << "]";
+    data[name]["indices"] += "      " + indices.str() + ",\n";
+    data[name]["data"] += "      " + str.str() + ",\n";
+  }
+
 }
-
-
 
 #endif
