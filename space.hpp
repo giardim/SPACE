@@ -93,7 +93,7 @@ namespace space
   }
 
   //Algorithms
-  void sout(std::string name, bool array[], int size)
+  static void sout(std::string name, bool array[], int size)
   {
     data[name]["type"] = "Array1D";
     data[name]["is_char"] = "0";
@@ -111,7 +111,7 @@ namespace space
   }
 
   
-  void sout(std::string name, bool array[], int size, int i, int j)
+  static void sout(std::string name, bool array[], int size, int i, int j)
   {
     data[name]["type"] = "Array1D";
     data[name]["is_char"] = "0";
@@ -129,7 +129,7 @@ namespace space
   }
 
   
-  void sout(std::string name, char array[], int size)
+  static void sout(std::string name, char array[], int size)
   {
     data[name]["type"] = "Array1D";
     data[name]["is_char"] = "1";
@@ -147,7 +147,7 @@ namespace space
   }
 
   
-  void sout(std::string name, char array[], int size, int i, int j)
+  static void sout(std::string name, char array[], int size, int i, int j)
   {
     data[name]["type"] = "Array1D";
     data[name]["is_char"] = "1";
@@ -165,7 +165,7 @@ namespace space
   }
 
   
-  void sout(std::string name, double array[], int size)
+  static void sout(std::string name, double array[], int size)
   {
     data[name]["type"] = "Array1D";
     data[name]["is_char"] = "0";
@@ -183,7 +183,7 @@ namespace space
   }
 
   
-  void sout(std::string name, double array[], int size, int i, int j)
+  static void sout(std::string name, double array[], int size, int i, int j)
   {
     data[name]["type"] = "Array1D";
     data[name]["is_char"] = "0";
@@ -201,7 +201,7 @@ namespace space
   }
 
   
-  void sout(std::string name, float array[], int size)
+  static void sout(std::string name, float array[], int size)
   {
     data[name]["type"] = "Array1D";
     data[name]["is_char"] = "0";
@@ -219,7 +219,7 @@ namespace space
   }
 
   
-  void sout(std::string name, float array[], int size, int i, int j)
+  static void sout(std::string name, float array[], int size, int i, int j)
   {
     data[name]["type"] = "Array1D";
     data[name]["is_char"] = "0";
@@ -237,7 +237,7 @@ namespace space
   }
 
   
-  void sout(std::string name, int array[], int size)
+  static void sout(std::string name, int array[], int size)
   {
     data[name]["type"] = "Array1D";
     data[name]["is_char"] = "0";
@@ -255,7 +255,7 @@ namespace space
   }
 
   
-  void sout(std::string name, int array[], int size, int i, int j)
+  static void sout(std::string name, int array[], int size, int i, int j)
   {
     data[name]["type"] = "Array1D";
     data[name]["is_char"] = "0";
@@ -273,7 +273,7 @@ namespace space
   }
 
   
-  void sout(std::string name, wchar_t array[], int size)
+  static void sout(std::string name, wchar_t array[], int size)
   {
     data[name]["type"] = "Array1D";
     data[name]["is_char"] = "1";
@@ -291,7 +291,7 @@ namespace space
   }
 
   
-  void sout(std::string name, wchar_t array[], int size, int i, int j)
+  static void sout(std::string name, wchar_t array[], int size, int i, int j)
   {
     data[name]["type"] = "Array1D";
     data[name]["is_char"] = "1";
@@ -308,7 +308,7 @@ namespace space
     data[name]["data"] += "      " + str.str() + ",\n";
   }
   //Data structures
-  void sout (std::string name, std::string &type, int array[], int size){
+  static void sout (std::string name, std::string &type, int array[], int size){
     std::string fixedType = "";
     for (int i = 0; i < type.length(); ++i){
       fixedType += char(std::tolower(type[i]));
@@ -344,7 +344,7 @@ namespace space
     data[name]["indices"] += "      " + indices.str() + ",\n";
   }
 
-  void sout (std::string name, std::string &type, double array[], int size){
+  static void sout (std::string name, std::string &type, double array[], int size){
     std::string fixedType = "";
     for (int i = 0; i < type.length(); ++i){
       fixedType += char(std::tolower(type[i]));
@@ -380,7 +380,7 @@ namespace space
     data[name]["indices"] += "      " + indices.str() + ",\n";
   }
 
-  void sout (std::string name, std::string &type, char array[], int size){
+  static void sout (std::string name, std::string &type, char array[], int size){
     std::string fixedType = "";
     for (int i = 0; i < type.length(); ++i){
       fixedType += char(std::tolower(type[i]));
@@ -416,7 +416,7 @@ namespace space
     data[name]["indices"] += "      " + indices.str() + ",\n";
   }
 
-  void sout (std::string name, std::string &type, bool array[], int size){
+  static void sout (std::string name, std::string &type, bool array[], int size){
     std::string fixedType = "";
     for (int i = 0; i < type.length(); ++i){
       fixedType += char(std::tolower(type[i]));
@@ -452,7 +452,7 @@ namespace space
     data[name]["indices"] += "      " + indices.str() + ",\n";
   }
 
-  void sout (std::string name, std::string &type, float array[], int size){
+  static void sout (std::string name, std::string &type, float array[], int size){
     std::string fixedType = "";
     for (int i = 0; i < type.length(); ++i){
       fixedType += char(std::tolower(type[i]));
@@ -488,7 +488,7 @@ namespace space
     data[name]["indices"] += "      " + indices.str() + ",\n";
   }
 
-  void sout (std::string name, std::string &type, wchar_t array[], int size){
+  static void sout (std::string name, std::string &type, wchar_t array[], int size){
     std::string fixedType = "";
     for (int i = 0; i < type.length(); ++i){
       fixedType += char(std::tolower(type[i]));
@@ -524,7 +524,8 @@ namespace space
     data[name]["indices"] += "      " + indices.str() + ",\n";
   }
 
-  void sout (std::string name, std::stack<int> stack){
+
+  static void sout (std::string name, std::stack<int> stack){
     int initSize = stack.size();
     data[name]["type"] = "stack";
     data[name]["is_char"] = "0";
@@ -542,7 +543,7 @@ namespace space
     data[name]["data"] += "      " + str.str() + ",\n";
   }
 
-  void sout (std::string name, std::stack<float> stack){
+  static void sout (std::string name, std::stack<float> stack){
     int initSize = stack.size();
     data[name]["type"] = "stack";
     data[name]["is_char"] = "0";
@@ -560,7 +561,7 @@ namespace space
     data[name]["data"] += "      " + str.str() + ",\n";
   }
 
-  void sout (std::string name, std::stack<double> stack){
+  static void sout (std::string name, std::stack<double> stack){
     int initSize = stack.size();
     data[name]["type"] = "stack";
     data[name]["is_char"] = "0";
@@ -578,7 +579,7 @@ namespace space
     data[name]["data"] += "      " + str.str() + ",\n";
   }
 
-  void sout (std::string name, std::stack<bool> stack){
+  static void sout (std::string name, std::stack<bool> stack){
     int initSize = stack.size();
     data[name]["type"] = "stack";
     data[name]["is_char"] = "0";
@@ -596,7 +597,7 @@ namespace space
     data[name]["data"] += "      " + str.str() + ",\n";
   }
 
-  void sout (std::string name, std::stack<char> stack){
+  static void sout (std::string name, std::stack<char> stack){
     int initSize = stack.size();
     data[name]["type"] = "stack";
     data[name]["is_char"] = "1";
@@ -614,7 +615,7 @@ namespace space
     data[name]["data"] += "      " + str.str() + ",\n";
   }
 
-  void sout (std::string name, std::stack<wchar_t> stack){
+  static void sout (std::string name, std::stack<wchar_t> stack){
     int initSize = stack.size();
     data[name]["type"] = "stack";
     data[name]["is_char"] = "1";
@@ -632,7 +633,7 @@ namespace space
     data[name]["data"] += "      " + str.str() + ",\n";
   }
 
-  void sout (std::string name, std::queue<int> queue){
+  static void sout (std::string name, std::queue<int> queue){
     int initSize = queue.size();
     data[name]["type"] = "queue";
     data[name]["is_char"] = "0";
@@ -650,7 +651,7 @@ namespace space
     data[name]["data"] += "      " + str.str() + ",\n";
   }
 
-  void sout (std::string name, std::queue<float> queue){
+  static void sout (std::string name, std::queue<float> queue){
     int initSize = queue.size();
     data[name]["type"] = "queue";
     data[name]["is_char"] = "0";
@@ -668,7 +669,7 @@ namespace space
     data[name]["data"] += "      " + str.str() + ",\n";
   }
 
-  void sout (std::string name, std::queue<double> queue){
+  static void sout (std::string name, std::queue<double> queue){
     int initSize = queue.size();
     data[name]["type"] = "queue";
     data[name]["is_char"] = "0";
@@ -686,7 +687,7 @@ namespace space
     data[name]["data"] += "      " + str.str() + ",\n";
   }
 
-  void sout (std::string name, std::queue<bool> queue){
+  static void sout (std::string name, std::queue<bool> queue){
     int initSize = queue.size();
     data[name]["type"] = "queue";
     data[name]["is_char"] = "0";
@@ -704,7 +705,7 @@ namespace space
     data[name]["data"] += "      " + str.str() + ",\n";
   }
 
-  void sout (std::string name, std::queue<char> queue){
+  static void sout (std::string name, std::queue<char> queue){
     int initSize = queue.size();
     data[name]["type"] = "queue";
     data[name]["is_char"] = "1";
@@ -722,7 +723,7 @@ namespace space
     data[name]["data"] += "      " + str.str() + ",\n";
   }
 
-  void sout (std::string name, std::queue<wchar_t> queue){
+  static void sout (std::string name, std::queue<wchar_t> queue){
     int initSize = queue.size();
     data[name]["type"] = "queue";
     data[name]["is_char"] = "1";
@@ -740,7 +741,7 @@ namespace space
     data[name]["data"] += "      " + str.str() + ",\n";
   }
 
-  void sout (std::string name, std::list<int> list){
+  static void sout (std::string name, std::list<int> list){
     int initSize = list.size();
     data[name]["type"] = "list";
     data[name]["is_char"] = "0";
@@ -758,7 +759,7 @@ namespace space
     data[name]["data"] += "      " + str.str() + ",\n";
   }
 
-  void sout (std::string name, std::list<float> list){
+  static void sout (std::string name, std::list<float> list){
     int initSize = list.size();
     data[name]["type"] = "list";
     data[name]["is_char"] = "0";
@@ -776,7 +777,7 @@ namespace space
     data[name]["data"] += "      " + str.str() + ",\n";
   }
 
-  void sout (std::string name, std::list<double> list){
+  static void sout (std::string name, std::list<double> list){
     int initSize = list.size();
     data[name]["type"] = "list";
     data[name]["is_char"] = "0";
@@ -794,7 +795,7 @@ namespace space
     data[name]["data"] += "      " + str.str() + ",\n";
   }
 
-  void sout (std::string name, std::list<bool> list){
+  static void sout (std::string name, std::list<bool> list){
     int initSize = list.size();
     data[name]["type"] = "list";
     data[name]["is_char"] = "0";
@@ -812,7 +813,7 @@ namespace space
     data[name]["data"] += "      " + str.str() + ",\n";
   }
 
-  void sout (std::string name, std::list<char> list){
+  static void sout (std::string name, std::list<char> list){
     int initSize = list.size();
     data[name]["type"] = "list";
     data[name]["is_char"] = "1";
@@ -830,23 +831,7 @@ namespace space
     data[name]["data"] += "      " + str.str() + ",\n";
   }
 }
-  void sout (std::string name, std::list<wchar_t> list){
-    int initSize = list.size();
-    data[name]["type"] = "list";
-    data[name]["is_char"] = "1";
-    indices.str("");
-    indices << "[" << -1 << ", " << -1 << "]";
-    str.str("");
-    str << "[";
-    for (int i = 0; i < initSize; i++)
-    {
-      str << (int)list.front() << (i < initSize - 1 ? ", " : "");
-      list.pop_front();
-    }
-    str << "]";
-    data[name]["indices"] += "      " + indices.str() + ",\n";
-    data[name]["data"] += "      " + str.str() + ",\n";
-  }
+  
 
   
 #endif
