@@ -7,7 +7,7 @@
 #include <sstream>
 #include <stack>
 #include <queue>
-
+#include <list>
 
 namespace space
 {
@@ -740,6 +740,113 @@ namespace space
     data[name]["data"] += "      " + str.str() + ",\n";
   }
 
-}
+  void sout (std::string name, std::list<int> list){
+    int initSize = list.size();
+    data[name]["type"] = "list";
+    data[name]["is_char"] = "0";
+    indices.str("");
+    indices << "[" << -1 << ", " << -1 << "]";
+    str.str("");
+    str << "[";
+    for (int i = 0; i < initSize; i++)
+    {
+      str << list.front() << (i < initSize - 1 ? ", " : "");
+      list.pop_front();
+    }
+    str << "]";
+    data[name]["indices"] += "      " + indices.str() + ",\n";
+    data[name]["data"] += "      " + str.str() + ",\n";
+  }
 
+  void sout (std::string name, std::list<float> list){
+    int initSize = list.size();
+    data[name]["type"] = "list";
+    data[name]["is_char"] = "0";
+    indices.str("");
+    indices << "[" << -1 << ", " << -1 << "]";
+    str.str("");
+    str << "[";
+    for (int i = 0; i < initSize; i++)
+    {
+      str << list.front() << (i < initSize - 1 ? ", " : "");
+      list.pop_front();
+    }
+    str << "]";
+    data[name]["indices"] += "      " + indices.str() + ",\n";
+    data[name]["data"] += "      " + str.str() + ",\n";
+  }
+
+  void sout (std::string name, std::list<double> list){
+    int initSize = list.size();
+    data[name]["type"] = "list";
+    data[name]["is_char"] = "0";
+    indices.str("");
+    indices << "[" << -1 << ", " << -1 << "]";
+    str.str("");
+    str << "[";
+    for (int i = 0; i < initSize; i++)
+    {
+      str << list.front() << (i < initSize - 1 ? ", " : "");
+      list.pop_front();
+    }
+    str << "]";
+    data[name]["indices"] += "      " + indices.str() + ",\n";
+    data[name]["data"] += "      " + str.str() + ",\n";
+  }
+
+  void sout (std::string name, std::list<bool> list){
+    int initSize = list.size();
+    data[name]["type"] = "list";
+    data[name]["is_char"] = "0";
+    indices.str("");
+    indices << "[" << -1 << ", " << -1 << "]";
+    str.str("");
+    str << "[";
+    for (int i = 0; i < initSize; i++)
+    {
+      str << list.front() << (i < initSize - 1 ? ", " : "");
+      list.pop_front();
+    }
+    str << "]";
+    data[name]["indices"] += "      " + indices.str() + ",\n";
+    data[name]["data"] += "      " + str.str() + ",\n";
+  }
+
+  void sout (std::string name, std::list<char> list){
+    int initSize = list.size();
+    data[name]["type"] = "list";
+    data[name]["is_char"] = "1";
+    indices.str("");
+    indices << "[" << -1 << ", " << -1 << "]";
+    str.str("");
+    str << "[";
+    for (int i = 0; i < initSize; i++)
+    {
+      str << (int)list.front() << (i < initSize - 1 ? ", " : "");
+      list.pop_front();
+    }
+    str << "]";
+    data[name]["indices"] += "      " + indices.str() + ",\n";
+    data[name]["data"] += "      " + str.str() + ",\n";
+  }
+}
+  void sout (std::string name, std::list<wchar_t> list){
+    int initSize = list.size();
+    data[name]["type"] = "list";
+    data[name]["is_char"] = "1";
+    indices.str("");
+    indices << "[" << -1 << ", " << -1 << "]";
+    str.str("");
+    str << "[";
+    for (int i = 0; i < initSize; i++)
+    {
+      str << (int)list.front() << (i < initSize - 1 ? ", " : "");
+      list.pop_front();
+    }
+    str << "]";
+    data[name]["indices"] += "      " + indices.str() + ",\n";
+    data[name]["data"] += "      " + str.str() + ",\n";
+  }
+
+  
 #endif
