@@ -86,16 +86,20 @@ public:
     data[name]["type"] = "Array1D";
     data[name]["is_char"] = "0";
     istream.str("");
-    istream << "[" << -1 << ", " << -1 << "]";
+    istream << "      "
+            << "[" << -1 << ", " << -1 << "]"
+            << ",\n";
     dstream.str("");
-    dstream << "[";
+    dstream << "      "
+            << "[";
     for (int i = 0; i < size; i++)
     {
       dstream << array[i] << (i < size - 1 ? ", " : "");
     }
-    dstream << "]";
-    data[name]["indices"] += "      " + istream.str() + ",\n";
-    data[name]["data"] += "      " + dstream.str() + ",\n";
+    dstream << "]"
+            << ",\n";
+    data[name]["indices"] += istream.str();
+    data[name]["data"] += dstream.str();
   }
 
   static void sout(std::string name, bool array[], int size, int i, int j)
@@ -103,16 +107,20 @@ public:
     data[name]["type"] = "Array1D";
     data[name]["is_char"] = "0";
     istream.str("");
-    istream << "[" << i << ", " << j << "]";
+    istream << "      "
+            << "[" << i << ", " << j << "]"
+            << ",\n";
     dstream.str("");
-    dstream << "[";
+    dstream << "      "
+            << "[";
     for (int i = 0; i < size; i++)
     {
       dstream << array[i] << (i < size - 1 ? ", " : "");
     }
-    dstream << "]";
-    data[name]["indices"] += "      " + istream.str() + ",\n";
-    data[name]["data"] += "      " + dstream.str() + ",\n";
+    dstream << "]"
+            << ",\n";
+    data[name]["indices"] += istream.str();
+    data[name]["data"] += dstream.str();
   }
 
   static void sout(std::string name, char array[], int size)
@@ -120,16 +128,20 @@ public:
     data[name]["type"] = "Array1D";
     data[name]["is_char"] = "1";
     istream.str("");
-    istream << "[" << -1 << ", " << -1 << "]";
+    istream << "      "
+            << "[" << -1 << ", " << -1 << "]"
+            << ",\n";
     dstream.str("");
-    dstream << "[";
+    dstream << "      "
+            << "[";
     for (int i = 0; i < size; i++)
     {
       dstream << (int)array[i] << (i < size - 1 ? ", " : "");
     }
-    dstream << "]";
-    data[name]["indices"] += "      " + istream.str() + ",\n";
-    data[name]["data"] += "      " + dstream.str() + ",\n";
+    dstream << "]"
+            << ",\n";
+    data[name]["indices"] += istream.str();
+    data[name]["data"] += dstream.str();
   }
 
   static void sout(std::string name, char array[], int size, int i, int j)
@@ -137,16 +149,20 @@ public:
     data[name]["type"] = "Array1D";
     data[name]["is_char"] = "1";
     istream.str("");
-    istream << "[" << i << ", " << j << "]";
+    istream << "      "
+            << "[" << i << ", " << j << "]"
+            << ",\n";
     dstream.str("");
-    dstream << "[";
+    dstream << "      "
+            << "[";
     for (int i = 0; i < size; i++)
     {
       dstream << (int)array[i] << (i < size - 1 ? ", " : "");
     }
-    dstream << "]";
-    data[name]["indices"] += "      " + istream.str() + ",\n";
-    data[name]["data"] += "      " + dstream.str() + ",\n";
+    dstream << "]"
+            << ",\n";
+    data[name]["indices"] += istream.str();
+    data[name]["data"] += dstream.str();
   }
 
   static void sout(std::string name, double array[], int size)
@@ -154,16 +170,20 @@ public:
     data[name]["type"] = "Array1D";
     data[name]["is_char"] = "0";
     istream.str("");
-    istream << "[" << -1 << ", " << -1 << "]";
+    istream << "      "
+            << "[" << -1 << ", " << -1 << "]"
+            << ",\n";
     dstream.str("");
-    dstream << "[";
+    dstream << "      "
+            << "[";
     for (int i = 0; i < size; i++)
     {
       dstream << array[i] << (i < size - 1 ? ", " : "");
     }
-    dstream << "]";
-    data[name]["indices"] += "      " + istream.str() + ",\n";
-    data[name]["data"] += "      " + dstream.str() + ",\n";
+    dstream << "]"
+            << ",\n";
+    data[name]["indices"] += istream.str();
+    data[name]["data"] += dstream.str();
   }
 
   static void sout(std::string name, double array[], int size, int i, int j)
@@ -171,16 +191,20 @@ public:
     data[name]["type"] = "Array1D";
     data[name]["is_char"] = "0";
     istream.str("");
-    istream << "[" << i << ", " << j << "]";
+    istream << "      "
+            << "[" << i << ", " << j << "]"
+            << ",\n";
     dstream.str("");
-    dstream << "[";
+    dstream << "      "
+            << "[";
     for (int i = 0; i < size; i++)
     {
       dstream << array[i] << (i < size - 1 ? ", " : "");
     }
-    dstream << "]";
-    data[name]["indices"] += "      " + istream.str() + ",\n";
-    data[name]["data"] += "      " + dstream.str() + ",\n";
+    dstream << "]"
+            << ",\n";
+    data[name]["indices"] += istream.str();
+    data[name]["data"] += dstream.str();
   }
 
   static void sout(std::string name, float array[], int size)
@@ -188,16 +212,20 @@ public:
     data[name]["type"] = "Array1D";
     data[name]["is_char"] = "0";
     istream.str("");
-    istream << "[" << -1 << ", " << -1 << "]";
+    istream << "      "
+            << "[" << -1 << ", " << -1 << "]"
+            << ",\n";
     dstream.str("");
-    dstream << "[";
+    dstream << "      "
+            << "[";
     for (int i = 0; i < size; i++)
     {
       dstream << array[i] << (i < size - 1 ? ", " : "");
     }
-    dstream << "]";
-    data[name]["indices"] += "      " + istream.str() + ",\n";
-    data[name]["data"] += "      " + dstream.str() + ",\n";
+    dstream << "]"
+            << ",\n";
+    data[name]["indices"] += istream.str();
+    data[name]["data"] += dstream.str();
   }
 
   static void sout(std::string name, float array[], int size, int i, int j)
@@ -205,16 +233,20 @@ public:
     data[name]["type"] = "Array1D";
     data[name]["is_char"] = "0";
     istream.str("");
-    istream << "[" << i << ", " << j << "]";
+    istream << "      "
+            << "[" << i << ", " << j << "]"
+            << ",\n";
     dstream.str("");
-    dstream << "[";
+    dstream << "      "
+            << "[";
     for (int i = 0; i < size; i++)
     {
       dstream << array[i] << (i < size - 1 ? ", " : "");
     }
-    dstream << "]";
-    data[name]["indices"] += "      " + istream.str() + ",\n";
-    data[name]["data"] += "      " + dstream.str() + ",\n";
+    dstream << "]"
+            << ",\n";
+    data[name]["indices"] += istream.str();
+    data[name]["data"] += dstream.str();
   }
 
   static void sout(std::string name, int array[], int size)
@@ -222,16 +254,20 @@ public:
     data[name]["type"] = "Array1D";
     data[name]["is_char"] = "0";
     istream.str("");
-    istream << "[" << -1 << ", " << -1 << "]";
+    istream << "      "
+            << "[" << -1 << ", " << -1 << "]"
+            << ",\n";
     dstream.str("");
-    dstream << "[";
+    dstream << "      "
+            << "[";
     for (int i = 0; i < size; i++)
     {
       dstream << array[i] << (i < size - 1 ? ", " : "");
     }
-    dstream << "]";
-    data[name]["indices"] += "      " + istream.str() + ",\n";
-    data[name]["data"] += "      " + dstream.str() + ",\n";
+    dstream << "]"
+            << ",\n";
+    data[name]["indices"] += istream.str();
+    data[name]["data"] += dstream.str();
   }
 
   static void sout(std::string name, int array[], int size, int i, int j)
@@ -239,16 +275,20 @@ public:
     data[name]["type"] = "Array1D";
     data[name]["is_char"] = "0";
     istream.str("");
-    istream << "[" << i << ", " << j << "]";
+    istream << "      "
+            << "[" << i << ", " << j << "]"
+            << ",\n";
     dstream.str("");
-    dstream << "[";
+    dstream << "      "
+            << "[";
     for (int i = 0; i < size; i++)
     {
       dstream << array[i] << (i < size - 1 ? ", " : "");
     }
-    dstream << "]";
-    data[name]["indices"] += "      " + istream.str() + ",\n";
-    data[name]["data"] += "      " + dstream.str() + ",\n";
+    dstream << "]"
+            << ",\n";
+    data[name]["indices"] += istream.str();
+    data[name]["data"] += dstream.str();
   }
 
   static void sout(std::string name, wchar_t array[], int size)
@@ -256,16 +296,20 @@ public:
     data[name]["type"] = "Array1D";
     data[name]["is_char"] = "1";
     istream.str("");
-    istream << "[" << -1 << ", " << -1 << "]";
+    istream << "      "
+            << "[" << -1 << ", " << -1 << "]"
+            << ",\n";
     dstream.str("");
-    dstream << "[";
+    dstream << "      "
+            << "[";
     for (int i = 0; i < size; i++)
     {
       dstream << (int)array[i] << (i < size - 1 ? ", " : "");
     }
-    dstream << "]";
-    data[name]["indices"] += "      " + istream.str() + ",\n";
-    data[name]["data"] += "      " + dstream.str() + ",\n";
+    dstream << "]"
+            << ",\n";
+    data[name]["indices"] += istream.str();
+    data[name]["data"] += dstream.str();
   }
 
   static void sout(std::string name, wchar_t array[], int size, int i, int j)
@@ -273,16 +317,20 @@ public:
     data[name]["type"] = "Array1D";
     data[name]["is_char"] = "1";
     istream.str("");
-    istream << "[" << i << ", " << j << "]";
+    istream << "      "
+            << "[" << i << ", " << j << "]"
+            << ",\n";
     dstream.str("");
-    dstream << "[";
+    dstream << "      "
+            << "[";
     for (int i = 0; i < size; i++)
     {
       dstream << (int)array[i] << (i < size - 1 ? ", " : "");
     }
-    dstream << "]";
-    data[name]["indices"] += "      " + istream.str() + ",\n";
-    data[name]["data"] += "      " + dstream.str() + ",\n";
+    dstream << "]"
+            << ",\n";
+    data[name]["indices"] += istream.str();
+    data[name]["data"] += dstream.str();
   }
 
 static void sout (std::string name, std::string &type, int array[], int size){
