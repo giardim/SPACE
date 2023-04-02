@@ -46,6 +46,8 @@ int s_length = sizeof(s_array)/sizeof(string);
     //reg array testing done
 
     for(int i=0; i<i_length; i++){
+        int array[6];
+        array[i] = testy[i];
         
     }
 
