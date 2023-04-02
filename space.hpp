@@ -5,308 +5,861 @@
 #include <fstream>
 #include <map>
 #include <sstream>
+#include <stack>
+#include <queue>
+#include <list>
 
-
-
-namespace space
+class space
 {
-    std::map<std::string, std::map<std::string, std::string> > data;
+private:
+  space() { std::atexit(save); };
+  ~space(){};
+  space(const space &);
+  space &operator=(const space &);
 
-  namespace
+  static std::map<std::string, std::map<std::string, std::string> > data;
+  static std::stringstream dstream, istream;
+  static space s;
+
+  static void save()
   {
-    std::stringstream str;
-    std::stringstream indices;
-
-    void save()
+    std::ofstream file("data.json");
+    file << "{\n";
+    for (std::map<std::string, std::map<std::string, std::string> >::iterator entry = data.begin(); entry != data.end(); entry++)
     {
-      std::ofstream file("data.json");
-      file << "{\n";
-      for (std::map<std::string, std::map<std::string, std::string> >::iterator entry = data.begin(); entry != data.end(); entry++)
-      {
-        file << "  "
-             << "\"" << entry->first << "\""
-             << ": "
-             << "{\n"
-             << "    "
-             << "\"type\""
-             << ": "
-             << "\"" << entry->second["type"] << "\""
-             << ",\n"
-             << "    "
-             << "\"is_char\""
-             << ": "
-             << entry->second["is_char"]
-             << ",\n"
-             << "    "
-             << "\"indices\""
-             << ": "
-             << "[\n"
-             << entry->second["indices"];
-
-#ifdef _WIN32
-        file.seekp(-3, std::ios::cur);
-#else
-        file.seekp(-2, std::ios::cur);
-#endif
-
-        file << "\n"
-             << "    "
-             << "],\n"
-             << "    "
-             << "\"data\""
-             << ": "
-             << "[\n"
-             << entry->second["data"];
-
-#ifdef _WIN32
-        file.seekp(-3, std::ios::cur);
-#else
-        file.seekp(-2, std::ios::cur);
-#endif
-
-        file << "\n"
-             << "    "
-             << "]\n"
-             << "  "
-             << "}"
-             << ",\n";
-      }
-
+      file << "  "
+           << "\"" << entry->first << "\""
+           << ": "
+           << "{\n"
+           << "    "
+           << "\"type\""
+           << ": "
+           << "\"" << entry->second["type"] << "\""
+           << ",\n"
+           << "    "
+           << "\"is_char\""
+           << ": "
+           << entry->second["is_char"]
+           << ",\n"
+           << "    "
+           << "\"indices\""
+           << ": "
+           << "[\n"
+           << entry->second["indices"];
 #ifdef _WIN32
       file.seekp(-3, std::ios::cur);
 #else
       file.seekp(-2, std::ios::cur);
 #endif
-
-      file << "\n}";
-      file.close();
+      file << "\n"
+           << "    "
+           << "],\n"
+           << "    "
+           << "\"data\""
+           << ": "
+           << "[\n"
+           << entry->second["data"];
+#ifdef _WIN32
+      file.seekp(-3, std::ios::cur);
+#else
+      file.seekp(-2, std::ios::cur);
+#endif
+      file << "\n"
+           << "    "
+           << "]\n"
+           << "  "
+           << "}"
+           << ",\n";
     }
+#ifdef _WIN32
+    file.seekp(-3, std::ios::cur);
+#else
+    file.seekp(-2, std::ios::cur);
+#endif
+    file << "\n}";
+    file.close();
+  }
 
-    class space
+public:
+  static void sout(std::string name, bool array[], int size)
+  {
+    data[name]["type"] = "Array1D";
+    data[name]["is_char"] = "0";
+    istream.str("");
+    istream << "      "
+            << "[" << -1 << ", " << -1 << "]"
+            << ",\n";
+    dstream.str("");
+    dstream << "      "
+            << "[";
+    for (int i = 0; i < size; i++)
     {
-    public:
-      space()
-      {
-        std::atexit(save);
+      dstream << array[i] << (i < size - 1 ? ", " : "");
+    }
+    dstream << "]"
+            << ",\n";
+    data[name]["indices"] += istream.str();
+    data[name]["data"] += dstream.str();
+  }
+
+  static void sout(std::string name, bool array[], int size, int i, int j)
+  {
+    data[name]["type"] = "Array1D";
+    data[name]["is_char"] = "0";
+    istream.str("");
+    istream << "      "
+            << "[" << i << ", " << j << "]"
+            << ",\n";
+    dstream.str("");
+    dstream << "      "
+            << "[";
+    for (int i = 0; i < size; i++)
+    {
+      dstream << array[i] << (i < size - 1 ? ", " : "");
+    }
+    dstream << "]"
+            << ",\n";
+    data[name]["indices"] += istream.str();
+    data[name]["data"] += dstream.str();
+  }
+
+  static void sout(std::string name, char array[], int size)
+  {
+    data[name]["type"] = "Array1D";
+    data[name]["is_char"] = "1";
+    istream.str("");
+    istream << "      "
+            << "[" << -1 << ", " << -1 << "]"
+            << ",\n";
+    dstream.str("");
+    dstream << "      "
+            << "[";
+    for (int i = 0; i < size; i++)
+    {
+      dstream << (int)array[i] << (i < size - 1 ? ", " : "");
+    }
+    dstream << "]"
+            << ",\n";
+    data[name]["indices"] += istream.str();
+    data[name]["data"] += dstream.str();
+  }
+
+  static void sout(std::string name, char array[], int size, int i, int j)
+  {
+    data[name]["type"] = "Array1D";
+    data[name]["is_char"] = "1";
+    istream.str("");
+    istream << "      "
+            << "[" << i << ", " << j << "]"
+            << ",\n";
+    dstream.str("");
+    dstream << "      "
+            << "[";
+    for (int i = 0; i < size; i++)
+    {
+      dstream << (int)array[i] << (i < size - 1 ? ", " : "");
+    }
+    dstream << "]"
+            << ",\n";
+    data[name]["indices"] += istream.str();
+    data[name]["data"] += dstream.str();
+  }
+
+  static void sout(std::string name, double array[], int size)
+  {
+    data[name]["type"] = "Array1D";
+    data[name]["is_char"] = "0";
+    istream.str("");
+    istream << "      "
+            << "[" << -1 << ", " << -1 << "]"
+            << ",\n";
+    dstream.str("");
+    dstream << "      "
+            << "[";
+    for (int i = 0; i < size; i++)
+    {
+      dstream << array[i] << (i < size - 1 ? ", " : "");
+    }
+    dstream << "]"
+            << ",\n";
+    data[name]["indices"] += istream.str();
+    data[name]["data"] += dstream.str();
+  }
+
+  static void sout(std::string name, double array[], int size, int i, int j)
+  {
+    data[name]["type"] = "Array1D";
+    data[name]["is_char"] = "0";
+    istream.str("");
+    istream << "      "
+            << "[" << i << ", " << j << "]"
+            << ",\n";
+    dstream.str("");
+    dstream << "      "
+            << "[";
+    for (int i = 0; i < size; i++)
+    {
+      dstream << array[i] << (i < size - 1 ? ", " : "");
+    }
+    dstream << "]"
+            << ",\n";
+    data[name]["indices"] += istream.str();
+    data[name]["data"] += dstream.str();
+  }
+
+  static void sout(std::string name, float array[], int size)
+  {
+    data[name]["type"] = "Array1D";
+    data[name]["is_char"] = "0";
+    istream.str("");
+    istream << "      "
+            << "[" << -1 << ", " << -1 << "]"
+            << ",\n";
+    dstream.str("");
+    dstream << "      "
+            << "[";
+    for (int i = 0; i < size; i++)
+    {
+      dstream << array[i] << (i < size - 1 ? ", " : "");
+    }
+    dstream << "]"
+            << ",\n";
+    data[name]["indices"] += istream.str();
+    data[name]["data"] += dstream.str();
+  }
+
+  static void sout(std::string name, float array[], int size, int i, int j)
+  {
+    data[name]["type"] = "Array1D";
+    data[name]["is_char"] = "0";
+    istream.str("");
+    istream << "      "
+            << "[" << i << ", " << j << "]"
+            << ",\n";
+    dstream.str("");
+    dstream << "      "
+            << "[";
+    for (int i = 0; i < size; i++)
+    {
+      dstream << array[i] << (i < size - 1 ? ", " : "");
+    }
+    dstream << "]"
+            << ",\n";
+    data[name]["indices"] += istream.str();
+    data[name]["data"] += dstream.str();
+  }
+
+  static void sout(std::string name, int array[], int size)
+  {
+    data[name]["type"] = "Array1D";
+    data[name]["is_char"] = "0";
+    istream.str("");
+    istream << "      "
+            << "[" << -1 << ", " << -1 << "]"
+            << ",\n";
+    dstream.str("");
+    dstream << "      "
+            << "[";
+    for (int i = 0; i < size; i++)
+    {
+      dstream << array[i] << (i < size - 1 ? ", " : "");
+    }
+    dstream << "]"
+            << ",\n";
+    data[name]["indices"] += istream.str();
+    data[name]["data"] += dstream.str();
+  }
+
+  static void sout(std::string name, int array[], int size, int i, int j)
+  {
+    data[name]["type"] = "Array1D";
+    data[name]["is_char"] = "0";
+    istream.str("");
+    istream << "      "
+            << "[" << i << ", " << j << "]"
+            << ",\n";
+    dstream.str("");
+    dstream << "      "
+            << "[";
+    for (int i = 0; i < size; i++)
+    {
+      dstream << array[i] << (i < size - 1 ? ", " : "");
+    }
+    dstream << "]"
+            << ",\n";
+    data[name]["indices"] += istream.str();
+    data[name]["data"] += dstream.str();
+  }
+
+  static void sout(std::string name, wchar_t array[], int size)
+  {
+    data[name]["type"] = "Array1D";
+    data[name]["is_char"] = "1";
+    istream.str("");
+    istream << "      "
+            << "[" << -1 << ", " << -1 << "]"
+            << ",\n";
+    dstream.str("");
+    dstream << "      "
+            << "[";
+    for (int i = 0; i < size; i++)
+    {
+      dstream << (int)array[i] << (i < size - 1 ? ", " : "");
+    }
+    dstream << "]"
+            << ",\n";
+    data[name]["indices"] += istream.str();
+    data[name]["data"] += dstream.str();
+  }
+
+  static void sout(std::string name, wchar_t array[], int size, int i, int j)
+  {
+    data[name]["type"] = "Array1D";
+    data[name]["is_char"] = "1";
+    istream.str("");
+    istream << "      "
+            << "[" << i << ", " << j << "]"
+            << ",\n";
+    dstream.str("");
+    dstream << "      "
+            << "[";
+    for (int i = 0; i < size; i++)
+    {
+      dstream << (int)array[i] << (i < size - 1 ? ", " : "");
+    }
+    dstream << "]"
+            << ",\n";
+    data[name]["indices"] += istream.str();
+    data[name]["data"] += dstream.str();
+  }
+
+static void sout (std::string name, std::string &type, int array[], int size){
+    std::string fixedType = "";
+    for (int i = 0; i < type.length(); ++i){
+      fixedType += char(std::tolower(type[i]));
       }
-    } space;
-  }
 
-  // passed tests
-  void sout(std::string name, bool array[], int size)
-  {
-    data[name]["type"] = "Array1D";
-    data[name]["is_char"] = "0";
-    indices.str("");
-    indices << "[" << -1 << ", " << -1 << "]";
-    str.str("");
-    str << "[";
-    for (int i = 0; i < size; i++)
-    {
-      str << array[i] << (i < size - 1 ? ", " : "");
+  
+    while (fixedType != "stack" && fixedType != "queue" && fixedType != "dequeue"){
+      fixedType = "";
+      type = "";
+      std::cout << "You did not enter a valid data structure, please indicate if you are visualizing";
+      std::cout << "a 'stack', 'queue', or 'dequeue': ";
+      std::cin >> fixedType;
+
+      for (int i = 0; i < type.length(); ++i){
+        fixedType += char(std::tolower(type[i]));
+      }
+
+      type = fixedType;
+      std::cout << fixedType << " " << type << "\n";
     }
-    str << "]";
-    data[name]["indices"] += "      " + indices.str() + ",\n";
-    data[name]["data"] += "      " + str.str() + ",\n";
-  }
 
-  // passed tests
-  void sout(std::string name, bool array[], int size, int i, int j)
-  {
-    data[name]["type"] = "Array1D";
+    data[name]["type"] = fixedType;
     data[name]["is_char"] = "0";
-    indices.str("");
-    indices << "[" << i << ", " << j << "]";
-    str.str("");
-    str << "[";
-    for (int i = 0; i < size; i++)
-    {
-      str << array[i] << (i < size - 1 ? ", " : "");
+    istream.str("");
+    istream << "[" << -1 << ", " << -1 << "]";
+    dstream.str("");
+    dstream << "[";
+    for (int i = 0; i < size; ++i){
+      dstream << array[i] << (i < size - 1 ? ", " : "");
     }
-    str << "]";
-    data[name]["indices"] += "      " + indices.str() + ",\n";
-    data[name]["data"] += "      " + str.str() + ",\n";
+    dstream << "]";
+    data[name]["data"] += "      " + dstream.str() + ",\n";
+    data[name]["indices"] += "      " + istream.str() + ",\n";
   }
 
-  // passed tests
-  void sout(std::string name, char array[], int size)
-  {
-    data[name]["type"] = "Array1D";
+  static void sout (std::string name, std::string &type, double array[], int size){
+    std::string fixedType = "";
+    for (int i = 0; i < type.length(); ++i){
+      fixedType += char(std::tolower(type[i]));
+      }
+
+  
+    while (fixedType != "stack" && fixedType != "queue" && fixedType != "dequeue"){
+      fixedType = "";
+      type = "";
+      std::cout << "You did not enter a valid data structure, please indicate if you are visualizing";
+      std::cout << "a 'stack', 'queue', or 'dequeue': ";
+      std::cin >> fixedType;
+
+      for (int i = 0; i < type.length(); ++i){
+        fixedType += char(std::tolower(type[i]));
+      }
+
+      type = fixedType;
+      std::cout << fixedType << " " << type << "\n";
+    }
+
+    data[name]["type"] = fixedType;
+    data[name]["is_char"] = "0";
+    istream.str("");
+    istream << "[" << -1 << ", " << -1 << "]";
+    dstream.str("");
+    dstream << "[";
+    for (int i = 0; i < size; ++i){
+      dstream << array[i] << (i < size - 1 ? ", " : "");
+    }
+    dstream << "]";
+    data[name]["data"] += "      " + dstream.str() + ",\n";
+    data[name]["indices"] += "      " + istream.str() + ",\n";
+  }
+
+  static void sout (std::string name, std::string &type, char array[], int size){
+    std::string fixedType = "";
+    for (int i = 0; i < type.length(); ++i){
+      fixedType += char(std::tolower(type[i]));
+      }
+
+  
+    while (fixedType != "stack" && fixedType != "queue" && fixedType != "dequeue"){
+      fixedType = "";
+      type = "";
+      std::cout << "You did not enter a valid data structure, please indicate if you are visualizing";
+      std::cout << "a 'stack', 'queue', or 'dequeue': ";
+      std::cin >> fixedType;
+
+      for (int i = 0; i < type.length(); ++i){
+        fixedType += char(std::tolower(type[i]));
+      }
+
+      type = fixedType;
+      std::cout << fixedType << " " << type << "\n";
+    }
+
+    data[name]["type"] = fixedType;
     data[name]["is_char"] = "1";
-    indices.str("");
-    indices << "[" << -1 << ", " << -1 << "]";
-    str.str("");
-    str << "[";
-    for (int i = 0; i < size; i++)
-    {
-      str << (int)array[i] << (i < size - 1 ? ", " : "");
+    istream.str("");
+    istream << "[" << -1 << ", " << -1 << "]";
+    dstream.str("");
+    dstream << "[";
+    for (int i = 0; i < size; ++i){
+      dstream << (int)array[i] << (i < size - 1 ? ", " : "");
     }
-    str << "]";
-    data[name]["indices"] += "      " + indices.str() + ",\n";
-    data[name]["data"] += "      " + str.str() + ",\n";
+    dstream << "]";
+    data[name]["data"] += "      " + dstream.str() + ",\n";
+    data[name]["indices"] += "      " + istream.str() + ",\n";
   }
 
-  // passed tests
-  void sout(std::string name, char array[], int size, int i, int j)
-  {
-    data[name]["type"] = "Array1D";
+  static void sout (std::string name, std::string &type, bool array[], int size){
+    std::string fixedType = "";
+    for (int i = 0; i < type.length(); ++i){
+      fixedType += char(std::tolower(type[i]));
+      }
+
+  
+    while (fixedType != "stack" && fixedType != "queue" && fixedType != "dequeue"){
+      fixedType = "";
+      type = "";
+      std::cout << "You did not enter a valid data structure, please indicate if you are visualizing";
+      std::cout << "a 'stack', 'queue', or 'dequeue': ";
+      std::cin >> fixedType;
+
+      for (int i = 0; i < type.length(); ++i){
+        fixedType += char(std::tolower(type[i]));
+      }
+
+      type = fixedType;
+      std::cout << fixedType << " " << type << "\n";
+    }
+
+    data[name]["type"] = fixedType;
+    data[name]["is_char"] = "0";
+    istream.str("");
+    istream << "[" << -1 << ", " << -1 << "]";
+    dstream.str("");
+    dstream << "[";
+    for (int i = 0; i < size; ++i){
+      dstream << array[i] << (i < size - 1 ? ", " : "");
+    }
+    dstream << "]";
+    data[name]["data"] += "      " + dstream.str() + ",\n";
+    data[name]["indices"] += "      " + istream.str() + ",\n";
+  }
+
+  static void sout (std::string name, std::string &type, float array[], int size){
+    std::string fixedType = "";
+    for (int i = 0; i < type.length(); ++i){
+      fixedType += char(std::tolower(type[i]));
+      }
+
+  
+    while (fixedType != "stack" && fixedType != "queue" && fixedType != "dequeue"){
+      fixedType = "";
+      type = "";
+      std::cout << "You did not enter a valid data structure, please indicate if you are visualizing";
+      std::cout << "a 'stack', 'queue', or 'dequeue': ";
+      std::cin >> fixedType;
+
+      for (int i = 0; i < type.length(); ++i){
+        fixedType += char(std::tolower(type[i]));
+      }
+
+      type = fixedType;
+      std::cout << fixedType << " " << type << "\n";
+    }
+
+    data[name]["type"] = fixedType;
+    data[name]["is_char"] = "0";
+    istream.str("");
+    istream << "[" << -1 << ", " << -1 << "]";
+    dstream.str("");
+    dstream << "[";
+    for (int i = 0; i < size; ++i){
+      dstream << array[i] << (i < size - 1 ? ", " : "");
+    }
+    dstream << "]";
+    data[name]["data"] += "      " + dstream.str() + ",\n";
+    data[name]["indices"] += "      " + istream.str() + ",\n";
+  }
+
+  static void sout (std::string name, std::string &type, wchar_t array[], int size){
+    std::string fixedType = "";
+    for (int i = 0; i < type.length(); ++i){
+      fixedType += char(std::tolower(type[i]));
+      }
+
+  
+    while (fixedType != "stack" && fixedType != "queue" && fixedType != "dequeue"){
+      fixedType = "";
+      type = "";
+      std::cout << "You did not enter a valid data structure, please indicate if you are visualizing";
+      std::cout << "a 'stack', 'queue', or 'dequeue': ";
+      std::cin >> fixedType;
+
+      for (int i = 0; i < type.length(); ++i){
+        fixedType += char(std::tolower(type[i]));
+      }
+
+      type = fixedType;
+      std::cout << fixedType << " " << type << "\n";
+    }
+
+    data[name]["type"] = fixedType;
     data[name]["is_char"] = "1";
-    indices.str("");
-    indices << "[" << i << ", " << j << "]";
-    str.str("");
-    str << "[";
-    for (int i = 0; i < size; i++)
-    {
-      str << (int)array[i] << (i < size - 1 ? ", " : "");
+    istream.str("");
+    istream << "[" << -1 << ", " << -1 << "]";
+    dstream.str("");
+    dstream << "[";
+    for (int i = 0; i < size; ++i){
+      dstream << (int)array[i] << (i < size - 1 ? ", " : "");
     }
-    str << "]";
-    data[name]["indices"] += "      " + indices.str() + ",\n";
-    data[name]["data"] += "      " + str.str() + ",\n";
+    dstream << "]";
+    data[name]["data"] += "      " + dstream.str() + ",\n";
+    data[name]["indices"] += "      " + istream.str() + ",\n";
   }
 
-  // passed tests
-  void sout(std::string name, double array[], int size)
-  {
-    data[name]["type"] = "Array1D";
+
+  static void sout (std::string name, std::stack<int> stack){
+    int initSize = stack.size();
+    data[name]["type"] = "stack";
     data[name]["is_char"] = "0";
-    indices.str("");
-    indices << "[" << -1 << ", " << -1 << "]";
-    str.str("");
-    str << "[";
-    for (int i = 0; i < size; i++)
+    istream.str("");
+    istream << "[" << -1 << ", " << -1 << "]";
+    dstream.str("");
+    dstream << "[";
+    for (int i = 0; i < initSize; i++)
     {
-      str << array[i] << (i < size - 1 ? ", " : "");
+      dstream << stack.top() << (i < initSize - 1 ? ", " : "");
+      stack.pop();
     }
-    str << "]";
-    data[name]["indices"] += "      " + indices.str() + ",\n";
-    data[name]["data"] += "      " + str.str() + ",\n";
+    dstream << "]";
+    data[name]["indices"] += "      " + istream.str() + ",\n";
+    data[name]["data"] += "      " + dstream.str() + ",\n";
   }
 
-  // passed tests
-  void sout(std::string name, double array[], int size, int i, int j)
-  {
-    data[name]["type"] = "Array1D";
+  static void sout (std::string name, std::stack<float> stack){
+    int initSize = stack.size();
+    data[name]["type"] = "stack";
     data[name]["is_char"] = "0";
-    indices.str("");
-    indices << "[" << i << ", " << j << "]";
-    str.str("");
-    str << "[";
-    for (int i = 0; i < size; i++)
+    istream.str("");
+    istream << "[" << -1 << ", " << -1 << "]";
+    dstream.str("");
+    dstream << "[";
+    for (int i = 0; i < initSize; i++)
     {
-      str << array[i] << (i < size - 1 ? ", " : "");
+      dstream << stack.top() << (i < initSize - 1 ? ", " : "");
+      stack.pop();
     }
-    str << "]";
-    data[name]["indices"] += "      " + indices.str() + ",\n";
-    data[name]["data"] += "      " + str.str() + ",\n";
+    dstream << "]";
+    data[name]["indices"] += "      " + istream.str() + ",\n";
+    data[name]["data"] += "      " + dstream.str() + ",\n";
   }
 
-  // passed tests
-  void sout(std::string name, float array[], int size)
-  {
-    data[name]["type"] = "Array1D";
+  static void sout (std::string name, std::stack<double> stack){
+    int initSize = stack.size();
+    data[name]["type"] = "stack";
     data[name]["is_char"] = "0";
-    indices.str("");
-    indices << "[" << -1 << ", " << -1 << "]";
-    str.str("");
-    str << "[";
-    for (int i = 0; i < size; i++)
+    istream.str("");
+    istream << "[" << -1 << ", " << -1 << "]";
+    dstream.str("");
+    dstream << "[";
+    for (int i = 0; i < initSize; i++)
     {
-      str << array[i] << (i < size - 1 ? ", " : "");
+      dstream << stack.top() << (i < initSize - 1 ? ", " : "");
+      stack.pop();
     }
-    str << "]";
-    data[name]["indices"] += "      " + indices.str() + ",\n";
-    data[name]["data"] += "      " + str.str() + ",\n";
+    dstream << "]";
+    data[name]["indices"] += "      " + istream.str() + ",\n";
+    data[name]["data"] += "      " + dstream.str() + ",\n";
   }
 
-  // passed tests
-  void sout(std::string name, float array[], int size, int i, int j)
-  {
-    data[name]["type"] = "Array1D";
+  static void sout (std::string name, std::stack<bool> stack){
+    int initSize = stack.size();
+    data[name]["type"] = "stack";
     data[name]["is_char"] = "0";
-    indices.str("");
-    indices << "[" << i << ", " << j << "]";
-    str.str("");
-    str << "[";
-    for (int i = 0; i < size; i++)
+    istream.str("");
+    istream << "[" << -1 << ", " << -1 << "]";
+    dstream.str("");
+    dstream << "[";
+    for (int i = 0; i < initSize; i++)
     {
-      str << array[i] << (i < size - 1 ? ", " : "");
+      dstream << stack.top() << (i < initSize - 1 ? ", " : "");
+      stack.pop();
     }
-    str << "]";
-    data[name]["indices"] += "      " + indices.str() + ",\n";
-    data[name]["data"] += "      " + str.str() + ",\n";
+    dstream << "]";
+    data[name]["indices"] += "      " + istream.str() + ",\n";
+    data[name]["data"] += "      " + dstream.str() + ",\n";
   }
 
-  // passed tests
-  void sout(std::string name, int array[], int size)
-  {
-    data[name]["type"] = "Array1D";
-    data[name]["is_char"] = "0";
-    indices.str("");
-    indices << "[" << -1 << ", " << -1 << "]";
-    str.str("");
-    str << "[";
-    for (int i = 0; i < size; i++)
-    {
-      str << array[i] << (i < size - 1 ? ", " : "");
-    }
-    str << "]";
-    data[name]["indices"] += "      " + indices.str() + ",\n";
-    data[name]["data"] += "      " + str.str() + ",\n";
-  }
-
-  // passed tests
-  void sout(std::string name, int array[], int size, int i, int j)
-  {
-    data[name]["type"] = "Array1D";
-    data[name]["is_char"] = "0";
-    indices.str("");
-    indices << "[" << i << ", " << j << "]";
-    str.str("");
-    str << "[";
-    for (int i = 0; i < size; i++)
-    {
-      str << array[i] << (i < size - 1 ? ", " : "");
-    }
-    str << "]";
-    data[name]["indices"] += "      " + indices.str() + ",\n";
-    data[name]["data"] += "      " + str.str() + ",\n";
-  }
-
-  // passed tests
-  void sout(std::string name, wchar_t array[], int size)
-  {
-    data[name]["type"] = "Array1D";
+  static void sout (std::string name, std::stack<char> stack){
+    int initSize = stack.size();
+    data[name]["type"] = "stack";
     data[name]["is_char"] = "1";
-    indices.str("");
-    indices << "[" << -1 << ", " << -1 << "]";
-    str.str("");
-    str << "[";
-    for (int i = 0; i < size; i++)
+    istream.str();
+    istream << "[" << -1 << ", " << -1 << "]";
+    dstream.str("");
+    dstream << "[";
+    for (int i = 0; i < initSize; i++)
     {
-      str << (int)array[i] << (i < size - 1 ? ", " : "");
+      dstream << (int)stack.top() << (i < initSize - 1 ? ", " : "");
+      stack.pop();
     }
-    str << "]";
-    data[name]["indices"] += "      " + indices.str() + ",\n";
-    data[name]["data"] += "      " + str.str() + ",\n";
+    dstream << "]";
+    data[name]["indices"] += "      " + istream.str() + ",\n";
+    data[name]["data"] += "      " + dstream.str() + ",\n";
   }
 
-  // passed tests
-  void sout(std::string name, wchar_t array[], int size, int i, int j)
-  {
-    data[name]["type"] = "Array1D";
+  static void sout (std::string name, std::stack<wchar_t> stack){
+    int initSize = stack.size();
+    data[name]["type"] = "stack";
     data[name]["is_char"] = "1";
-    indices.str("");
-    indices << "[" << i << ", " << j << "]";
-    str.str("");
-    str << "[";
-    for (int i = 0; i < size; i++)
+    istream.str();
+    istream << "[" << -1 << ", " << -1 << "]";
+    dstream.str("");
+    dstream << "[";
+    for (int i = 0; i < initSize; i++)
     {
-      str << (int)array[i] << (i < size - 1 ? ", " : "");
+      dstream << (int)stack.top() << (i < initSize - 1 ? ", " : "");
+      stack.pop();
     }
-    str << "]";
-    data[name]["indices"] += "      " + indices.str() + ",\n";
-    data[name]["data"] += "      " + str.str() + ",\n";
+    dstream << "]";
+    data[name]["indices"] += "      " + istream.str() + ",\n";
+    data[name]["data"] += "      " + dstream.str() + ",\n";
   }
-}
+
+  static void sout (std::string name, std::queue<int> queue){
+    int initSize = queue.size();
+    data[name]["type"] = "queue";
+    data[name]["is_char"] = "0";
+    istream.str();
+    istream << "[" << -1 << ", " << -1 << "]";
+    dstream.str("");
+    dstream << "[";
+    for (int i = 0; i < initSize; i++)
+    {
+      dstream << "[" << -1 << ", " << -1 << "]";
+      queue.pop();
+    }
+    dstream << "]";
+    data[name]["indices"] += "      " + istream.str() + ",\n";
+    data[name]["data"] += "      " + dstream.str() + ",\n";
+  }
+
+  static void sout (std::string name, std::queue<float> queue){
+    int initSize = queue.size();
+    data[name]["type"] = "queue";
+    data[name]["is_char"] = "0";
+    istream.str();
+    istream << "[" << -1 << ", " << -1 << "]";
+    dstream.str("");
+    dstream << "[";
+    for (int i = 0; i < initSize; i++)
+    {
+      dstream << "[" << -1 << ", " << -1 << "]";
+      queue.pop();
+    }
+    dstream << "]";
+    data[name]["indices"] += "      " + istream.str() + ",\n";
+    data[name]["data"] += "      " + dstream.str() + ",\n";
+  }
+
+  static void sout (std::string name, std::queue<double> queue){
+    int initSize = queue.size();
+    data[name]["type"] = "queue";
+    data[name]["is_char"] = "0";
+    istream.str();
+    istream << "[" << -1 << ", " << -1 << "]";
+    dstream.str("");
+    dstream << "[";
+    for (int i = 0; i < initSize; i++)
+    {
+      dstream << "[" << -1 << ", " << -1 << "]";
+      queue.pop();
+    }
+    dstream << "]";
+    data[name]["indices"] += "      " + istream.str() + ",\n";
+    data[name]["data"] += "      " + dstream.str() + ",\n";
+  }
+
+  static void sout (std::string name, std::queue<bool> queue){
+    int initSize = queue.size();
+    data[name]["type"] = "queue";
+    data[name]["is_char"] = "0";
+    istream.str();
+    istream << "[" << -1 << ", " << -1 << "]";
+    dstream.str("");
+    dstream << "[";
+    for (int i = 0; i < initSize; i++)
+    {
+      dstream << "[" << -1 << ", " << -1 << "]";
+      queue.pop();
+    }
+    dstream << "]";
+    data[name]["indices"] += "      " + istream.str() + ",\n";
+    data[name]["data"] += "      " + dstream.str() + ",\n";
+  }
+
+  static void sout (std::string name, std::queue<char> queue){
+    int initSize = queue.size();
+    data[name]["type"] = "queue";
+    data[name]["is_char"] = "1";
+    istream.str();
+    istream << "[" << -1 << ", " << -1 << "]";
+    dstream.str("");
+    dstream << "[";
+    for (int i = 0; i < initSize; i++)
+    {
+      dstream << (int)queue.front() << (i < initSize - 1 ? ", " : "");
+      queue.pop();
+    }
+    dstream << "]";
+    data[name]["indices"] += "      " + istream.str() + ",\n";
+    data[name]["data"] += "      " + dstream.str() + ",\n";
+  }
+
+  static void sout (std::string name, std::queue<wchar_t> queue){
+    int initSize = queue.size();
+    data[name]["type"] = "queue";
+    data[name]["is_char"] = "1";
+    istream.str();
+    istream << "[" << -1 << ", " << -1 << "]";
+    dstream.str("");
+    dstream << "[";
+    for (int i = 0; i < initSize; i++)
+    {
+      dstream << (int)queue.front() << (i < initSize - 1 ? ", " : "");
+      queue.pop();
+    }
+    dstream << "]";
+    data[name]["indices"] += "      " + istream.str() + ",\n";
+    data[name]["data"] += "      " + dstream.str() + ",\n";
+  }
+
+  static void sout (std::string name, std::list<int> list){
+    int initSize = list.size();
+    data[name]["type"] = "list";
+    data[name]["is_char"] = "0";
+    istream.str();
+    istream << "[" << -1 << ", " << -1 << "]";
+    dstream.str("");
+    dstream << "[";
+    for (int i = 0; i < initSize; i++)
+    {
+      dstream << list.front() << (i < initSize - 1 ? ", " : "");
+      list.pop_front();
+    }
+    dstream << "]";
+    data[name]["indices"] += "      " + istream.str() + ",\n";
+    data[name]["data"] += "      " + dstream.str() + ",\n";
+  }
+
+  static void sout (std::string name, std::list<float> list){
+    int initSize = list.size();
+    data[name]["type"] = "list";
+    data[name]["is_char"] = "0";
+    istream.str();
+    istream << "[" << -1 << ", " << -1 << "]";
+    dstream.str("");
+    dstream << "[";
+    for (int i = 0; i < initSize; i++)
+    {
+      dstream << list.front() << (i < initSize - 1 ? ", " : "");
+      list.pop_front();
+    }
+    dstream << "]";
+    data[name]["indices"] += "      " + istream.str() + ",\n";
+    data[name]["data"] += "      " + dstream.str() + ",\n";
+  }
+
+  static void sout (std::string name, std::list<double> list){
+    int initSize = list.size();
+    data[name]["type"] = "list";
+    data[name]["is_char"] = "0";
+    istream.str();
+    istream << "[" << -1 << ", " << -1 << "]";
+    dstream.str("");
+    dstream << "[";
+    for (int i = 0; i < initSize; i++)
+    {
+      dstream << list.front() << (i < initSize - 1 ? ", " : "");
+      list.pop_front();
+    }
+    dstream << "]";
+    data[name]["indices"] += "      " + istream.str() + ",\n";
+    data[name]["data"] += "      " + dstream.str() + ",\n";
+  }
+
+  static void sout (std::string name, std::list<bool> list){
+    int initSize = list.size();
+    data[name]["type"] = "list";
+    data[name]["is_char"] = "0";
+    istream.str();
+    istream << "[" << -1 << ", " << -1 << "]";
+    dstream.str("");
+    dstream << "[";
+    for (int i = 0; i < initSize; i++)
+    {
+      dstream << list.front() << (i < initSize - 1 ? ", " : "");
+      list.pop_front();
+    }
+    dstream << "]";
+    data[name]["indices"] += "      " + istream.str() + ",\n";
+    data[name]["data"] += "      " + dstream.str() + ",\n";
+  }
+
+  static void sout (std::string name, std::list<char> list){
+    int initSize = list.size();
+    data[name]["type"] = "list";
+    data[name]["is_char"] = "1";
+    istream.str();
+    istream << "[" << -1 << ", " << -1 << "]";
+    dstream.str("");
+    dstream << "[";
+    for (int i = 0; i < initSize; i++)
+    {
+      dstream << (int)list.front() << (i < initSize - 1 ? ", " : "");
+      list.pop_front();
+    }
+    dstream << "]";
+    data[name]["indices"] += "      " + istream.str() + ",\n";
+    data[name]["data"] += "      " + dstream.str() + ",\n";
+  }
+
+};
+
+std::map<std::string, std::map<std::string, std::string> > space::data;
+std::stringstream space::dstream, space::istream;
+space space::s;
 
 #endif
