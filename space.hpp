@@ -3,11 +3,12 @@
 
 #include <cstdlib>
 #include <fstream>
+#include <iostream>
+#include <list>
 #include <map>
+#include <queue>
 #include <sstream>
 #include <stack>
-#include <queue>
-#include <list>
 #include <vector>
 
 class space
@@ -18,7 +19,7 @@ private:
   space(const space &);
   space &operator=(const space &);
 
-  static std::map<std::string, std::map<std::string, std::string>> data;
+  static std::map<std::string, std::map<std::string, std::string> > data;
   static std::stringstream dstream, istream;
   static space s;
 
@@ -26,7 +27,7 @@ private:
   {
     std::ofstream file("data.json");
     file << "{\n";
-    for (std::map<std::string, std::map<std::string, std::string>>::iterator entry = data.begin(); entry != data.end(); entry++)
+    for (std::map<std::string, std::map<std::string, std::string> >::iterator entry = data.begin(); entry != data.end(); entry++)
     {
       file << "  "
            << "\"" << entry->first << "\""
@@ -334,7 +335,6 @@ public:
     data[name]["data"] += dstream.str();
   }
 
-<<<<<<< HEAD
   template <int row, int col>
   static void sout(std::string name, bool (&array)[row][col], int rows, int cols)
   {
@@ -1185,7 +1185,8 @@ public:
             << "],\n";
     data[name]["indices"] += istream.str();
     data[name]["data"] += dstream.str();
-=======
+  }
+
   static void sout(std::string name, std::string &type, int array[], int size)
   {
     std::string fixedType = "";
@@ -1857,7 +1858,7 @@ public:
     data[name]["data"] += "      " + dstream.str() + ",\n";
   }
 
-  static void sout(std::string name, std::vector<std::vector<int>> vector)
+  static void sout(std::string name, std::vector<std::vector<int> > vector)
   {
     data[name]["type"] = "2DVector";
     data[name]["is_char"] = "0";
@@ -1880,7 +1881,7 @@ public:
     data[name]["data"] += "      " + dstream.str() + ",\n";
   }
 
-  static void sout(std::string name, std::vector<std::vector<float>> vector)
+  static void sout(std::string name, std::vector<std::vector<float> > vector)
   {
     data[name]["type"] = "2DVector";
     data[name]["is_char"] = "0";
@@ -1903,7 +1904,7 @@ public:
     data[name]["data"] += "      " + dstream.str() + ",\n";
   }
 
-  static void sout(std::string name, std::vector<std::vector<double>> vector)
+  static void sout(std::string name, std::vector<std::vector<double> > vector)
   {
     data[name]["type"] = "2DVector";
     data[name]["is_char"] = "0";
@@ -1926,7 +1927,7 @@ public:
     data[name]["data"] += "      " + dstream.str() + ",\n";
   }
 
-  static void sout(std::string name, std::vector<std::vector<bool>> vector)
+  static void sout(std::string name, std::vector<std::vector<bool> > vector)
   {
     data[name]["type"] = "2DVector";
     data[name]["is_char"] = "0";
@@ -1949,7 +1950,7 @@ public:
     data[name]["data"] += "      " + dstream.str() + ",\n";
   }
 
-  static void sout(std::string name, std::vector<std::vector<char>> vector)
+  static void sout(std::string name, std::vector<std::vector<char> > vector)
   {
     data[name]["type"] = "2DVector";
     data[name]["is_char"] = "1";
@@ -1972,7 +1973,7 @@ public:
     data[name]["data"] += "      " + dstream.str() + ",\n";
   }
 
-  static void sout(std::string name, std::vector<std::vector<wchar_t>> vector)
+  static void sout(std::string name, std::vector<std::vector<wchar_t> > vector)
   {
     data[name]["type"] = "2DVector";
     data[name]["is_char"] = "0";
@@ -1993,11 +1994,10 @@ public:
     dstream << "]";
     data[name]["indices"] += "      " + istream.str() + ",\n";
     data[name]["data"] += "      " + dstream.str() + ",\n";
->>>>>>> 48ed5839ed41e0680c687df930a4fb422e8a8242
   }
 };
 
-std::map<std::string, std::map<std::string, std::string>> space::data;
+std::map<std::string, std::map<std::string, std::string> > space::data;
 std::stringstream space::dstream, space::istream;
 space space::s;
 
