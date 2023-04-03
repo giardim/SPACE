@@ -1004,6 +1004,144 @@ public:
     data[name]["indices"] += "      " + istream.str() + ",\n";
     data[name]["data"] += "      " + dstream.str() + ",\n";
   }
+
+  static void sout(std::string name, std::vector<std::vector<int>> vector)
+  {
+    data[name]["type"] = "2DVector";
+    data[name]["is_char"] = "0";
+    istream.str();
+    istream << "[" << -1 << ", " << -1 << "]";
+    dstream.str("");
+    dstream << "[";
+    for (int i = 0; i < vector.size(); i++)
+    {
+      dstream << "[";
+      for (int j = 0; j < vector[i].size(); ++j)
+      {
+        dstream << vector[i][j] << (j < vector[i].size() - 1 ? ", " : "");
+      }
+      dstream << "]";
+      dstream << (i < vector.size() - 1 ? ", " : "");
+    }
+    dstream << "]";
+    data[name]["indices"] += "      " + istream.str() + ",\n";
+    data[name]["data"] += "      " + dstream.str() + ",\n";
+  }
+
+  static void sout(std::string name, std::vector<std::vector<float>> vector)
+  {
+    data[name]["type"] = "2DVector";
+    data[name]["is_char"] = "0";
+    istream.str();
+    istream << "[" << -1 << ", " << -1 << "]";
+    dstream.str("");
+    dstream << "[";
+    for (int i = 0; i < vector.size(); i++)
+    {
+      dstream << "[";
+      for (int j = 0; j < vector[i].size(); ++j)
+      {
+        dstream << vector[i][j] << (j < vector[i].size() - 1 ? ", " : "");
+      }
+      dstream << "]";
+      dstream << (i < vector.size() - 1 ? ", " : "");
+    }
+    dstream << "]";
+    data[name]["indices"] += "      " + istream.str() + ",\n";
+    data[name]["data"] += "      " + dstream.str() + ",\n";
+  }
+
+  static void sout(std::string name, std::vector<std::vector<double>> vector)
+  {
+    data[name]["type"] = "2DVector";
+    data[name]["is_char"] = "0";
+    istream.str();
+    istream << "[" << -1 << ", " << -1 << "]";
+    dstream.str("");
+    dstream << "[";
+    for (int i = 0; i < vector.size(); i++)
+    {
+      dstream << "[";
+      for (int j = 0; j < vector[i].size(); ++j)
+      {
+        dstream << vector[i][j] << (j < vector[i].size() - 1 ? ", " : "");
+      }
+      dstream << "]";
+      dstream << (i < vector.size() - 1 ? ", " : "");
+    }
+    dstream << "]";
+    data[name]["indices"] += "      " + istream.str() + ",\n";
+    data[name]["data"] += "      " + dstream.str() + ",\n";
+  }
+
+  static void sout(std::string name, std::vector<std::vector<bool>> vector)
+  {
+    data[name]["type"] = "2DVector";
+    data[name]["is_char"] = "0";
+    istream.str();
+    istream << "[" << -1 << ", " << -1 << "]";
+    dstream.str("");
+    dstream << "[";
+    for (int i = 0; i < vector.size(); i++)
+    {
+      dstream << "[";
+      for (int j = 0; j < vector[i].size(); ++j)
+      {
+        dstream << vector[i][j] << (j < vector[i].size() - 1 ? ", " : "");
+      }
+      dstream << "]";
+      dstream << (i < vector.size() - 1 ? ", " : "");
+    }
+    dstream << "]";
+    data[name]["indices"] += "      " + istream.str() + ",\n";
+    data[name]["data"] += "      " + dstream.str() + ",\n";
+  }
+
+  static void sout(std::string name, std::vector<std::vector<char>> vector)
+  {
+    data[name]["type"] = "2DVector";
+    data[name]["is_char"] = "1";
+    istream.str();
+    istream << "[" << -1 << ", " << -1 << "]";
+    dstream.str("");
+    dstream << "[";
+    for (int i = 0; i < vector.size(); i++)
+    {
+      dstream << "[";
+      for (int j = 0; j < vector[i].size(); ++j)
+      {
+        dstream << (int)vector[i][j] << (j < vector[i].size() - 1 ? ", " : "");
+      }
+      dstream << "]";
+      dstream << (i < vector.size() - 1 ? ", " : "");
+    }
+    dstream << "]";
+    data[name]["indices"] += "      " + istream.str() + ",\n";
+    data[name]["data"] += "      " + dstream.str() + ",\n";
+  }
+
+  static void sout(std::string name, std::vector<std::vector<wchar_t>> vector)
+  {
+    data[name]["type"] = "2DVector";
+    data[name]["is_char"] = "0";
+    istream.str();
+    istream << "[" << -1 << ", " << -1 << "]";
+    dstream.str("");
+    dstream << "[";
+    for (int i = 0; i < vector.size(); i++)
+    {
+      dstream << "[";
+      for (int j = 0; j < vector[i].size(); ++j)
+      {
+        dstream << vector[i][j] << (j < vector[i].size() - 1 ? ", " : "");
+      }
+      dstream << "]";
+      dstream << (i < vector.size() - 1 ? ", " : "");
+    }
+    dstream << "]";
+    data[name]["indices"] += "      " + istream.str() + ",\n";
+    data[name]["data"] += "      " + dstream.str() + ",\n";
+  }
 };
 
 std::map<std::string, std::map<std::string, std::string>> space::data;
