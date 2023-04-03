@@ -26,7 +26,7 @@
     <div id="manual">
       <button>
         <a href="src/space-manual/book/index.html" target="_blank">
-          📖 MANUAL
+          <i class="fa-solid fa-book"></i> MANUAL
         </a>
       </button>
     </div>
@@ -35,7 +35,12 @@
     <div id="player-h">
       <div id="theme-settings">
         <div>
-          <button id="theme-toggle" title="Change Theme">
+          <button class="icon" id="sidebar-toggle" title="Explorer">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+        </div>
+        <div id="theme-container">
+          <button class="icon" id="theme-toggle" title="Change Theme">
             <i class="fa-solid fa-paintbrush"></i>
           </button>
           <div id="themes">
@@ -46,22 +51,49 @@
             <button class="theme" id="ayu">Ayu</button>
           </div>
         </div>
-        <div></div>
       </div>
       <div id="data-type">
         <button> </button>
       </div>
       <div id="view-settings">
-        <button id="graph" title="Graph">
+        <button class="icon" id="graph" title="Graph">
           <i class="fa-solid fa-chart-simple"></i>
         </button>
-        <button id="table" title="Table">
+        <button class="icon" id="table" title="Table">
           <i class="fa-solid fa-table"></i>
         </button>
       </div>
     </div>
     <div id="canvas"></div>
-    <div id="controls"></div>
+    <div id="controls">
+      <div class="l">
+        <button class="icon" id="prev">
+          <i class="fa-solid fa-backward-step"></i>
+        </button>
+        <button class="icon" id="play">
+          <i class="fa-solid fa-play"></i>
+          <i class="fa-solid fa-pause"></i>
+        </button>
+        <button class="icon" id="next">
+          <i class="fa-solid fa-forward-step"></i>
+        </button>
+        <div id="volume-container">
+          <button class="icon" id="volume-button">
+            <i class="fa-solid fa-volume-low"></i>
+            <i class="fa-solid fa-volume-high"></i>
+            <i class="fa-solid fa-volume-xmark"></i>
+          </button>
+          <input id="volume-slider" type="range" min="0" max="100" step="5" value="100">
+        </div>
+        <div id="step-container"><input name="step" id="step" value="0"><code>/<span id="steps">0</span></code></div>
+      </div>
+      <div class="c">
+        <input id="step-slider" type="range" min="0" max="0" step="1" value="0">
+      </div>
+      <div class="r">
+        <button class="icon" id="fullscreen"><i class="fa-solid fa-expand"></i></button>
+      </div>
+    </div>
   </div>
 </body>
 
