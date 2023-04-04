@@ -8,6 +8,7 @@
 #include <stack>
 #include <queue>
 #include <list>
+#include <iostream>
 
 class space
 {
