@@ -8,10 +8,11 @@
 #include <stack>
 #include <queue>
 #include <list>
+#include <iostream>
 
 class space
 {
-private:
+public:
   space() { std::atexit(save); };
   ~space(){};
   space(const space &);
