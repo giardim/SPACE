@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>space::save() - space-manual</title>
+        <title>Tutorial - space-manual</title>
 
 
         <!-- Custom HTML head -->
@@ -81,7 +81,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="index.html">Introduction</a></li><li class="chapter-item expanded "><a href="installation.html"><strong aria-hidden="true">1.</strong> Installing Space</a></li><li class="chapter-item expanded "><a href="tutorial.html"><strong aria-hidden="true">2.</strong> Tutorial</a></li><li class="chapter-item expanded "><a href="examples.html"><strong aria-hidden="true">3.</strong> Examples</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="sorting-array.html"><strong aria-hidden="true">3.1.</strong> Sorting Array</a></li><li class="chapter-item expanded "><a href="indicies.html"><strong aria-hidden="true">3.2.</strong> Saving Indicies</a></li><li class="chapter-item expanded "><a href="sorting-2d.html"><strong aria-hidden="true">3.3.</strong> Sorting 2D Array</a></li><li class="chapter-item expanded "><a href="stack.html"><strong aria-hidden="true">3.4.</strong> Stack</a></li><li class="chapter-item expanded "><a href="queue.html"><strong aria-hidden="true">3.5.</strong> Queue</a></li><li class="chapter-item expanded "><a href="linked-list.html"><strong aria-hidden="true">3.6.</strong> Linked lists</a></li></ol></li><li class="chapter-item expanded "><a href="design.html"><strong aria-hidden="true">4.</strong> Design documents</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ui.html"><strong aria-hidden="true">4.1.</strong> UI/UX</a></li><li class="chapter-item expanded "><a href="output-file.html"><strong aria-hidden="true">4.2.</strong> data.json</a></li></ol></li><li class="chapter-item expanded "><a href="functions.html"><strong aria-hidden="true">5.</strong> Functions</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="space-sout.html"><strong aria-hidden="true">5.1.</strong> space::sout()</a></li><li class="chapter-item expanded "><a href="space-save.html" class="active"><strong aria-hidden="true">5.2.</strong> space::save()</a></li></ol></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="index.html">Introduction</a></li><li class="chapter-item expanded "><a href="installation.html"><strong aria-hidden="true">1.</strong> Installing Space</a></li><li class="chapter-item expanded "><a href="tutorial.html" class="active"><strong aria-hidden="true">2.</strong> Tutorial</a></li><li class="chapter-item expanded "><a href="examples.html"><strong aria-hidden="true">3.</strong> Examples</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="sorting-array.html"><strong aria-hidden="true">3.1.</strong> Sorting Array</a></li><li class="chapter-item expanded "><a href="indicies.html"><strong aria-hidden="true">3.2.</strong> Saving Indicies</a></li><li class="chapter-item expanded "><a href="sorting-2d.html"><strong aria-hidden="true">3.3.</strong> Sorting 2D Array</a></li><li class="chapter-item expanded "><a href="stack.html"><strong aria-hidden="true">3.4.</strong> Stack</a></li><li class="chapter-item expanded "><a href="queue.html"><strong aria-hidden="true">3.5.</strong> Queue</a></li><li class="chapter-item expanded "><a href="linked-list.html"><strong aria-hidden="true">3.6.</strong> Linked lists</a></li></ol></li><li class="chapter-item expanded "><a href="design.html"><strong aria-hidden="true">4.</strong> Design documents</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ui.html"><strong aria-hidden="true">4.1.</strong> UI/UX</a></li><li class="chapter-item expanded "><a href="output-file.html"><strong aria-hidden="true">4.2.</strong> data.json</a></li></ol></li><li class="chapter-item expanded "><a href="functions.html"><strong aria-hidden="true">5.</strong> Functions</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="space-sout.html"><strong aria-hidden="true">5.1.</strong> space::sout()</a></li><li class="chapter-item expanded "><a href="space-save.html"><strong aria-hidden="true">5.2.</strong> space::save()</a></li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -142,30 +142,64 @@
 
                 <div id="content" class="content">
                     <main>
-                        <pre><code>void space::save()
+                        <h1 id="tutorial"><a class="header" href="#tutorial">Tutorial</a></h1>
+<p>Lets get started using SPACE. After you have followed the installation 
+instructions, you should be ready to write your first program using SPACE! 
+Lets make a simple project to demonstrate how SPACE works.</p>
+<h3 id="simple-array"><a class="header" href="#simple-array">Simple Array</a></h3>
+<p>Here is a simple C++ program that creates an array of 7 elements.</p>
+<pre><code>#include &lt;iostream&gt;
+#include &quot;space.hpp&quot;
+
+int main() {
+	//Create array of 7 elements
+    int my_array[7] = {11, 20, 23, 4, 15, 6, 78};
+
+    //Call the space::sout function to output the array to data.json
+	space::sout(&quot;my_array&quot;, my_array, 7);
+
+    return 0;
+}
 </code></pre>
-<h3 id="example"><a class="header" href="#example">Example</a></h3>
-<p>N/A</p>
-<h3 id="description"><a class="header" href="#description">Description</a></h3>
-<p>A backend funciton that formats the memory stored by space::sout() as JSON and 
-outputs it to the file data.json.</p>
-<h4 id="future-design"><a class="header" href="#future-design">Future design</a></h4>
-<p>There is only one save function; space::sout() gets overloaded.</p>
-<h3 id="syntax"><a class="header" href="#syntax">Syntax</a></h3>
-<p>N/A</p>
-<h3 id="parameters"><a class="header" href="#parameters">Parameters</a></h3>
-<p>N/A</p>
-<h3 id="returns"><a class="header" href="#returns">Returns</a></h3>
-<p>N/A, it is a void function.</p>
+<p>First, we must #include the &quot;space.hpp&quot; file at the start of your program. 
+Doing this will allow you to use the space::sout() function. The 
+space::sout() function is the only function you will need to use to 
+visualize your programs with SPACE. </p>
+<p>What is the space::sout() function? The space::sout() function is a lot like 
+printf(). All it does is take the data structure you give it (in this case 
+a simple array of integers) and prints it out into a file. It also does 
+some formatting behind the scenes to get your data structure into JSON format, 
+but you don't need to think about that because its all automatic!</p>
+<p>In this program the space::sout() function takes three arguments:</p>
+<ol>
+<li>&quot;my_array&quot; is the string that your array will be named in the visualizer</li>
+<li>my_array is the array itself</li>
+<li>7 is the size of the array</li>
+</ol>
+<p>After compiling and running this program, you will find a data.json file 
+in your project directory. We will drag and drop this file into our browser 
+app.</p>
+<h3 id="browser-app"><a class="header" href="#browser-app">Browser App</a></h3>
+<p>To visuzalize the output of our demo program, open the index.html file from 
+the SPACE directory with a web browser like Firefox or Chrome. With your 
+file manager open, click and drag the data.json file into the browser window. </p>
+<p>Now lets take a tour of the browser app.</p>
+<p>explain browser app features with images and gifs</p>
+<p>In the next section we will look at some examples of different data 
+structures and sorting algorithms, and how you can use space::sout() to 
+visualize them.</p>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                            <a rel="prev" href="space-sout.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="installation.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
 
+                            <a rel="next" href="examples.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
 
                         <div style="clear: both"></div>
                     </nav>
@@ -173,10 +207,13 @@ outputs it to the file data.json.</p>
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                    <a rel="prev" href="space-sout.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="installation.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
 
+                    <a rel="next" href="examples.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
             </nav>
 
         </div>
