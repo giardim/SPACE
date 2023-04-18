@@ -4,6 +4,9 @@ class Array1D {
     this.step = 0;
     this.min = min(min(this.data.data[this.step]), 0);
     this.max = max(max(this.data.data[this.step]), 0);
+    this.oscillators = Array(this.data.data[this.step].length).fill().map(
+      () => new p5.Oscillator()
+    );
   }
 
   getStep() {
@@ -25,33 +28,48 @@ class Array1D {
     return this.setStep(this.getStep() + 1);
   }
 
+  sound(state) {
+    for (let i = 0; i < this.data.data[this.step].length; i++) {
+      this.oscillators[i][state ? 'start' : 'stop']();
+    }
+  }
+
   graph() {
     rectMode(CORNERS);
     textAlign(CENTER, BOTTOM);
+
     for (let i = 0; i < this.data.data[this.step].length; i++) {
       const D = this.data.data[this.step][i];
       const X0 = (i + 0.0) * width / this.data.data[this.step].length;
       const Y0 = map(0, this.min, this.max, height, 0);
       const X1 = (i + 1.0) * width / this.data.data[this.step].length;
       const Y1 = map(D, this.min, this.max, height, 0);
-      if (this.data.indices[this.step].some(index => index === i)) {
+
+      if (this.data.indices[this.step].some(index => index == i)) {
         fill(theme.sbg); stroke(theme.bg);
       } else {
         fill(theme.fg); stroke(theme.bg);
       }
       rect(X0, Y0, X1, Y1);
     }
+
+    for (let i = 0; i < this.data.data[this.step].length; i++) {
+      this.oscillators[i].amp(Number(this.data.indices[this.step].some(index => index == i)) * !controls.muted * controls.volume / 100);
+      this.oscillators[i].freq(constrain(map(i, 0, this.data.data[this.step].length - 1, FMIN, FMAX), FMIN, FMAX) | 0);
+    }
+
     for (let i = 0; i < this.data.data[this.step].length; i++) {
       const D = this.data.data[this.step][i];
       const X0 = (i + 0.0) * width / this.data.data[this.step].length;
       const Y0 = map(0, this.min, this.max, height, 0);
       const X1 = (i + 1.0) * width / this.data.data[this.step].length;
       const Y1 = map(D, this.min, this.max, height, 0);
+
       if (
         (X0 <= mouseX && mouseX <= X1 || X1 <= mouseX && mouseX <= X0) &&
         (Y0 <= mouseY && mouseY <= Y1 || Y1 <= mouseY && mouseY <= Y0)
       ) {
-        if (this.data.indices[this.step].some(index => index === i)) {
+        if (this.data.indices[this.step].some(index => index == i)) {
           fill(theme.fg); stroke(theme.sfg);
         } else {
           fill(theme.sbg); stroke(theme.sfg);
@@ -64,12 +82,14 @@ class Array1D {
   table() {
     rectMode(CENTER);
     textAlign(CENTER, CENTER);
+
     for (let i = 0; i < this.data.data[this.step].length; i++) {
       const D = this.data.data[this.step][i];
       const X = (i + 0.5) * width / this.data.data[this.step].length;
       const Y = height / 2;
       const S = width / this.data.data[this.step].length;
-      if (this.data.indices[this.step].some(index => index === i)) {
+
+      if (this.data.indices[this.step].some(index => index == i)) {
         fill(theme.sbg); stroke(theme.bg);
         square(X, Y, S);
         fill(theme.fg); stroke(theme.sfg);
@@ -80,6 +100,11 @@ class Array1D {
         fill(theme.sbg); stroke(theme.sfg);
         text(this.data.is_char ? String.fromCodePoint(D) : D, X, Y);
       }
+    }
+
+    for (let i = 0; i < this.data.data[this.step].length; i++) {
+      this.oscillators[i].amp(Number(this.data.indices[this.step].some(index => index == i)) * !controls.muted * controls.volume / 100);
+      this.oscillators[i].freq(constrain(map(i, 0, this.data.data[this.step].length - 1, FMIN, FMAX), FMIN, FMAX) | 0);
     }
   }
 }

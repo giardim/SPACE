@@ -1,6 +1,8 @@
 const controls = { play: 0, volume: 100 };
 const space = { Array1D, Array2D };
 const theme = {};
+const FMIN = 200;
+const FMAX = 2000;
 
 let data = {};
 let data_structure = {};
@@ -28,7 +30,6 @@ function setup() {
     localStorage.setItem('theme', $(this).attr('id'));
   });
   $(`#${localStorage.getItem('theme') || 'navy'}`).click();
-
   $('#view-settings button').click(function () {
     view = $(this).attr('id');
     $('#view-settings button').removeClass('active');
@@ -70,8 +71,10 @@ function setup() {
 
     if (controls.play) {
       $('#controls').attr('data-play', 0);
+      data_structure.sound(1);
     } else {
       $('#controls').attr('data-play', 1);
+      data_structure.sound(0);
     }
   });
   $('#next').click(() => data_structure.next());
@@ -140,11 +143,9 @@ function draw() {
   data_structure[view]?.();
   if (controls.play) {
     controls.play = data_structure.next?.();
-
-    if (controls.play) {
-      $('#controls').attr('data-play', 0);
-    } else {
+    if (!controls.play) {
       $('#controls').attr('data-play', 1);
+      data_structure.sound(0);
     }
   }
 }
