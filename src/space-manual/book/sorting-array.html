@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>space::save() - space-manual</title>
+        <title>Sorting Array - space-manual</title>
 
 
         <!-- Custom HTML head -->
@@ -81,7 +81,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="index.html">Introduction</a></li><li class="chapter-item expanded "><a href="installation.html"><strong aria-hidden="true">1.</strong> Installing Space</a></li><li class="chapter-item expanded "><a href="tutorial.html"><strong aria-hidden="true">2.</strong> Tutorial</a></li><li class="chapter-item expanded "><a href="examples.html"><strong aria-hidden="true">3.</strong> Examples</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="sorting-array.html"><strong aria-hidden="true">3.1.</strong> Sorting Array</a></li><li class="chapter-item expanded "><a href="indicies.html"><strong aria-hidden="true">3.2.</strong> Saving Indicies</a></li><li class="chapter-item expanded "><a href="sorting-2d.html"><strong aria-hidden="true">3.3.</strong> Sorting 2D Array</a></li><li class="chapter-item expanded "><a href="stack.html"><strong aria-hidden="true">3.4.</strong> Stack</a></li><li class="chapter-item expanded "><a href="queue.html"><strong aria-hidden="true">3.5.</strong> Queue</a></li><li class="chapter-item expanded "><a href="linked-list.html"><strong aria-hidden="true">3.6.</strong> Linked lists</a></li></ol></li><li class="chapter-item expanded "><a href="design.html"><strong aria-hidden="true">4.</strong> Design documents</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ui.html"><strong aria-hidden="true">4.1.</strong> UI/UX</a></li><li class="chapter-item expanded "><a href="output-file.html"><strong aria-hidden="true">4.2.</strong> data.json</a></li></ol></li><li class="chapter-item expanded "><a href="functions.html"><strong aria-hidden="true">5.</strong> Functions</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="space-sout.html"><strong aria-hidden="true">5.1.</strong> space::sout()</a></li><li class="chapter-item expanded "><a href="space-save.html" class="active"><strong aria-hidden="true">5.2.</strong> space::save()</a></li></ol></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="index.html">Introduction</a></li><li class="chapter-item expanded "><a href="installation.html"><strong aria-hidden="true">1.</strong> Installing Space</a></li><li class="chapter-item expanded "><a href="tutorial.html"><strong aria-hidden="true">2.</strong> Tutorial</a></li><li class="chapter-item expanded "><a href="examples.html"><strong aria-hidden="true">3.</strong> Examples</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="sorting-array.html" class="active"><strong aria-hidden="true">3.1.</strong> Sorting Array</a></li><li class="chapter-item expanded "><a href="indicies.html"><strong aria-hidden="true">3.2.</strong> Saving Indicies</a></li><li class="chapter-item expanded "><a href="sorting-2d.html"><strong aria-hidden="true">3.3.</strong> Sorting 2D Array</a></li><li class="chapter-item expanded "><a href="stack.html"><strong aria-hidden="true">3.4.</strong> Stack</a></li><li class="chapter-item expanded "><a href="queue.html"><strong aria-hidden="true">3.5.</strong> Queue</a></li><li class="chapter-item expanded "><a href="linked-list.html"><strong aria-hidden="true">3.6.</strong> Linked lists</a></li></ol></li><li class="chapter-item expanded "><a href="design.html"><strong aria-hidden="true">4.</strong> Design documents</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ui.html"><strong aria-hidden="true">4.1.</strong> UI/UX</a></li><li class="chapter-item expanded "><a href="output-file.html"><strong aria-hidden="true">4.2.</strong> data.json</a></li></ol></li><li class="chapter-item expanded "><a href="functions.html"><strong aria-hidden="true">5.</strong> Functions</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="space-sout.html"><strong aria-hidden="true">5.1.</strong> space::sout()</a></li><li class="chapter-item expanded "><a href="space-save.html"><strong aria-hidden="true">5.2.</strong> space::save()</a></li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -142,30 +142,101 @@
 
                 <div id="content" class="content">
                     <main>
-                        <pre><code>void space::save()
+                        <h1 id="sorting-array"><a class="header" href="#sorting-array">Sorting Array</a></h1>
+<p>Here is a simple C++ program that uses the 
+<a href="https://www.geeksforgeeks.org/bubble-sort/">bubble sort</a> 
+algorithm to sort an array of 12 elements. </p>
+<pre><code>#include &lt;iostream&gt;
+#include &lt;algorithm&gt;
+
+int main() {
+	int size = 12
+    int my_array[size] = {7, 4, 2, 1, 15, 3, 6, 11, 18, 13, 12, 5};
+
+    // Bubble sort algorithm
+    for (int i = 0; i &lt; size - 1; i++) {
+        for (int j = 0; j &lt; size - i - 1; j++) {
+            if (my_array[j] &gt; my_array[j + 1]) {
+            
+                // Swap elements using std::swap
+                std::swap(my_array[j], my_array[j + 1]);
+
+
+                
+            }
+        }
+    }
+
+    
+
+    return 0;
+}
 </code></pre>
-<h3 id="example"><a class="header" href="#example">Example</a></h3>
-<p>N/A</p>
-<h3 id="description"><a class="header" href="#description">Description</a></h3>
-<p>A backend funciton that formats the memory stored by space::sout() as JSON and 
-outputs it to the file data.json.</p>
-<h4 id="future-design"><a class="header" href="#future-design">Future design</a></h4>
-<p>There is only one save function; space::sout() gets overloaded.</p>
-<h3 id="syntax"><a class="header" href="#syntax">Syntax</a></h3>
-<p>N/A</p>
-<h3 id="parameters"><a class="header" href="#parameters">Parameters</a></h3>
-<p>N/A</p>
-<h3 id="returns"><a class="header" href="#returns">Returns</a></h3>
-<p>N/A, it is a void function.</p>
+<h3 id="using-spacesout-in-bubble-sort"><a class="header" href="#using-spacesout-in-bubble-sort">Using space::sout() in bubble sort</a></h3>
+<p>In the last page we established that we need to save the array every time 
+it changes. So lets see how we can do that in this bubble sort program.</p>
+<pre><code>#include &lt;iostream&gt;
+#include &lt;algorithm&gt;
+
+// First, we need to include space.hpp
+#include &quot;space.hpp&quot;
+
+int main() {
+	// Its a good idea to save the size of the array in a variable to 
+	// make your code easier to read and modify
+	int size = 12
+    int my_array[size] = {7, 4, 2, 1, 15, 3, 6, 11, 18, 13, 12, 5};
+
+    // Save the initial state of the array
+    space::sout(&quot;my_array&quot;, my_array, size);
+
+    // Bubble sort algorithm
+    for (int i = 0; i &lt; size - 1; i++) {
+        for (int j = 0; j &lt; size - i - 1; j++) {
+            if (my_array[j] &gt; my_array[j + 1]) {
+            
+                // Swap elements using std::swap
+                std::swap(my_array[j], my_array[j + 1]);
+
+                // Every time there is a swap, save the array again
+                space::sout(&quot;my_array&quot;, my_array, size);
+                
+            }
+        }
+    }
+
+    // Save the final state of the array
+    space::sout(&quot;my_array&quot;, my_array, size);
+
+    return 0;
+}
+</code></pre>
+<p>For a refresher on how to pass arguments to the space::sout() function 
+read the <a href="space-sout.html">space::sout</a> page in the manual.</p>
+<p>In the bubble sort program, we first call space::sout() right after we 
+create the array to save its initial state. Then we have another 
+space::sout() call if the bubble sort swaps two elements in the array. This 
+means that every time there is a swap, the state of the array will be 
+saved to the data.json file again. Finally, we call space::sout() at the 
+very end of the program to save the last state of the array.</p>
+<p>Compiling and running this program will produce a data.json file in your 
+project's directory. Drag that file into the browser app to visualize 
+how the sorting algorithm works.</p>
+<p>Cool right? Heck yeah! But we're not done yet. We can make it even better! 
+In the next page we will see how we can use space::sout() to save the 
+<em>indicies</em> of the sorting algorithm to make the visualizer even cooler.</p>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                            <a rel="prev" href="space-sout.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="examples.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
 
+                            <a rel="next" href="indicies.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
 
                         <div style="clear: both"></div>
                     </nav>
@@ -173,10 +244,13 @@ outputs it to the file data.json.</p>
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                    <a rel="prev" href="space-sout.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="examples.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
 
+                    <a rel="next" href="indicies.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
             </nav>
 
         </div>

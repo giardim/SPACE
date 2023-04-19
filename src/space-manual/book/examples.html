@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>space::save() - space-manual</title>
+        <title>Examples - space-manual</title>
 
 
         <!-- Custom HTML head -->
@@ -81,7 +81,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="index.html">Introduction</a></li><li class="chapter-item expanded "><a href="installation.html"><strong aria-hidden="true">1.</strong> Installing Space</a></li><li class="chapter-item expanded "><a href="tutorial.html"><strong aria-hidden="true">2.</strong> Tutorial</a></li><li class="chapter-item expanded "><a href="examples.html"><strong aria-hidden="true">3.</strong> Examples</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="sorting-array.html"><strong aria-hidden="true">3.1.</strong> Sorting Array</a></li><li class="chapter-item expanded "><a href="indicies.html"><strong aria-hidden="true">3.2.</strong> Saving Indicies</a></li><li class="chapter-item expanded "><a href="sorting-2d.html"><strong aria-hidden="true">3.3.</strong> Sorting 2D Array</a></li><li class="chapter-item expanded "><a href="stack.html"><strong aria-hidden="true">3.4.</strong> Stack</a></li><li class="chapter-item expanded "><a href="queue.html"><strong aria-hidden="true">3.5.</strong> Queue</a></li><li class="chapter-item expanded "><a href="linked-list.html"><strong aria-hidden="true">3.6.</strong> Linked lists</a></li></ol></li><li class="chapter-item expanded "><a href="design.html"><strong aria-hidden="true">4.</strong> Design documents</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ui.html"><strong aria-hidden="true">4.1.</strong> UI/UX</a></li><li class="chapter-item expanded "><a href="output-file.html"><strong aria-hidden="true">4.2.</strong> data.json</a></li></ol></li><li class="chapter-item expanded "><a href="functions.html"><strong aria-hidden="true">5.</strong> Functions</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="space-sout.html"><strong aria-hidden="true">5.1.</strong> space::sout()</a></li><li class="chapter-item expanded "><a href="space-save.html" class="active"><strong aria-hidden="true">5.2.</strong> space::save()</a></li></ol></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="index.html">Introduction</a></li><li class="chapter-item expanded "><a href="installation.html"><strong aria-hidden="true">1.</strong> Installing Space</a></li><li class="chapter-item expanded "><a href="tutorial.html"><strong aria-hidden="true">2.</strong> Tutorial</a></li><li class="chapter-item expanded "><a href="examples.html" class="active"><strong aria-hidden="true">3.</strong> Examples</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="sorting-array.html"><strong aria-hidden="true">3.1.</strong> Sorting Array</a></li><li class="chapter-item expanded "><a href="indicies.html"><strong aria-hidden="true">3.2.</strong> Saving Indicies</a></li><li class="chapter-item expanded "><a href="sorting-2d.html"><strong aria-hidden="true">3.3.</strong> Sorting 2D Array</a></li><li class="chapter-item expanded "><a href="stack.html"><strong aria-hidden="true">3.4.</strong> Stack</a></li><li class="chapter-item expanded "><a href="queue.html"><strong aria-hidden="true">3.5.</strong> Queue</a></li><li class="chapter-item expanded "><a href="linked-list.html"><strong aria-hidden="true">3.6.</strong> Linked lists</a></li></ol></li><li class="chapter-item expanded "><a href="design.html"><strong aria-hidden="true">4.</strong> Design documents</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ui.html"><strong aria-hidden="true">4.1.</strong> UI/UX</a></li><li class="chapter-item expanded "><a href="output-file.html"><strong aria-hidden="true">4.2.</strong> data.json</a></li></ol></li><li class="chapter-item expanded "><a href="functions.html"><strong aria-hidden="true">5.</strong> Functions</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="space-sout.html"><strong aria-hidden="true">5.1.</strong> space::sout()</a></li><li class="chapter-item expanded "><a href="space-save.html"><strong aria-hidden="true">5.2.</strong> space::save()</a></li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -142,30 +142,135 @@
 
                 <div id="content" class="content">
                     <main>
-                        <pre><code>void space::save()
+                        <h1 id="examples"><a class="header" href="#examples">Examples</a></h1>
+<p>So we know that space::sout() works kind of like printf() or std::cout, 
+but how does that effect how we use it? Well lets imagine that we were 
+just using std::cout to figure out what our data structures look like. 
+To print an array with std::cout we need to use a for loop.</p>
+<pre><code>#include &lt;iostream&gt;
+
+int main() {
+	
+	// Create our array
+	int my_array[7] = {1, 2, 3, 4, 5, 6, 7};
+	
+	// Print array to std::out
+	for (int i = 0; i &lt; 7; i++) {
+		std::cout &lt;&lt; my_array[i] &lt;&lt; &quot; &quot;;
+    }
+	
+    std::cout &lt;&lt; std::endl;
+	
+	return 0;
+}
 </code></pre>
-<h3 id="example"><a class="header" href="#example">Example</a></h3>
-<p>N/A</p>
-<h3 id="description"><a class="header" href="#description">Description</a></h3>
-<p>A backend funciton that formats the memory stored by space::sout() as JSON and 
-outputs it to the file data.json.</p>
-<h4 id="future-design"><a class="header" href="#future-design">Future design</a></h4>
-<p>There is only one save function; space::sout() gets overloaded.</p>
-<h3 id="syntax"><a class="header" href="#syntax">Syntax</a></h3>
-<p>N/A</p>
-<h3 id="parameters"><a class="header" href="#parameters">Parameters</a></h3>
-<p>N/A</p>
-<h3 id="returns"><a class="header" href="#returns">Returns</a></h3>
-<p>N/A, it is a void function.</p>
+<p>Output: </p>
+<pre><code>1 2 3 4 5 6 7
+</code></pre>
+<p>The for loop goes through every element of the array starting at my_array[0] 
+up to my_array[6] with a &quot; &quot; space in between each element. It prints 
+every element in the array because programmer hard coded the size of the 
+array to be 7 <em>and</em> the number of iterations of the for loop to also be 7. 
+If the loop had 4 instead of 7 in its condition then it would only 
+print 4 elements. As you can see, to print out <em>every</em> element of the array, 
+we need to know the <em>size</em> of the array. This same principle applies to 
+space::sout(), which is why you need to pass in the size of your data 
+structure as an argument. </p>
+<p>This works for an array that doesn't change, but what if we modify it 
+after we print it?</p>
+<pre><code>#include &lt;iostream&gt;
+
+int main() {
+	
+	// Create our array
+	int my_array[7] = {1, 2, 3, 4, 5, 6, 7};
+	
+	// Print array to std::out
+	for (int i = 0; i &lt; 7; i++) {
+		std::cout &lt;&lt; my_array[i] &lt;&lt; &quot; &quot;;
+    }
+	
+    std::cout &lt;&lt; std::endl;
+	
+    my_array[0] = 200; // Change the 1 in the array to 200
+	
+	return 0;
+}
+</code></pre>
+<p>Output: </p>
+<pre><code>1 2 3 4 5 6 7
+</code></pre>
+<p>Obviously, we are still printing out the array as it was originally because 
+after we update the array to turn 1 into 200, we dont print it again. Lets 
+fix that.</p>
+<pre><code>#include &lt;iostream&gt;
+
+int main() {
+	
+	// Create our array
+	int my_array[7] = {1, 2, 3, 4, 5, 6, 7};
+	
+	// Print array to std::out
+	for (int i = 0; i &lt; 7; i++) {
+		std::cout &lt;&lt; my_array[i] &lt;&lt; &quot; &quot;;
+    }
+	
+    std::cout &lt;&lt; std::endl;
+	
+    my_array[0] = 200; // Change the 1 in the array to 200
+
+	// Print array to std::out AGAIN after we change it
+	for (int i = 0; i &lt; 7; i++) {
+		std::cout &lt;&lt; my_array[i] &lt;&lt; &quot; &quot;;
+	 }
+			
+	 std::cout &lt;&lt; std::endl;
+		    
+	return 0;
+}
+</code></pre>
+<p>Output:</p>
+<pre><code>1 2 3 4 5 6 7
+200 2 3 4 5 6 7
+</code></pre>
+<p>That makes sense, every time we update our array we need to print it again. 
+Now instead of using for loops and std::cout to visualize the array, lets 
+use space::sout().</p>
+<pre><code>#include &lt;iostream&gt;
+#include &quot;space.hpp&quot;
+
+int main() {
+	
+	// Create our array
+	int my_array[7] = {1, 2, 3, 4, 5, 6, 7};
+	
+	// Save the array to the data.json file
+	space::sout(&quot;my array&quot; my_array, 7);
+	
+    my_array[0] = 200; // Change the 1 in the array to 200
+
+	// Save the array AGAIN after we change it
+	space::sout(&quot;my array&quot; my_array, 7);
+		    
+	return 0;
+}
+</code></pre>
+<p>Just like how we needed to print the array after every update, with 
+space::sout() we need to save the array after every update.</p>
+<p>In the next section we will use space::sout() in some more interesting 
+programs like sorting algorithms.</p>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                            <a rel="prev" href="space-sout.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="tutorial.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
 
+                            <a rel="next" href="sorting-array.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
 
                         <div style="clear: both"></div>
                     </nav>
@@ -173,10 +278,13 @@ outputs it to the file data.json.</p>
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                    <a rel="prev" href="space-sout.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="tutorial.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
 
+                    <a rel="next" href="sorting-array.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
             </nav>
 
         </div>

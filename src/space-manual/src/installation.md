@@ -1,14 +1,4 @@
-# SPACE Data Structure Visualizer
-
-This project will help students in the Data Structures and Algorithms class at SUNY Poly.
-SPACE is a project that visualizes data structures and algorithms. The 
-project has two parts:
-
-1. A C++ header file that the user must #include in their program
-2. A browser app that does visualizations by reading a data file produced 
-by the C++ header
-
-### Installation 
+# Installation 
 
 1. Go to https://github.com/giardim/SPACE
 2. Click the green button labeled "Code"
