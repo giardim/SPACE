@@ -1580,7 +1580,7 @@ public:
     dstream << "[";
     for (int i = 0; i < initSize; i++)
     {
-      dstream << "[" << -1 << ", " << -1 << "]";
+      dstream << queue.front() << (i < initSize - 1 ? ", " : "");
       queue.pop();
     }
     dstream << "]";
@@ -1599,7 +1599,7 @@ public:
     dstream << "[";
     for (int i = 0; i < initSize; i++)
     {
-      dstream << "[" << -1 << ", " << -1 << "]";
+      dstream << queue.front() << (i < initSize - 1 ? ", " : "");
       queue.pop();
     }
     dstream << "]";
@@ -1618,7 +1618,7 @@ public:
     dstream << "[";
     for (int i = 0; i < initSize; i++)
     {
-      dstream << "[" << -1 << ", " << -1 << "]";
+      dstream << queue.front() << (i < initSize - 1 ? ", " : "");
       queue.pop();
     }
     dstream << "]";
@@ -1637,7 +1637,7 @@ public:
     dstream << "[";
     for (int i = 0; i < initSize; i++)
     {
-      dstream << "[" << -1 << ", " << -1 << "]";
+      dstream << queue.front() << (i < initSize - 1 ? ", " : "");
       queue.pop();
     }
     dstream << "]";
