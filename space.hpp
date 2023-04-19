@@ -1778,6 +1778,25 @@ public:
     data[name]["data"] += "      " + dstream.str() + ",\n";
   }
 
+  static void sout(std::string name, std::list<wchar_t> list)
+  {
+    int initSize = list.size();
+    data[name]["type"] = "list";
+    data[name]["is_char"] = "1";
+    istream.str();
+    istream << "[" << -1 << ", " << -1 << "]";
+    dstream.str("");
+    dstream << "[";
+    for (int i = 0; i < initSize; i++)
+    {
+      dstream << (int)list.front() << (i < initSize - 1 ? ", " : "");
+      list.pop_front();
+    }
+    dstream << "]";
+    data[name]["indices"] += "      " + istream.str() + ",\n";
+    data[name]["data"] += "      " + dstream.str() + ",\n";
+  }
+
   static void sout(std::string name, std::vector<int> vector)
   {
     int initSize = vector.size();
