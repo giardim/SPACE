@@ -147,8 +147,24 @@
 we are going to tell it the indicies of the sorting algorithm at every 
 step.</p>
 <h3 id="what-are-indicies"><a class="header" href="#what-are-indicies">What are indicies?</a></h3>
-<p>Indicies are the values that contain the index of the item that you are 
-looking at. <strong>Add a better explanation here</strong></p>
+<p>The word indicies is the plural of the word index. An index is a number that 
+uniquely identifies an element in an array. For example in the array </p>
+<pre><code>example_array[3] = {22, 33, 44};
+</code></pre>
+<p>22 has an index of 0, 33 has an index of 1, and 44 has an index of 2.
+So if we want to get see what the first element of this array is, we cant 
+do</p>
+<pre><code>std::cout &lt;&lt; example_array[0];
+</code></pre>
+<p>And we will get 22 as the output.</p>
+<h3 id="how-do-we-use-indicies"><a class="header" href="#how-do-we-use-indicies">How do we use indicies</a></h3>
+<p>In our bubble sort program, we compare two elements in the array to see if 
+they are in the correct order. The two elements we compare are always next 
+to each other. So if we are comparing the element at index 5, then we must 
+be comparing it with the element at index 6. We can represent this 
+relationship with variables like this: we are always comparing j with j+1. </p>
+<p>SPACE can save the indicies you are comparing in addition to the data 
+structure. Take a look at the example code to see how we do this.</p>
 <pre><code>#include &lt;iostream&gt;
 #include &lt;algorithm&gt;
 
@@ -156,21 +172,22 @@ looking at. <strong>Add a better explanation here</strong></p>
 #include &quot;space.hpp&quot;
 
 int main() {
-	// Its a good idea to save the size of the array in a variable to 
-	// make your code easier to read and modify
+
 	int size = 12
     int my_array[size] = {7, 4, 2, 1, 15, 3, 6, 11, 18, 13, 12, 5};
 
     // Save the initial state of the array
     space::sout(&quot;my_array&quot;, my_array, size);
 
-    //Hey michael do they need to include indicies in the first call
-    //here like 0,0 or is it ok to leave them out?
-
     // Bubble sort algorithm
     for (int i = 0; i &lt; size - 1; i++) {
         for (int j = 0; j &lt; size - i - 1; j++) {
 
+			/* Hey look! There are two new arguements being passed
+			 * to the space::sout() function after size.
+			 * j and j+1 are the two indicies of the array that the 
+			 *  bubble sort is comparing.
+			 */
 			space::sout(&quot;my_array&quot;, my_array, size, j, j+1);
         
             if (my_array[j] &gt; my_array[j + 1]) {
@@ -191,7 +208,15 @@ int main() {
     return 0;
 }
 </code></pre>
-<p>Here you can see that i havent finished this page yet but i will someday.</p>
+<p>Lets break down how we call space::sout() to save the data structure 
+<em>and</em> the indicies of the sorting algorithm.</p>
+<blockquote>
+<p>space::sout(&quot;my_array&quot;, my_array, size, j, j+1);</p>
+</blockquote>
+<p>The indicies j and j+1 are passed as arguements into the function after 
+size. The order of arguements matters when using SPACE, so check the 
+<a href="space-sout.html">space::sout()</a> documentation to make sure you use it 
+correctly.</p>
 
                     </main>
 
@@ -222,6 +247,22 @@ int main() {
 
         </div>
 
+        <!-- Livereload script (if served using the cli tool) -->
+        <script>
+            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
+            const socket = new WebSocket(wsAddress);
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
 
 
 

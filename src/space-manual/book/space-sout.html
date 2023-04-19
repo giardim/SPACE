@@ -144,19 +144,27 @@
                     <main>
                         <pre><code>void space::sout()
 </code></pre>
-<h3 id="example"><a class="header" href="#example">Example</a></h3>
+<h3 id="examples"><a class="header" href="#examples">Examples</a></h3>
+<h4 id="array"><a class="header" href="#array">Array</a></h4>
 <pre><code>int array_size = 3;
-int joke[array_size] = [6,7,8,9];
+int joke[array_size] = {6,7,8,9};
 space::sout(&quot;joke&quot;, joke, array_size);
 </code></pre>
+<h4 id="array-with-indicies-of-sorting-algorithm"><a class="header" href="#array-with-indicies-of-sorting-algorithm">Array with indicies of sorting algorithm</a></h4>
+<pre><code>space::sout(&quot;joke&quot;, joke, array_size, i, j);
+</code></pre>
+<blockquote>
+<p>See the <a href="examples.html">Examples</a> chapter for more detailed examples with more data structures.</p>
+</blockquote>
 <h3 id="description"><a class="header" href="#description">Description</a></h3>
-<p>Stores the data structure to memory AS IS (just like std::cout) 
+<p>Stores the data structure to memory <strong>as is</strong> (just like std::cout) 
 If you modify the data structure you must call space::sout() again if you 
 want to save the updated structure. At the end of your program the stored 
 memory will be outout to the data.json file.</p>
 <h3 id="syntax"><a class="header" href="#syntax">Syntax</a></h3>
-<pre><code>space::sout(STRING name_of_array, INT array, INT size_of_array);
+<pre><code>space::sout(STRING name_of_data_structure, data_structure, INT size_of_data_structure);
 </code></pre>
+<p>data_structure may be of any type aside from string.</p>
 <h3 id="parameters"><a class="header" href="#parameters">Parameters</a></h3>
 <pre><code>space::sout(
 STRING name_of_array, /* if your array is named &quot;joke&quot; pass in &quot;joke&quot; as a string in double quotes */
@@ -195,6 +203,22 @@ INT size_of_array /* pass in the size of the array */
 
         </div>
 
+        <!-- Livereload script (if served using the cli tool) -->
+        <script>
+            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
+            const socket = new WebSocket(wsAddress);
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
 
 
 

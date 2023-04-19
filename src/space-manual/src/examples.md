@@ -1,6 +1,6 @@
 # Examples
 
-So we know that space::sout() works kind of like printf() or std::cout, 
+We know that space::sout() works kind of like printf() or std::cout, 
 but how does that effect how we use it? Well lets imagine that we were 
 just using std::cout to figure out what our data structures look like. 
 To print an array with std::cout we need to use a for loop.

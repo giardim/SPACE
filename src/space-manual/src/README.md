@@ -10,7 +10,7 @@ by the C++ header
 
 ### Installation 
 
-1. Go to https://github.com/giardim/SPACE
+1. Go to [https://github.com/giardim/SPACE](https://github.com/giardim/SPACE)
 2. Click the green button labeled "Code"
 3. Click download zip 
 4. Right click the zip file in your downloads folder

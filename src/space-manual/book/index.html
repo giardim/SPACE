@@ -153,7 +153,7 @@ by the C++ header</li>
 </ol>
 <h3 id="installation"><a class="header" href="#installation">Installation</a></h3>
 <ol>
-<li>Go to https://github.com/giardim/SPACE</li>
+<li>Go to <a href="https://github.com/giardim/SPACE">https://github.com/giardim/SPACE</a></li>
 <li>Click the green button labeled &quot;Code&quot;</li>
 <li>Click download zip </li>
 <li>Right click the zip file in your downloads folder</li>
@@ -192,6 +192,22 @@ on using SPACE</li>
 
         </div>
 
+        <!-- Livereload script (if served using the cli tool) -->
+        <script>
+            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
+            const socket = new WebSocket(wsAddress);
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
 
 
 
