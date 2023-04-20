@@ -1223,12 +1223,12 @@ public:
       fixedType += char(std::tolower(type[i]));
     }
 
-    while (fixedType != "stack" && fixedType != "queue" && fixedType != "dequeue")
+    while (fixedType != "stack" && fixedType != "queue" && fixedType != "deque")
     {
       fixedType = "";
       type = "";
       std::cout << "You did not enter a valid data structure, please indicate if you are visualizing";
-      std::cout << "a 'stack', 'queue', or 'dequeue': ";
+      std::cout << "a 'stack', 'queue', or 'deque': ";
       std::cin >> fixedType;
 
       for (size_t i = 0; i < type.length(); ++i)
@@ -1263,12 +1263,12 @@ public:
       fixedType += char(std::tolower(type[i]));
     }
 
-    while (fixedType != "stack" && fixedType != "queue" && fixedType != "dequeue")
+    while (fixedType != "stack" && fixedType != "queue" && fixedType != "deque")
     {
       fixedType = "";
       type = "";
       std::cout << "You did not enter a valid data structure, please indicate if you are visualizing";
-      std::cout << "a 'stack', 'queue', or 'dequeue': ";
+      std::cout << "a 'stack', 'queue', or 'deque': ";
       std::cin >> fixedType;
 
       for (size_t i = 0; i < type.length(); ++i)
@@ -1303,12 +1303,12 @@ public:
       fixedType += char(std::tolower(type[i]));
     }
 
-    while (fixedType != "stack" && fixedType != "queue" && fixedType != "dequeue")
+    while (fixedType != "stack" && fixedType != "queue" && fixedType != "deque")
     {
       fixedType = "";
       type = "";
       std::cout << "You did not enter a valid data structure, please indicate if you are visualizing";
-      std::cout << "a 'stack', 'queue', or 'dequeue': ";
+      std::cout << "a 'stack', 'queue', or 'deque': ";
       std::cin >> fixedType;
 
       for (size_t i = 0; i < type.length(); ++i)
@@ -1343,12 +1343,12 @@ public:
       fixedType += char(std::tolower(type[i]));
     }
 
-    while (fixedType != "stack" && fixedType != "queue" && fixedType != "dequeue")
+    while (fixedType != "stack" && fixedType != "queue" && fixedType != "deque")
     {
       fixedType = "";
       type = "";
       std::cout << "You did not enter a valid data structure, please indicate if you are visualizing";
-      std::cout << "a 'stack', 'queue', or 'dequeue': ";
+      std::cout << "a 'stack', 'queue', or 'deque': ";
       std::cin >> fixedType;
 
       for (size_t i = 0; i < type.length(); ++i)
@@ -1383,12 +1383,12 @@ public:
       fixedType += char(std::tolower(type[i]));
     }
 
-    while (fixedType != "stack" && fixedType != "queue" && fixedType != "dequeue")
+    while (fixedType != "stack" && fixedType != "queue" && fixedType != "deque")
     {
       fixedType = "";
       type = "";
       std::cout << "You did not enter a valid data structure, please indicate if you are visualizing";
-      std::cout << "a 'stack', 'queue', or 'dequeue': ";
+      std::cout << "a 'stack', 'queue', or 'deque': ";
       std::cin >> fixedType;
 
       for (size_t i = 0; i < type.length(); ++i)
@@ -1423,12 +1423,12 @@ public:
       fixedType += char(std::tolower(type[i]));
     }
 
-    while (fixedType != "stack" && fixedType != "queue" && fixedType != "dequeue")
+    while (fixedType != "stack" && fixedType != "queue" && fixedType != "deque")
     {
       fixedType = "";
       type = "";
       std::cout << "You did not enter a valid data structure, please indicate if you are visualizing";
-      std::cout << "a 'stack', 'queue', or 'dequeue': ";
+      std::cout << "a 'stack', 'queue', or 'deque': ";
       std::cin >> fixedType;
 
       for (size_t i = 0; i < type.length(); ++i)
