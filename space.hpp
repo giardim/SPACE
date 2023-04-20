@@ -10,6 +10,7 @@
 #include <sstream>
 #include <stack>
 #include <vector>
+#include <set>
 
 class space
 {
@@ -1190,6 +1191,7 @@ public:
   template <typename T>
   static void sout(std::string name, T &&t)
   {
+    std::set<int> addresses;
     data[name]["type"] = "LinkedList";
     data[name]["is_char"] = "0";
     istream.str("");
@@ -1204,8 +1206,9 @@ public:
             << "\n"
             << "      "
             << "]\n]";
-    while (t->next != NULL)
+    while (t->next != NULL || !addresses.count((int)t))
     {
+      addresses.insert((int)t);
       dstream << "[\"" << t << "\",\"" << t->val << "\",\"" << t->next << (t->next->next == NULL ? "\"]" : "\"],");
       t = t->next;
     }
@@ -2023,7 +2026,7 @@ public:
   static void sout(std::string name, std::vector<std::vector<wchar_t>> vector)
   {
     data[name]["type"] = "2DVector";
-    data[name]["is_char"] = "0";
+    data[name]["is_char"] = "1";
     istream.str();
     istream << "[" << -1 << ", " << -1 << "]";
     dstream.str("");
