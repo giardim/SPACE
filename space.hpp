@@ -1206,9 +1206,11 @@ public:
             << "\n"
             << "      "
             << "]\n]";
-    while (t->next != NULL || !addresses.count((int)t))
+    while (t->next != NULL)
     {
-      addresses.insert((int)t);
+      if (!addresses.count((int)t))
+        addresses.insert((int)t);
+      std::cout << (int)t << "\n";
       dstream << "[\"" << t << "\",\"" << t->val << "\",\"" << t->next << (t->next->next == NULL ? "\"]" : "\"],");
       t = t->next;
     }
