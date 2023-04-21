@@ -1539,7 +1539,7 @@ public:
     int initSize = stack.size();
     data[name]["type"] = "stack";
     data[name]["is_char"] = "1";
-    istream.str();
+    istream.str("");
     istream << "[" << -1 << ", " << -1 << "]";
     dstream.str("");
     dstream << "[";
@@ -1558,7 +1558,7 @@ public:
     int initSize = stack.size();
     data[name]["type"] = "stack";
     data[name]["is_char"] = "1";
-    istream.str();
+    istream.str("");
     istream << "[" << -1 << ", " << -1 << "]";
     dstream.str("");
     dstream << "[";
@@ -1577,7 +1577,7 @@ public:
     int initSize = queue.size();
     data[name]["type"] = "queue";
     data[name]["is_char"] = "0";
-    istream.str();
+    istream.str("");
     istream << "[" << -1 << ", " << -1 << "]";
     dstream.str("");
     dstream << "[";
@@ -1596,7 +1596,7 @@ public:
     int initSize = queue.size();
     data[name]["type"] = "queue";
     data[name]["is_char"] = "0";
-    istream.str();
+    istream.str("");
     istream << "[" << -1 << ", " << -1 << "]";
     dstream.str("");
     dstream << "[";
@@ -1615,7 +1615,7 @@ public:
     int initSize = queue.size();
     data[name]["type"] = "queue";
     data[name]["is_char"] = "0";
-    istream.str();
+    istream.str("");
     istream << "[" << -1 << ", " << -1 << "]";
     dstream.str("");
     dstream << "[";
@@ -1634,7 +1634,7 @@ public:
     int initSize = queue.size();
     data[name]["type"] = "queue";
     data[name]["is_char"] = "0";
-    istream.str();
+    istream.str("");
     istream << "[" << -1 << ", " << -1 << "]";
     dstream.str("");
     dstream << "[";
@@ -1653,7 +1653,7 @@ public:
     int initSize = queue.size();
     data[name]["type"] = "queue";
     data[name]["is_char"] = "1";
-    istream.str();
+    istream.str("");
     istream << "[" << -1 << ", " << -1 << "]";
     dstream.str("");
     dstream << "[";
@@ -1672,7 +1672,7 @@ public:
     int initSize = queue.size();
     data[name]["type"] = "queue";
     data[name]["is_char"] = "1";
-    istream.str();
+    istream.str("");
     istream << "[" << -1 << ", " << -1 << "]";
     dstream.str("");
     dstream << "[";
@@ -1691,7 +1691,7 @@ public:
     int initSize = list.size();
     data[name]["type"] = "list";
     data[name]["is_char"] = "0";
-    istream.str();
+    istream.str("");
     istream << "[" << -1 << ", " << -1 << "]";
     dstream.str("");
     dstream << "[";
@@ -1710,7 +1710,7 @@ public:
     int initSize = list.size();
     data[name]["type"] = "list";
     data[name]["is_char"] = "0";
-    istream.str();
+    istream.str("");
     istream << "[" << -1 << ", " << -1 << "]";
     dstream.str("");
     dstream << "[";
@@ -1729,7 +1729,7 @@ public:
     int initSize = list.size();
     data[name]["type"] = "list";
     data[name]["is_char"] = "0";
-    istream.str();
+    istream.str("");
     istream << "[" << -1 << ", " << -1 << "]";
     dstream.str("");
     dstream << "[";
@@ -1748,7 +1748,7 @@ public:
     int initSize = list.size();
     data[name]["type"] = "list";
     data[name]["is_char"] = "0";
-    istream.str();
+    istream.str("");
     istream << "[" << -1 << ", " << -1 << "]";
     dstream.str("");
     dstream << "[";
@@ -1767,7 +1767,7 @@ public:
     int initSize = list.size();
     data[name]["type"] = "list";
     data[name]["is_char"] = "1";
-    istream.str();
+    istream.str("");
     istream << "[" << -1 << ", " << -1 << "]";
     dstream.str("");
     dstream << "[";
@@ -1786,7 +1786,7 @@ public:
     int initSize = list.size();
     data[name]["type"] = "list";
     data[name]["is_char"] = "1";
-    istream.str();
+    istream.str("");
     istream << "[" << -1 << ", " << -1 << "]";
     dstream.str("");
     dstream << "[";
@@ -1805,7 +1805,7 @@ public:
     int initSize = vector.size();
     data[name]["type"] = "1DVector";
     data[name]["is_char"] = "0";
-    istream.str();
+    istream.str("");
     istream << "[" << -1 << ", " << -1 << "]";
     dstream.str("");
     dstream << "[";
@@ -1823,7 +1823,7 @@ public:
     int initSize = vector.size();
     data[name]["type"] = "1DVector";
     data[name]["is_char"] = "0";
-    istream.str();
+    istream.str("");
     istream << "[" << -1 << ", " << -1 << "]";
     dstream.str("");
     dstream << "[";
@@ -1841,7 +1841,7 @@ public:
     int initSize = vector.size();
     data[name]["type"] = "1DVector";
     data[name]["is_char"] = "0";
-    istream.str();
+    istream.str("");
     istream << "[" << -1 << ", " << -1 << "]";
     dstream.str("");
     dstream << "[";
@@ -1859,7 +1859,7 @@ public:
     int initSize = vector.size();
     data[name]["type"] = "1DVector";
     data[name]["is_char"] = "0";
-    istream.str();
+    istream.str("");
     istream << "[" << -1 << ", " << -1 << "]";
     dstream.str("");
     dstream << "[";
@@ -1877,7 +1877,7 @@ public:
     int initSize = vector.size();
     data[name]["type"] = "1DVector";
     data[name]["is_char"] = "1";
-    istream.str();
+    istream.str("");
     istream << "[" << -1 << ", " << -1 << "]";
     dstream.str("");
     dstream << "[";
@@ -1895,7 +1895,7 @@ public:
     int initSize = vector.size();
     data[name]["type"] = "1DVector";
     data[name]["is_char"] = "1";
-    istream.str();
+    istream.str("");
     istream << "[" << -1 << ", " << -1 << "]";
     dstream.str("");
     dstream << "[";
@@ -1912,7 +1912,7 @@ public:
   {
     data[name]["type"] = "2DVector";
     data[name]["is_char"] = "0";
-    istream.str();
+    istream.str("");
     istream << "[" << -1 << ", " << -1 << "]";
     dstream.str("");
     dstream << "[";
@@ -1935,7 +1935,7 @@ public:
   {
     data[name]["type"] = "2DVector";
     data[name]["is_char"] = "0";
-    istream.str();
+    istream.str("");
     istream << "[" << -1 << ", " << -1 << "]";
     dstream.str("");
     dstream << "[";
@@ -1958,7 +1958,7 @@ public:
   {
     data[name]["type"] = "2DVector";
     data[name]["is_char"] = "0";
-    istream.str();
+    istream.str("");
     istream << "[" << -1 << ", " << -1 << "]";
     dstream.str("");
     dstream << "[";
@@ -1981,7 +1981,7 @@ public:
   {
     data[name]["type"] = "2DVector";
     data[name]["is_char"] = "0";
-    istream.str();
+    istream.str("");
     istream << "[" << -1 << ", " << -1 << "]";
     dstream.str("");
     dstream << "[";
@@ -2004,7 +2004,7 @@ public:
   {
     data[name]["type"] = "2DVector";
     data[name]["is_char"] = "1";
-    istream.str();
+    istream.str("");
     istream << "[" << -1 << ", " << -1 << "]";
     dstream.str("");
     dstream << "[";
@@ -2027,7 +2027,7 @@ public:
   {
     data[name]["type"] = "2DVector";
     data[name]["is_char"] = "1";
-    istream.str();
+    istream.str("");
     istream << "[" << -1 << ", " << -1 << "]";
     dstream.str("");
     dstream << "[";
