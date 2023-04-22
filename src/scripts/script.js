@@ -1,8 +1,6 @@
-const controls = { play: 0, volume: 100 };
+const controls = { play: 0 };
 const space = { Array1D, Array2D };
 const theme = {};
-const FMIN = 200;
-const FMAX = 2000;
 
 let data = {};
 let data_structure = {};
@@ -66,51 +64,8 @@ function setup() {
   });
 
   $('#prev').click(() => data_structure.prev());
-  $('#play').click(() => {
-    controls.play = !controls.play;
-
-    if (controls.play) {
-      $('#controls').attr('data-play', 0);
-      data_structure.sound(1);
-    } else {
-      $('#controls').attr('data-play', 1);
-      data_structure.sound(0);
-    }
-  });
+  $('#play').click(() => $('#controls').attr('data-play', Number(!(controls.play = !controls.play))));
   $('#next').click(() => data_structure.next());
-  $('#volume-button').click(() => {
-    controls.muted = !controls.muted;
-
-    if (controls.volume > 00) {
-      $('#controls').attr('data-volume', 'low');
-      $('#volume-slider').val(controls.volume);
-    }
-    if (controls.volume > 50) {
-      $('#controls').attr('data-volume', 'high');
-      $('#volume-slider').val(controls.volume);
-    }
-    if (controls.volume == 0 || controls.muted) {
-      $('#controls').attr('data-volume', 'muted');
-      $('#volume-slider').val(0);
-    }
-  });
-  $('#volume-slider').on('input', () => {
-    controls.volume = $('#volume-slider').val();
-    controls.muted = $('#volume-slider').val() == 0;
-
-    if (controls.volume > 00) {
-      $('#controls').attr('data-volume', 'low');
-      $('#volume-slider').val(controls.volume);
-    }
-    if (controls.volume > 50) {
-      $('#controls').attr('data-volume', 'high');
-      $('#volume-slider').val(controls.volume);
-    }
-    if (controls.volume == 0 || controls.muted) {
-      $('#controls').attr('data-volume', 'muted');
-      $('#volume-slider').val(0);
-    }
-  });
   $('#step').change(() => data_structure.setStep($('#step').val())).val(0).attr('size', 1);
   $('#step-slider').on('input', () => data_structure.setStep($('#step-slider').val())).val(0);
   $('#fullscreen').click(() => {
@@ -133,7 +88,7 @@ function setup() {
     }
   });
 
-  $('#controls').attr('data-play', 1).attr('data-volume', 'high');
+  $('#controls').attr('data-play', 1);
   $('#sidebar, #sidebar-h, #player-h, #data-structures, #canvas, #manual, #controls').removeClass('active');
   const interval = setInterval(windowResized); setTimeout(() => clearInterval(interval), 500);
 }
@@ -145,7 +100,6 @@ function draw() {
     controls.play = data_structure.next?.();
     if (!controls.play) {
       $('#controls').attr('data-play', 1);
-      data_structure.sound(0);
     }
   }
 }

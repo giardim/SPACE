@@ -8,11 +8,6 @@ class Array2D {
       this.min = min(min(min(this.data.data[this.step][r]), this.min), 0);
       this.max = max(max(max(this.data.data[this.step][r]), this.max), 0);
     }
-    this.oscillators = Array(this.data.data[this.step].length).fill().map(
-      (_, r) => Array(this.data.data[this.step][r].length).fill().map(
-        () => new p5.Oscillator()
-      )
-    );
   }
 
   getStep() {
@@ -34,18 +29,9 @@ class Array2D {
     return this.setStep(this.getStep() + 1);
   }
 
-  sound(state) {
-    for (let r = 0; r < this.data.data[this.step].length; r++) {
-      for (let c = 0; c < this.data.data[this.step][r].length; c++) {
-        this.oscillators[r][c][state ? 'start' : 'stop']();
-      }
-    }
-  }
-
   graph() {
     rectMode(CENTER);
     textAlign(CENTER, BOTTOM);
-
     for (let r = 0; r < this.data.data[this.step].length; r++) {
       for (let c = 0; c < this.data.data[this.step][r].length; c++) {
         const D = this.data.data[this.step][r][c];
@@ -56,7 +42,6 @@ class Array2D {
         const S = min(W, H);
         const X = (c + 0.5 - R / 2) * S + width / 2;
         const Y = (r + 0.5 - C / 2) * S + height / 2;
-
         if (this.data.indices[this.step].some(index => index[0] == r && index[1] == c)) {
           fill(lerpColor(color(theme.sfg), color(theme.sbg), map(D, this.min, this.max, 0, 1))); stroke(theme.bg);
         } else {
@@ -65,14 +50,6 @@ class Array2D {
         square(X, Y, S);
       }
     }
-
-    for (let r = 0; r < this.data.data[this.step].length; r++) {
-      for (let c = 0; c < this.data.data[this.step][r].length; c++) {
-        this.oscillators[r][c].amp(Number(this.data.indices[this.step].some(index => index[0] == r && index[1] == c)) * !controls.muted * controls.volume / 100);
-        this.oscillators[r][c].freq(constrain(map(r * this.data.data[this.step][r].length + c, 0, this.data.data[this.step].length * this.data.data[this.step][r].length - 1, FMIN, FMAX), FMIN, FMAX) | 0);
-      }
-    }
-
     for (let r = 0; r < this.data.data[this.step].length; r++) {
       for (let c = 0; c < this.data.data[this.step][r].length; c++) {
         const D = this.data.data[this.step][r][c];
@@ -83,7 +60,6 @@ class Array2D {
         const S = min(W, H);
         const X = (c + 0.5 - R / 2) * S + width / 2;
         const Y = (r + 0.5 - C / 2) * S + height / 2;
-
         if (
           X - S / 2 <= mouseX && mouseX <= X + S / 2 &&
           Y - S / 2 <= mouseY && mouseY <= Y + S / 2
@@ -102,7 +78,6 @@ class Array2D {
   table() {
     rectMode(CENTER);
     textAlign(CENTER, CENTER);
-
     for (let r = 0; r < this.data.data[this.step].length; r++) {
       for (let c = 0; c < this.data.data[this.step][r].length; c++) {
         const D = this.data.data[this.step][r][c];
@@ -113,7 +88,6 @@ class Array2D {
         const S = min(W, H);
         const X = (c + 0.5 - R / 2) * S + width / 2;
         const Y = (r + 0.5 - C / 2) * S + height / 2;
-
         if (this.data.indices[this.step].some(index => index[0] == r && index[1] == c)) {
           fill(theme.sbg); stroke(theme.bg);
           square(X, Y, S);
@@ -125,13 +99,6 @@ class Array2D {
           fill(theme.sbg); stroke(theme.sfg);
           text(this.data.is_char ? String.fromCodePoint(D) : D, X, Y);
         }
-      }
-    }
-
-    for (let r = 0; r < this.data.data[this.step].length; r++) {
-      for (let c = 0; c < this.data.data[this.step][r].length; c++) {
-        this.oscillators[r][c].amp(Number(this.data.indices[this.step].some(index => index[0] == r && index[1] == c)) * !controls.muted * controls.volume / 100);
-        this.oscillators[r][c].freq(constrain(map(r * this.data.data[this.step][r].length + c, 0, this.data.data[this.step].length * this.data.data[this.step][r].length - 1, FMIN, FMAX), FMIN, FMAX) | 0);
       }
     }
   }

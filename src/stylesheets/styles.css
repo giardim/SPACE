@@ -270,44 +270,6 @@ a {
   display: block;
 }
 
-.fa-volume-low,
-.fa-volume-high,
-.fa-volume-xmark {
-  display: none;
-}
-
-#controls[data-volume="low"] .fa-volume-low {
-  display: block;
-}
-
-#controls[data-volume="high"] .fa-volume-high {
-  display: block;
-}
-
-#controls[data-volume="muted"] .fa-volume-xmark {
-  display: block;
-}
-
-#volume-container {
-  align-items: center;
-  display: flex;
-}
-
-#volume-slider {
-  margin: 00px 00px 00px 00px;
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: margin 250ms ease-in-out, transform 250ms ease-in-out, width 250ms ease-in-out;
-  width: 000px;
-}
-
-#volume-container:hover>#volume-slider,
-#volume-slider:focus-within {
-  margin: 00px 10px 00px 00px;
-  transform: scaleX(1);
-  width: 100px;
-}
-
 #step-container {
   align-items: center;
   box-sizing: border-box;
