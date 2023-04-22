@@ -39,7 +39,8 @@ function setup() {
     e.originalEvent.dataTransfer.items?.forEach(async (item) => {
       if (item.kind == 'file') {
         data = JSON.parse(await item.getAsFile().text());
-        for (const [key, value] of Object.entries(data)) {
+        $('#data-structures').empty();
+        for (const key of Object.keys(data)) {
           $('#data-structures').append(`<button class="data-structure" data-key="${key}"><code>${key}</code></button>`);
         }
         $('.data-structure').click(function () {
