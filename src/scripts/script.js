@@ -1,5 +1,5 @@
 const controls = { play: 0 };
-const space = { Array1D, Array2D };
+const space = { Array1D, Array2D, Vector1D, Vector2D };
 const theme = {};
 
 let data = {};
