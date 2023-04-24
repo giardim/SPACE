@@ -44,7 +44,7 @@ int main()
   std::string name = "";
   int rows = 0, cols = 0, **array = 0;
 
-  for (int n = 0; n < 16; n++)
+  for (int n = 0; n < 1; n++)
   {
     name = "";
     for (int i = 0; i < 8; i++)

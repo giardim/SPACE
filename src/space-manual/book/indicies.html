@@ -3,8 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Page not found - space-manual</title>
-        <base href="/">
+        <title>Saving Indicies - space-manual</title>
 
 
         <!-- Custom HTML head -->
@@ -82,7 +81,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="index.html">Introduction</a></li><li class="chapter-item expanded "><a href="installation.html"><strong aria-hidden="true">1.</strong> Installing Space</a></li><li class="chapter-item expanded "><a href="tutorial.html"><strong aria-hidden="true">2.</strong> Tutorial</a></li><li class="chapter-item expanded "><a href="examples.html"><strong aria-hidden="true">3.</strong> Examples</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="sorting-array.html"><strong aria-hidden="true">3.1.</strong> Sorting Array</a></li><li class="chapter-item expanded "><a href="indicies.html"><strong aria-hidden="true">3.2.</strong> Saving Indicies</a></li><li class="chapter-item expanded "><a href="sorting-2d.html"><strong aria-hidden="true">3.3.</strong> Sorting 2D Array</a></li><li class="chapter-item expanded "><a href="stack.html"><strong aria-hidden="true">3.4.</strong> Stack</a></li><li class="chapter-item expanded "><a href="queue.html"><strong aria-hidden="true">3.5.</strong> Queue</a></li><li class="chapter-item expanded "><a href="linked-list.html"><strong aria-hidden="true">3.6.</strong> Linked lists</a></li></ol></li><li class="chapter-item expanded "><a href="design.html"><strong aria-hidden="true">4.</strong> Design documents</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ui.html"><strong aria-hidden="true">4.1.</strong> UI/UX</a></li><li class="chapter-item expanded "><a href="output-file.html"><strong aria-hidden="true">4.2.</strong> data.json</a></li></ol></li><li class="chapter-item expanded "><a href="functions.html"><strong aria-hidden="true">5.</strong> Functions</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="space-sout.html"><strong aria-hidden="true">5.1.</strong> space::sout()</a></li><li class="chapter-item expanded "><a href="space-save.html"><strong aria-hidden="true">5.2.</strong> space::save()</a></li></ol></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="index.html">Introduction</a></li><li class="chapter-item expanded "><a href="installation.html"><strong aria-hidden="true">1.</strong> Installing Space</a></li><li class="chapter-item expanded "><a href="tutorial.html"><strong aria-hidden="true">2.</strong> Tutorial</a></li><li class="chapter-item expanded "><a href="examples.html"><strong aria-hidden="true">3.</strong> Examples</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="sorting-array.html"><strong aria-hidden="true">3.1.</strong> Sorting Array</a></li><li class="chapter-item expanded "><a href="indicies.html" class="active"><strong aria-hidden="true">3.2.</strong> Saving Indicies</a></li><li class="chapter-item expanded "><a href="sorting-2d.html"><strong aria-hidden="true">3.3.</strong> Sorting 2D Array</a></li><li class="chapter-item expanded "><a href="stack.html"><strong aria-hidden="true">3.4.</strong> Stack</a></li><li class="chapter-item expanded "><a href="queue.html"><strong aria-hidden="true">3.5.</strong> Queue</a></li><li class="chapter-item expanded "><a href="linked-list.html"><strong aria-hidden="true">3.6.</strong> Linked lists</a></li></ol></li><li class="chapter-item expanded "><a href="design.html"><strong aria-hidden="true">4.</strong> Design documents</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ui.html"><strong aria-hidden="true">4.1.</strong> UI/UX</a></li><li class="chapter-item expanded "><a href="output-file.html"><strong aria-hidden="true">4.2.</strong> data.json</a></li></ol></li><li class="chapter-item expanded "><a href="functions.html"><strong aria-hidden="true">5.</strong> Functions</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="space-sout.html"><strong aria-hidden="true">5.1.</strong> space::sout()</a></li><li class="chapter-item expanded "><a href="space-save.html"><strong aria-hidden="true">5.2.</strong> space::save()</a></li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -143,14 +142,93 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="document-not-found-404"><a class="header" href="#document-not-found-404">Document not found (404)</a></h1>
-<p>This URL is invalid, sorry. Please use the navigation bar or search to continue.</p>
+                        <h1 id="saving-indicies"><a class="header" href="#saving-indicies">Saving Indicies</a></h1>
+<p>To make our visualizer even better at showing us what our program is doing, 
+we are going to tell it the indicies of the sorting algorithm at every 
+step.</p>
+<h3 id="what-are-indicies"><a class="header" href="#what-are-indicies">What are indicies?</a></h3>
+<p>The word indicies is the plural of the word index. An index is a number that 
+uniquely identifies an element in an array. For example in the array </p>
+<pre><code>example_array[3] = {22, 33, 44};
+</code></pre>
+<p>22 has an index of 0, 33 has an index of 1, and 44 has an index of 2.
+So if we want to get see what the first element of this array is, we cant 
+do</p>
+<pre><code>std::cout &lt;&lt; example_array[0];
+</code></pre>
+<p>And we will get 22 as the output.</p>
+<h3 id="how-do-we-use-indicies"><a class="header" href="#how-do-we-use-indicies">How do we use indicies</a></h3>
+<p>In our bubble sort program, we compare two elements in the array to see if 
+they are in the correct order. The two elements we compare are always next 
+to each other. So if we are comparing the element at index 5, then we must 
+be comparing it with the element at index 6. We can represent this 
+relationship with variables like this: we are always comparing j with j+1. </p>
+<p>SPACE can save the indicies you are comparing in addition to the data 
+structure. Take a look at the example code to see how we do this.</p>
+<pre><code>#include &lt;iostream&gt;
+#include &lt;algorithm&gt;
+
+// First, we need to include space.hpp
+#include &quot;space.hpp&quot;
+
+int main() {
+
+	int size = 12
+    int my_array[size] = {7, 4, 2, 1, 15, 3, 6, 11, 18, 13, 12, 5};
+
+    // Save the initial state of the array
+    space::sout(&quot;my_array&quot;, my_array, size);
+
+    // Bubble sort algorithm
+    for (int i = 0; i &lt; size - 1; i++) {
+        for (int j = 0; j &lt; size - i - 1; j++) {
+
+			/* Hey look! There are two new arguements being passed
+			 * to the space::sout() function after size.
+			 * j and j+1 are the two indicies of the array that the 
+			 *  bubble sort is comparing.
+			 */
+			space::sout(&quot;my_array&quot;, my_array, size, j, j+1);
+        
+            if (my_array[j] &gt; my_array[j + 1]) {
+            
+                // Swap elements using std::swap
+                std::swap(my_array[j], my_array[j + 1]);
+
+                // Every time there is a swap, save the array again
+			space::sout(&quot;my_array&quot;, my_array, size, j, j+1);
+                
+            }
+        }
+    }
+
+    // Save the final state of the array
+	space::sout(&quot;my_array&quot;, my_array, size, j, j+1);
+
+    return 0;
+}
+</code></pre>
+<p>Lets break down how we call space::sout() to save the data structure 
+<em>and</em> the indicies of the sorting algorithm.</p>
+<blockquote>
+<p>space::sout(&quot;my_array&quot;, my_array, size, j, j+1);</p>
+</blockquote>
+<p>The indicies j and j+1 are passed as arguements into the function after 
+size. The order of arguements matters when using SPACE, so check the 
+<a href="space-sout.html">space::sout()</a> documentation to make sure you use it 
+correctly.</p>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="sorting-array.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
 
+                            <a rel="next" href="sorting-2d.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
 
                         <div style="clear: both"></div>
                     </nav>
@@ -158,7 +236,13 @@
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="sorting-array.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
 
+                    <a rel="next" href="sorting-2d.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
             </nav>
 
         </div>

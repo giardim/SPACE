@@ -1,4 +1,4 @@
-const controls = { play: 0, volume: 100 };
+const controls = { play: 0 };
 const space = { Array1D, Array2D };
 const theme = {};
 
@@ -28,7 +28,6 @@ function setup() {
     localStorage.setItem('theme', $(this).attr('id'));
   });
   $(`#${localStorage.getItem('theme') || 'navy'}`).click();
-
   $('#view-settings button').click(function () {
     view = $(this).attr('id');
     $('#view-settings button').removeClass('active');
@@ -40,7 +39,8 @@ function setup() {
     e.originalEvent.dataTransfer.items?.forEach(async (item) => {
       if (item.kind == 'file') {
         data = JSON.parse(await item.getAsFile().text());
-        for (const [key, value] of Object.entries(data)) {
+        $('#data-structures').empty();
+        for (const key of Object.keys(data)) {
           $('#data-structures').append(`<button class="data-structure" data-key="${key}"><code>${key}</code></button>`);
         }
         $('.data-structure').click(function () {
@@ -65,49 +65,8 @@ function setup() {
   });
 
   $('#prev').click(() => data_structure.prev());
-  $('#play').click(() => {
-    controls.play = !controls.play;
-
-    if (controls.play) {
-      $('#controls').attr('data-play', 0);
-    } else {
-      $('#controls').attr('data-play', 1);
-    }
-  });
+  $('#play').click(() => $('#controls').attr('data-play', Number(!(controls.play = !controls.play))));
   $('#next').click(() => data_structure.next());
-  $('#volume-button').click(() => {
-    controls.muted = !controls.muted;
-
-    if (controls.volume > 00) {
-      $('#controls').attr('data-volume', 'low');
-      $('#volume-slider').val(controls.volume);
-    }
-    if (controls.volume > 50) {
-      $('#controls').attr('data-volume', 'high');
-      $('#volume-slider').val(controls.volume);
-    }
-    if (controls.volume == 0 || controls.muted) {
-      $('#controls').attr('data-volume', 'muted');
-      $('#volume-slider').val(0);
-    }
-  });
-  $('#volume-slider').on('input', () => {
-    controls.volume = $('#volume-slider').val();
-    controls.muted = $('#volume-slider').val() == 0;
-
-    if (controls.volume > 00) {
-      $('#controls').attr('data-volume', 'low');
-      $('#volume-slider').val(controls.volume);
-    }
-    if (controls.volume > 50) {
-      $('#controls').attr('data-volume', 'high');
-      $('#volume-slider').val(controls.volume);
-    }
-    if (controls.volume == 0 || controls.muted) {
-      $('#controls').attr('data-volume', 'muted');
-      $('#volume-slider').val(0);
-    }
-  });
   $('#step').change(() => data_structure.setStep($('#step').val())).val(0).attr('size', 1);
   $('#step-slider').on('input', () => data_structure.setStep($('#step-slider').val())).val(0);
   $('#fullscreen').click(() => {
@@ -130,7 +89,7 @@ function setup() {
     }
   });
 
-  $('#controls').attr('data-play', 1).attr('data-volume', 'high');
+  $('#controls').attr('data-play', 1);
   $('#sidebar, #sidebar-h, #player-h, #data-structures, #canvas, #manual, #controls').removeClass('active');
   const interval = setInterval(windowResized); setTimeout(() => clearInterval(interval), 500);
 }
@@ -140,10 +99,7 @@ function draw() {
   data_structure[view]?.();
   if (controls.play) {
     controls.play = data_structure.next?.();
-
-    if (controls.play) {
-      $('#controls').attr('data-play', 0);
-    } else {
+    if (!controls.play) {
       $('#controls').attr('data-play', 1);
     }
   }

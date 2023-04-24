@@ -82,7 +82,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="index.html">Introduction</a></li><li class="chapter-item expanded "><a href="design.html"><strong aria-hidden="true">1.</strong> Design documents</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ui.html"><strong aria-hidden="true">1.1.</strong> UI/UX</a></li><li class="chapter-item expanded "><a href="output-file.html"><strong aria-hidden="true">1.2.</strong> data.json</a></li></ol></li><li class="chapter-item expanded "><a href="functions.html"><strong aria-hidden="true">2.</strong> Functions</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="space-sout.html"><strong aria-hidden="true">2.1.</strong> space::sout()</a></li><li class="chapter-item expanded "><a href="space-save.html"><strong aria-hidden="true">2.2.</strong> space::save()</a></li></ol></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="index.html">Introduction</a></li><li class="chapter-item expanded "><a href="installation.html"><strong aria-hidden="true">1.</strong> Installing Space</a></li><li class="chapter-item expanded "><a href="tutorial.html"><strong aria-hidden="true">2.</strong> Tutorial</a></li><li class="chapter-item expanded "><a href="examples.html"><strong aria-hidden="true">3.</strong> Examples</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="sorting-array.html"><strong aria-hidden="true">3.1.</strong> Sorting Array</a></li><li class="chapter-item expanded "><a href="indicies.html"><strong aria-hidden="true">3.2.</strong> Saving Indicies</a></li><li class="chapter-item expanded "><a href="sorting-2d.html"><strong aria-hidden="true">3.3.</strong> Sorting 2D Array</a></li><li class="chapter-item expanded "><a href="stack.html"><strong aria-hidden="true">3.4.</strong> Stack</a></li><li class="chapter-item expanded "><a href="queue.html"><strong aria-hidden="true">3.5.</strong> Queue</a></li><li class="chapter-item expanded "><a href="linked-list.html"><strong aria-hidden="true">3.6.</strong> Linked lists</a></li></ol></li><li class="chapter-item expanded "><a href="design.html"><strong aria-hidden="true">4.</strong> Design documents</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ui.html"><strong aria-hidden="true">4.1.</strong> UI/UX</a></li><li class="chapter-item expanded "><a href="output-file.html"><strong aria-hidden="true">4.2.</strong> data.json</a></li></ol></li><li class="chapter-item expanded "><a href="functions.html"><strong aria-hidden="true">5.</strong> Functions</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="space-sout.html"><strong aria-hidden="true">5.1.</strong> space::sout()</a></li><li class="chapter-item expanded "><a href="space-save.html"><strong aria-hidden="true">5.2.</strong> space::save()</a></li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -144,23 +144,471 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="space-data-structure-visualizer"><a class="header" href="#space-data-structure-visualizer">SPACE Data Structure Visualizer</a></h1>
-<p>This project will help students in the Data Structures and Algorithms class at SUNY Poly.</p>
-<h3 id="installation"><a class="header" href="#installation">Installation</a></h3>
-<pre><code>git clone https://github.com/giardim/SPACE
-</code></pre>
-<p>Or </p>
+<p>This project will help students in the Data Structures and Algorithms class at SUNY Poly.
+SPACE is a project that visualizes data structures and algorithms. The 
+project has two parts:</p>
 <ol>
+<li>A C++ header file that the user must #include in their program</li>
+<li>A browser app that does visualizations by reading a data file produced 
+by the C++ header</li>
+</ol>
+<h3 id="installation"><a class="header" href="#installation">Installation</a></h3>
+<ol>
+<li>Go to <a href="https://github.com/giardim/SPACE">https://github.com/giardim/SPACE</a></li>
 <li>Click the green button labeled &quot;Code&quot;</li>
 <li>Click download zip </li>
-<li>In your file browser right click the zip file</li>
+<li>Right click the zip file in your downloads folder</li>
 <li>Extract it</li>
 </ol>
 <h3 id="usage"><a class="header" href="#usage">Usage</a></h3>
 <ol>
-<li>Copy the space.hpp file into your project directory (do not move or delete any other files in the extracted folder)</li>
+<li>Copy the space.hpp file into your project directory (do not move or 
+delete any other files in the extracted folder). This should mean that the 
+space.hpp file and your program file are in the same directory</li>
 <li>Open the index.html file with a web browser</li>
-<li>Click the manual button on the browser app to view detailed instructions on using SPACE</li>
+<li>Click the manual button on the browser app to view detailed instructions 
+on using SPACE</li>
 </ol>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="installation-1"><a class="header" href="#installation-1">Installation</a></h1>
+<ol>
+<li>Go to https://github.com/giardim/SPACE</li>
+<li>Click the green button labeled &quot;Code&quot;</li>
+<li>Click download zip </li>
+<li>Right click the zip file in your downloads folder</li>
+<li>Extract it</li>
+</ol>
+<h3 id="usage-1"><a class="header" href="#usage-1">Usage</a></h3>
+<ol>
+<li>Copy the space.hpp file into your project directory (do not move or 
+delete any other files in the extracted folder). This should mean that the 
+space.hpp file and your program file are in the same directory</li>
+<li>Open the index.html file with a web browser</li>
+<li>Click the manual button on the browser app to view detailed instructions 
+on using SPACE</li>
+</ol>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="tutorial"><a class="header" href="#tutorial">Tutorial</a></h1>
+<p>Lets get started using SPACE. After you have followed the installation 
+instructions, you should be ready to write your first program using SPACE! 
+Lets make a simple project to demonstrate how SPACE works.</p>
+<h3 id="simple-array"><a class="header" href="#simple-array">Simple Array</a></h3>
+<p>Here is a simple C++ program that creates an array of 7 elements.</p>
+<pre><code>#include &lt;iostream&gt;
+#include &quot;space.hpp&quot;
+
+int main() {
+	//Create array of 7 elements
+    int my_array[7] = {11, 20, 23, 4, 15, 6, 78};
+
+    //Call the space::sout function to output the array to data.json
+	space::sout(&quot;my_array&quot;, my_array, 7);
+
+    return 0;
+}
+</code></pre>
+<p>First, we must #include the &quot;space.hpp&quot; file at the start of your program. 
+Doing this will allow you to use the space::sout() function. The 
+space::sout() function is the only function you will need to use to 
+visualize your programs with SPACE. </p>
+<p>What is the space::sout() function? The space::sout() function is a lot like 
+printf(). All it does is take the data structure you give it (in this case 
+a simple array of integers) and prints it out into a file. It also does 
+some formatting behind the scenes to get your data structure into JSON format, 
+but you don't need to think about that because its all automatic!</p>
+<p>In this program the space::sout() function takes three arguments:</p>
+<ol>
+<li>&quot;my_array&quot; is the string that your array will be named in the visualizer</li>
+<li>my_array is the array itself</li>
+<li>7 is the size of the array</li>
+</ol>
+<p>After compiling and running this program, you will find a data.json file 
+in your project directory. We will drag and drop this file into our browser 
+app.</p>
+<h3 id="browser-app"><a class="header" href="#browser-app">Browser App</a></h3>
+<p>To visuzalize the output of our demo program, open the index.html file from 
+the SPACE directory with a web browser like Firefox or Chrome. With your 
+file manager open, click and drag the data.json file into the browser window. </p>
+<p>Now lets take a tour of the browser app.</p>
+<p>explain browser app features with images and gifs</p>
+<p>In the next section we will look at some examples of different data 
+structures and sorting algorithms, and how you can use space::sout() to 
+visualize them.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="examples"><a class="header" href="#examples">Examples</a></h1>
+<p>We know that space::sout() works kind of like printf() or std::cout, 
+but how does that effect how we use it? Well lets imagine that we were 
+just using std::cout to figure out what our data structures look like. 
+To print an array with std::cout we need to use a for loop.</p>
+<pre><code>#include &lt;iostream&gt;
+
+int main() {
+	
+	// Create our array
+	int my_array[7] = {1, 2, 3, 4, 5, 6, 7};
+	
+	// Print array to std::out
+	for (int i = 0; i &lt; 7; i++) {
+		std::cout &lt;&lt; my_array[i] &lt;&lt; &quot; &quot;;
+    }
+	
+    std::cout &lt;&lt; std::endl;
+	
+	return 0;
+}
+</code></pre>
+<p>Output: </p>
+<pre><code>1 2 3 4 5 6 7
+</code></pre>
+<p>The for loop goes through every element of the array starting at my_array[0] 
+up to my_array[6] with a &quot; &quot; space in between each element. It prints 
+every element in the array because programmer hard coded the size of the 
+array to be 7 <em>and</em> the number of iterations of the for loop to also be 7. 
+If the loop had 4 instead of 7 in its condition then it would only 
+print 4 elements. As you can see, to print out <em>every</em> element of the array, 
+we need to know the <em>size</em> of the array. This same principle applies to 
+space::sout(), which is why you need to pass in the size of your data 
+structure as an argument. </p>
+<p>This works for an array that doesn't change, but what if we modify it 
+after we print it?</p>
+<pre><code>#include &lt;iostream&gt;
+
+int main() {
+	
+	// Create our array
+	int my_array[7] = {1, 2, 3, 4, 5, 6, 7};
+	
+	// Print array to std::out
+	for (int i = 0; i &lt; 7; i++) {
+		std::cout &lt;&lt; my_array[i] &lt;&lt; &quot; &quot;;
+    }
+	
+    std::cout &lt;&lt; std::endl;
+	
+    my_array[0] = 200; // Change the 1 in the array to 200
+	
+	return 0;
+}
+</code></pre>
+<p>Output: </p>
+<pre><code>1 2 3 4 5 6 7
+</code></pre>
+<p>Obviously, we are still printing out the array as it was originally because 
+after we update the array to turn 1 into 200, we dont print it again. Lets 
+fix that.</p>
+<pre><code>#include &lt;iostream&gt;
+
+int main() {
+	
+	// Create our array
+	int my_array[7] = {1, 2, 3, 4, 5, 6, 7};
+	
+	// Print array to std::out
+	for (int i = 0; i &lt; 7; i++) {
+		std::cout &lt;&lt; my_array[i] &lt;&lt; &quot; &quot;;
+    }
+	
+    std::cout &lt;&lt; std::endl;
+	
+    my_array[0] = 200; // Change the 1 in the array to 200
+
+	// Print array to std::out AGAIN after we change it
+	for (int i = 0; i &lt; 7; i++) {
+		std::cout &lt;&lt; my_array[i] &lt;&lt; &quot; &quot;;
+	 }
+			
+	 std::cout &lt;&lt; std::endl;
+		    
+	return 0;
+}
+</code></pre>
+<p>Output:</p>
+<pre><code>1 2 3 4 5 6 7
+200 2 3 4 5 6 7
+</code></pre>
+<p>That makes sense, every time we update our array we need to print it again. 
+Now instead of using for loops and std::cout to visualize the array, lets 
+use space::sout().</p>
+<pre><code>#include &lt;iostream&gt;
+#include &quot;space.hpp&quot;
+
+int main() {
+	
+	// Create our array
+	int my_array[7] = {1, 2, 3, 4, 5, 6, 7};
+	
+	// Save the array to the data.json file
+	space::sout(&quot;my array&quot; my_array, 7);
+	
+    my_array[0] = 200; // Change the 1 in the array to 200
+
+	// Save the array AGAIN after we change it
+	space::sout(&quot;my array&quot; my_array, 7);
+		    
+	return 0;
+}
+</code></pre>
+<p>Just like how we needed to print the array after every update, with 
+space::sout() we need to save the array after every update.</p>
+<p>In the next section we will use space::sout() in some more interesting 
+programs like sorting algorithms.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="sorting-array"><a class="header" href="#sorting-array">Sorting Array</a></h1>
+<p>Here is a simple C++ program that uses the 
+<a href="https://www.geeksforgeeks.org/bubble-sort/">bubble sort</a> 
+algorithm to sort an array of 12 elements. </p>
+<pre><code>#include &lt;iostream&gt;
+#include &lt;algorithm&gt;
+
+int main() {
+	int size = 12
+    int my_array[size] = {7, 4, 2, 1, 15, 3, 6, 11, 18, 13, 12, 5};
+
+    // Bubble sort algorithm
+    for (int i = 0; i &lt; size - 1; i++) {
+        for (int j = 0; j &lt; size - i - 1; j++) {
+            if (my_array[j] &gt; my_array[j + 1]) {
+            
+                // Swap elements using std::swap
+                std::swap(my_array[j], my_array[j + 1]);
+
+
+                
+            }
+        }
+    }
+
+    
+
+    return 0;
+}
+</code></pre>
+<h3 id="using-spacesout-in-bubble-sort"><a class="header" href="#using-spacesout-in-bubble-sort">Using space::sout() in bubble sort</a></h3>
+<p>In the last page we established that we need to save the array every time 
+it changes. So lets see how we can do that in this bubble sort program.</p>
+<pre><code>#include &lt;iostream&gt;
+#include &lt;algorithm&gt;
+
+// First, we need to include space.hpp
+#include &quot;space.hpp&quot;
+
+int main() {
+	// Its a good idea to save the size of the array in a variable to 
+	// make your code easier to read and modify
+	int size = 12
+    int my_array[size] = {7, 4, 2, 1, 15, 3, 6, 11, 18, 13, 12, 5};
+
+    // Save the initial state of the array
+    space::sout(&quot;my_array&quot;, my_array, size);
+
+    // Bubble sort algorithm
+    for (int i = 0; i &lt; size - 1; i++) {
+        for (int j = 0; j &lt; size - i - 1; j++) {
+            if (my_array[j] &gt; my_array[j + 1]) {
+            
+                // Swap elements using std::swap
+                std::swap(my_array[j], my_array[j + 1]);
+
+                // Every time there is a swap, save the array again
+                space::sout(&quot;my_array&quot;, my_array, size);
+                
+            }
+        }
+    }
+
+    // Save the final state of the array
+    space::sout(&quot;my_array&quot;, my_array, size);
+
+    return 0;
+}
+</code></pre>
+<p>For a refresher on how to pass arguments to the space::sout() function 
+read the <a href="space-sout.html">space::sout</a> page in the manual.</p>
+<p>In the bubble sort program, we first call space::sout() right after we 
+create the array to save its initial state. Then we have another 
+space::sout() call if the bubble sort swaps two elements in the array. This 
+means that every time there is a swap, the state of the array will be 
+saved to the data.json file again. Finally, we call space::sout() at the 
+very end of the program to save the last state of the array.</p>
+<p>Compiling and running this program will produce a data.json file in your 
+project's directory. Drag that file into the browser app to visualize 
+how the sorting algorithm works.</p>
+<p>Cool right? Heck yeah! But we're not done yet. We can make it even better! 
+In the next page we will see how we can use space::sout() to save the 
+<em>indicies</em> of the sorting algorithm to make the visualizer even cooler.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="saving-indicies"><a class="header" href="#saving-indicies">Saving Indicies</a></h1>
+<p>To make our visualizer even better at showing us what our program is doing, 
+we are going to tell it the indicies of the sorting algorithm at every 
+step.</p>
+<h3 id="what-are-indicies"><a class="header" href="#what-are-indicies">What are indicies?</a></h3>
+<p>The word indicies is the plural of the word index. An index is a number that 
+uniquely identifies an element in an array. For example in the array </p>
+<pre><code>example_array[3] = {22, 33, 44};
+</code></pre>
+<p>22 has an index of 0, 33 has an index of 1, and 44 has an index of 2.
+So if we want to get see what the first element of this array is, we cant 
+do</p>
+<pre><code>std::cout &lt;&lt; example_array[0];
+</code></pre>
+<p>And we will get 22 as the output.</p>
+<h3 id="how-do-we-use-indicies"><a class="header" href="#how-do-we-use-indicies">How do we use indicies</a></h3>
+<p>In our bubble sort program, we compare two elements in the array to see if 
+they are in the correct order. The two elements we compare are always next 
+to each other. So if we are comparing the element at index 5, then we must 
+be comparing it with the element at index 6. We can represent this 
+relationship with variables like this: we are always comparing j with j+1. </p>
+<p>SPACE can save the indicies you are comparing in addition to the data 
+structure. Take a look at the example code to see how we do this.</p>
+<pre><code>#include &lt;iostream&gt;
+#include &lt;algorithm&gt;
+
+// First, we need to include space.hpp
+#include &quot;space.hpp&quot;
+
+int main() {
+
+	int size = 12
+    int my_array[size] = {7, 4, 2, 1, 15, 3, 6, 11, 18, 13, 12, 5};
+
+    // Save the initial state of the array
+    space::sout(&quot;my_array&quot;, my_array, size);
+
+    // Bubble sort algorithm
+    for (int i = 0; i &lt; size - 1; i++) {
+        for (int j = 0; j &lt; size - i - 1; j++) {
+
+			/* Hey look! There are two new arguements being passed
+			 * to the space::sout() function after size.
+			 * j and j+1 are the two indicies of the array that the 
+			 *  bubble sort is comparing.
+			 */
+			space::sout(&quot;my_array&quot;, my_array, size, j, j+1);
+        
+            if (my_array[j] &gt; my_array[j + 1]) {
+            
+                // Swap elements using std::swap
+                std::swap(my_array[j], my_array[j + 1]);
+
+                // Every time there is a swap, save the array again
+			space::sout(&quot;my_array&quot;, my_array, size, j, j+1);
+                
+            }
+        }
+    }
+
+    // Save the final state of the array
+	space::sout(&quot;my_array&quot;, my_array, size, j, j+1);
+
+    return 0;
+}
+</code></pre>
+<p>Lets break down how we call space::sout() to save the data structure 
+<em>and</em> the indicies of the sorting algorithm.</p>
+<blockquote>
+<p>space::sout(&quot;my_array&quot;, my_array, size, j, j+1);</p>
+</blockquote>
+<p>The indicies j and j+1 are passed as arguements into the function after 
+size. The order of arguements matters when using SPACE, so check the 
+<a href="space-sout.html">space::sout()</a> documentation to make sure you use it 
+correctly.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="sorting-2d-array"><a class="header" href="#sorting-2d-array">Sorting 2D Array</a></h1>
+<p>Using 2 dimenstional arrays with SPACE is similar to working with regular 
+arrays, but there are some minor differences. Lets see how we use SPACE 
+in this program to bubble sort a 2d array.</p>
+<pre><code>#include &lt;iostream&gt;
+#include &lt;algorithm&gt;
+
+// Include space in your program
+#include &quot;space.hpp&quot;
+
+int main() {
+    const int ROWS = 3;
+    const int COLS = 4;
+    int arr[ROWS][COLS] = {{9, 5, 3, 7}, {2, 8, 1, 6}, {4, 0, 2, 5}};
+
+    // Save the initial state of the 2d array
+    space::sout(&quot;2d array&quot;, arr, ROWS, COLS);
+
+    // bubble sort using std::swap
+    for (int i = 0; i &lt; ROWS * COLS; i++) {
+        for (int j = 0; j &lt; ROWS; j++) {
+            for (int k = 0; k &lt; COLS - 1; k++) {
+                if (arr[j][k] &gt; arr[j][k+1]) {
+                    std::swap(arr[j][k], arr[j][k+1]);
+
+					// Save the 2d array after every swap
+                    space::sout(&quot;2d array&quot;, arr, ROWS, COLS);
+
+                }
+            }
+        }
+    }
+
+	// Save the final state of the 2d array
+    space::sout(&quot;2d array&quot;, arr, ROWS, COLS);
+
+    return 0;
+}
+</code></pre>
+<p>Heres a breakdown of how we pass arguements to space::sout() when working 
+with a 2d array.</p>
+<blockquote>
+<p>space::sout(&quot;2d array&quot;, arr, ROWS, COLS);</p>
+</blockquote>
+<p>The first two arguements are the same as with a normal array. First is a 
+string which names your data structure in the visualizer. Second is 
+the 2d array itself. We still need to tell space::sout() the size of 
+our data structure, and because a 2 dimensional array has 2 dimensions its 
+size is defined by two values, its length and width, or rows and columns. 
+So to tell space::sout() the size of the 2d array we pass it the number of 
+rows and columns our 2d array has.</p>
+<p><img src="assets/2D-array-rep.png" alt="2d array visualized" /></p>
+<h3 id="saving-indicies-with-2d-arrays"><a class="header" href="#saving-indicies-with-2d-arrays">Saving indicies with 2D arrays</a></h3>
+<p>How we save indicies also has to be adjusted to work with 2 dimenstion arrays. 
+Lets copy our program above and modify it to save the indicies of the 
+bubble sort.</p>
+<h1 id="someone-pls-check-the-indicies-are-correct"><a class="header" href="#someone-pls-check-the-indicies-are-correct">someone pls check the indicies are correct</a></h1>
+<pre><code>#include &lt;iostream&gt;
+#include &lt;algorithm&gt;
+
+// Include space in your program
+#include &quot;space.hpp&quot;
+
+int main() {
+    const int ROWS = 3;
+    const int COLS = 4;
+    int arr[ROWS][COLS] = {{9, 5, 3, 7}, {2, 8, 1, 6}, {4, 0, 2, 5}};
+
+    // Save the initial state of the 2d array
+    space::sout(&quot;2d array&quot;, arr, ROWS, COLS);
+
+    // bubble sort using std::swap
+    for (int i = 0; i &lt; ROWS * COLS; i++) {
+        for (int j = 0; j &lt; ROWS; j++) {
+            for (int k = 0; k &lt; COLS - 1; k++) {
+                if (arr[j][k] &gt; arr[j][k+1]) {
+                    std::swap(arr[j][k], arr[j][k+1]);
+
+					// Save the 2d array and the bubble sort's indicies
+					// after every swap 
+                    space::sout(&quot;2d array&quot;, arr, ROWS, COLS, j, k, j, k+1);
+
+                }
+            }
+        }
+    }
+
+	// Save the final state of the 2d array
+    space::sout(&quot;2d array&quot;, arr, ROWS, COLS, j, k, j, k+1);
+
+    return 0;
+}
+</code></pre>
+<p>Because each element in the array is defined by a ROW and COL number, each 
+index has a ROW and COL number. For example the bubble sort compares 
+arr[0][0] with arr[0][1]. So if each index has a ROW and COL value, then 
+we need to pass space::sout() <em>four</em> values, the ROW and COL index of the 
+first element its comparing, and the ROW and COL index of the second 
+element its comparing.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="stack"><a class="header" href="#stack">Stack</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="queue"><a class="header" href="#queue">Queue</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="linked-lists"><a class="header" href="#linked-lists">Linked lists</a></h1>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="design"><a class="header" href="#design">Design</a></h1>
 <p>This chapter contains the design documents for the SPACE program.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="uiux"><a class="header" href="#uiux">UI/UX</a></h1>
@@ -425,19 +873,27 @@ it into a data.json file. The student never uses space::save() in their
 program.</p>
 <div style="break-before: page; page-break-before: always;"></div><pre><code>void space::sout()
 </code></pre>
-<h3 id="example-1"><a class="header" href="#example-1">Example</a></h3>
+<h3 id="examples-1"><a class="header" href="#examples-1">Examples</a></h3>
+<h4 id="array"><a class="header" href="#array">Array</a></h4>
 <pre><code>int array_size = 3;
-int joke[array_size] = [6,7,8,9];
+int joke[array_size] = {6,7,8,9};
 space::sout(&quot;joke&quot;, joke, array_size);
 </code></pre>
+<h4 id="array-with-indicies-of-sorting-algorithm"><a class="header" href="#array-with-indicies-of-sorting-algorithm">Array with indicies of sorting algorithm</a></h4>
+<pre><code>space::sout(&quot;joke&quot;, joke, array_size, i, j);
+</code></pre>
+<blockquote>
+<p>See the <a href="examples.html">Examples</a> chapter for more detailed examples with more data structures.</p>
+</blockquote>
 <h3 id="description"><a class="header" href="#description">Description</a></h3>
-<p>Stores the data structure to memory AS IS (just like std::cout) 
+<p>Stores the data structure to memory <strong>as is</strong> (just like std::cout) 
 If you modify the data structure you must call space::sout() again if you 
 want to save the updated structure. At the end of your program the stored 
 memory will be outout to the data.json file.</p>
 <h3 id="syntax"><a class="header" href="#syntax">Syntax</a></h3>
-<pre><code>space::sout(STRING name_of_array, INT array, INT size_of_array);
+<pre><code>space::sout(STRING name_of_data_structure, data_structure, INT size_of_data_structure);
 </code></pre>
+<p>data_structure may be of any type aside from string.</p>
 <h3 id="parameters"><a class="header" href="#parameters">Parameters</a></h3>
 <pre><code>space::sout(
 STRING name_of_array, /* if your array is named &quot;joke&quot; pass in &quot;joke&quot; as a string in double quotes */
@@ -448,7 +904,7 @@ INT size_of_array /* pass in the size of the array */
 <p>N/A because space::sout() is a void function.</p>
 <div style="break-before: page; page-break-before: always;"></div><pre><code>void space::save()
 </code></pre>
-<h3 id="example-2"><a class="header" href="#example-2">Example</a></h3>
+<h3 id="example-1"><a class="header" href="#example-1">Example</a></h3>
 <p>N/A</p>
 <h3 id="description-1"><a class="header" href="#description-1">Description</a></h3>
 <p>A backend funciton that formats the memory stored by space::sout() as JSON and 
@@ -479,6 +935,22 @@ outputs it to the file data.json.</p>
 
         </div>
 
+        <!-- Livereload script (if served using the cli tool) -->
+        <script>
+            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
+            const socket = new WebSocket(wsAddress);
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
 
 
 
