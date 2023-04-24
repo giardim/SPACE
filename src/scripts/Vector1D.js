@@ -12,6 +12,8 @@ class Vector1D {
 
   setStep(step) {
     this.step = constrain(step | 0, 0, this.data.data.length - 1);
+    this.min = min(min(this.data.data[this.step]), 0);
+    this.max = max(max(this.data.data[this.step]), 0);
     $('#step').val(this.step.toString().padStart((this.data.data.length - 1).toString().length, 0));
     $('#step-slider').val(this.step);
     return 0 < this.step && this.step < this.data.data.length - 1;
