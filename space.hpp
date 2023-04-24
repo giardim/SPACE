@@ -1462,7 +1462,7 @@ public:
   static void sout(std::string name, std::stack<int> stack)
   {
     int initSize = stack.size();
-    data[name]["type"] = "stack";
+    data[name]["type"] = "Stack";
     data[name]["is_char"] = "0";
     istream.str("");
     istream << "[" << -1 << ", " << -1 << "]";
@@ -1481,7 +1481,7 @@ public:
   static void sout(std::string name, std::stack<float> stack)
   {
     int initSize = stack.size();
-    data[name]["type"] = "stack";
+    data[name]["type"] = "Stack";
     data[name]["is_char"] = "0";
     istream.str("");
     istream << "[" << -1 << ", " << -1 << "]";
@@ -1500,7 +1500,7 @@ public:
   static void sout(std::string name, std::stack<double> stack)
   {
     int initSize = stack.size();
-    data[name]["type"] = "stack";
+    data[name]["type"] = "Stack";
     data[name]["is_char"] = "0";
     istream.str("");
     istream << "[" << -1 << ", " << -1 << "]";
@@ -1519,7 +1519,7 @@ public:
   static void sout(std::string name, std::stack<bool> stack)
   {
     int initSize = stack.size();
-    data[name]["type"] = "stack";
+    data[name]["type"] = "Stack";
     data[name]["is_char"] = "0";
     istream.str("");
     istream << "[" << -1 << ", " << -1 << "]";
@@ -1538,7 +1538,7 @@ public:
   static void sout(std::string name, std::stack<char> stack)
   {
     int initSize = stack.size();
-    data[name]["type"] = "stack";
+    data[name]["type"] = "Stack";
     data[name]["is_char"] = "1";
     istream.str("");
     istream << "[" << -1 << ", " << -1 << "]";
@@ -1557,7 +1557,7 @@ public:
   static void sout(std::string name, std::stack<wchar_t> stack)
   {
     int initSize = stack.size();
-    data[name]["type"] = "stack";
+    data[name]["type"] = "Stack";
     data[name]["is_char"] = "1";
     istream.str("");
     istream << "[" << -1 << ", " << -1 << "]";
