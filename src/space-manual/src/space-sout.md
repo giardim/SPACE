@@ -2,19 +2,7 @@
 
 ### Examples
 
-#### Array
-
-	int array_size = 3;
-	int joke[array_size] = {6,7,8,9};
-	space::sout("joke", joke, array_size);
-
-#### Array with indicies of sorting algorithm
-
-	space::sout("joke", joke, array_size, i, j);
-
-
 > See the [Examples](examples.md) chapter for more detailed examples with more data structures.
-
 
 ### Description
 
@@ -25,16 +13,51 @@ memory will be outout to the data.json file.
 
 ### Syntax
 
-	space::sout(STRING name_of_data_structure, data_structure, INT size_of_data_structure);
-
-data_structure may be of any type aside from string.
-
-### Parameters
-
+##### Stacks, Queues, Vectors
 	space::sout(
-	STRING name_of_array, /* if your array is named "joke" pass in "joke" as a string in double quotes */
-	INT array, /* pass in the array */
-	INT size_of_array /* pass in the size of the array */
+		"my_STL", 		// name of data structure
+		data_structure	// data structure itself
+	);
+
+##### Array
+	space::sout(
+		"my_array", 	// name of data structure
+		data_structure,	// data structure itself
+		size_of_array	// size (length) of array
+	);
+
+##### Array with indicies
+	space::sout(
+		"my_array",		// name of data structure 
+		data_structure,	// data structure itself
+		size, 		// size (length) of array
+		index_one, 		// index 1
+		index_two		// index 2
+	);
+
+##### 2D array
+    space::sout(
+	    "2d array", 	// name of data structure
+	    array_2d, 		// data structure itself
+	    ROWS, COLS		// size of 2d array
+    );
+
+##### 2D array with indicies
+	space::sout(
+		"2d array", 	// name of data structure
+		array_2d, 		// data structure itself
+		ROWS, COLS, 	// size of 2d array
+		j, k, 		// index 1 (x,y)
+		j, k+1		// index 2 (x,y)
+	);
+
+
+### Types
+
+All supported data structures can work with types 
+*int, float, double, bool, char*, and *wide char* 
+**EXCEPT LINKED LISTS!** 
+Linked lists only support int, float, double, and bool.
 
 ### Returns
 

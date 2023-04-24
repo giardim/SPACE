@@ -8,7 +8,7 @@ algorithm to sort an array of 12 elements.
 	#include <algorithm>
 
 	int main() {
-		int size = 12
+		int size = 12;
 	    int my_array[size] = {7, 4, 2, 1, 15, 3, 6, 11, 18, 13, 12, 5};
 
 	    // Bubble sort algorithm
@@ -44,7 +44,7 @@ it changes. So lets see how we can do that in this bubble sort program.
 	int main() {
 		// Its a good idea to save the size of the array in a variable to 
 		// make your code easier to read and modify
-		int size = 12
+		int size = 12;
 	    int my_array[size] = {7, 4, 2, 1, 15, 3, 6, 11, 18, 13, 12, 5};
 
 	    // Save the initial state of the array

@@ -82,7 +82,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="index.html">Introduction</a></li><li class="chapter-item expanded "><a href="installation.html"><strong aria-hidden="true">1.</strong> Installing Space</a></li><li class="chapter-item expanded "><a href="tutorial.html"><strong aria-hidden="true">2.</strong> Tutorial</a></li><li class="chapter-item expanded "><a href="examples.html"><strong aria-hidden="true">3.</strong> Examples</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="sorting-array.html"><strong aria-hidden="true">3.1.</strong> Sorting Array</a></li><li class="chapter-item expanded "><a href="indicies.html"><strong aria-hidden="true">3.2.</strong> Saving Indicies</a></li><li class="chapter-item expanded "><a href="sorting-2d.html"><strong aria-hidden="true">3.3.</strong> Sorting 2D Array</a></li><li class="chapter-item expanded "><a href="stack.html"><strong aria-hidden="true">3.4.</strong> Stack</a></li><li class="chapter-item expanded "><a href="queue.html"><strong aria-hidden="true">3.5.</strong> Queue</a></li><li class="chapter-item expanded "><a href="linked-list.html"><strong aria-hidden="true">3.6.</strong> Linked lists</a></li></ol></li><li class="chapter-item expanded "><a href="design.html"><strong aria-hidden="true">4.</strong> Design documents</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ui.html"><strong aria-hidden="true">4.1.</strong> UI/UX</a></li><li class="chapter-item expanded "><a href="output-file.html"><strong aria-hidden="true">4.2.</strong> data.json</a></li></ol></li><li class="chapter-item expanded "><a href="functions.html"><strong aria-hidden="true">5.</strong> Functions</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="space-sout.html"><strong aria-hidden="true">5.1.</strong> space::sout()</a></li><li class="chapter-item expanded "><a href="space-save.html"><strong aria-hidden="true">5.2.</strong> space::save()</a></li></ol></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="index.html">Introduction</a></li><li class="chapter-item expanded "><a href="installation.html"><strong aria-hidden="true">1.</strong> Installing Space</a></li><li class="chapter-item expanded "><a href="tutorial.html"><strong aria-hidden="true">2.</strong> Tutorial</a></li><li class="chapter-item expanded "><a href="examples.html"><strong aria-hidden="true">3.</strong> Examples</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="sorting-array.html"><strong aria-hidden="true">3.1.</strong> Sorting Array</a></li><li class="chapter-item expanded "><a href="indicies.html"><strong aria-hidden="true">3.2.</strong> Saving Indicies</a></li><li class="chapter-item expanded "><a href="sorting-2d.html"><strong aria-hidden="true">3.3.</strong> Sorting 2D Array</a></li><li class="chapter-item expanded "><a href="stack.html"><strong aria-hidden="true">3.4.</strong> Stack</a></li><li class="chapter-item expanded "><a href="queue.html"><strong aria-hidden="true">3.5.</strong> Queue</a></li><li class="chapter-item expanded "><a href="vector.html"><strong aria-hidden="true">3.6.</strong> Vector</a></li><li class="chapter-item expanded "><a href="linked-list.html"><strong aria-hidden="true">3.7.</strong> Linked lists</a></li></ol></li><li class="chapter-item expanded "><a href="space-sout.html"><strong aria-hidden="true">4.</strong> space::sout()</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -228,7 +228,24 @@ app.</p>
 the SPACE directory with a web browser like Firefox or Chrome. With your 
 file manager open, click and drag the data.json file into the browser window. </p>
 <p>Now lets take a tour of the browser app.</p>
-<p>explain browser app features with images and gifs</p>
+<h4 id="overview"><a class="header" href="#overview">Overview</a></h4>
+<p>The general layout of our application is a main visualization area on the 
+right with a sidebar on the left.</p>
+<h4 id="functionality"><a class="header" href="#functionality">Functionality</a></h4>
+<p>The user may drag a data.json file from their file explorer into the webpage. 
+The data structures saved in the data.json file will populate the side bar. 
+To visualize a data structure, click one of the elements in the side bar. 
+This will fill the visualization pane with a view of that data structure.</p>
+<h4 id="the-visualization-pane"><a class="header" href="#the-visualization-pane">The Visualization Pane</a></h4>
+<p>Hover your mouse over an element to see its value. 
+Use the media controls at the bottom to play/pause automatic iteration through 
+the save states of your structure. Use the bar to scrub through the save 
+states of your structure.</p>
+<h4 id="the-side-bar"><a class="header" href="#the-side-bar">The Side Bar</a></h4>
+<p>The sidebar contains a list of all data structures present in the data.json 
+file. Clicking on one will open it in the visualization pane. Only one 
+data structure may be visualized at a time. You can open the SPACE manual 
+by clicking the button at the bottom of the side bar.</p>
 <p>In the next section we will look at some examples of different data 
 structures and sorting algorithms, and how you can use space::sout() to 
 visualize them.</p>
@@ -357,7 +374,7 @@ algorithm to sort an array of 12 elements. </p>
 #include &lt;algorithm&gt;
 
 int main() {
-	int size = 12
+	int size = 12;
     int my_array[size] = {7, 4, 2, 1, 15, 3, 6, 11, 18, 13, 12, 5};
 
     // Bubble sort algorithm
@@ -391,7 +408,7 @@ it changes. So lets see how we can do that in this bubble sort program.</p>
 int main() {
 	// Its a good idea to save the size of the array in a variable to 
 	// make your code easier to read and modify
-	int size = 12
+	int size = 12;
     int my_array[size] = {7, 4, 2, 1, 15, 3, 6, 11, 18, 13, 12, 5};
 
     // Save the initial state of the array
@@ -563,7 +580,6 @@ rows and columns our 2d array has.</p>
 <p>How we save indicies also has to be adjusted to work with 2 dimenstion arrays. 
 Lets copy our program above and modify it to save the indicies of the 
 bubble sort.</p>
-<h1 id="someone-pls-check-the-indicies-are-correct"><a class="header" href="#someone-pls-check-the-indicies-are-correct">someone pls check the indicies are correct</a></h1>
 <pre><code>#include &lt;iostream&gt;
 #include &lt;algorithm&gt;
 
@@ -594,8 +610,10 @@ int main() {
         }
     }
 
-	// Save the final state of the 2d array
-    space::sout(&quot;2d array&quot;, arr, ROWS, COLS, j, k, j, k+1);
+	// Save the final state of the 2d array without indicies 
+	// because the indicies are not available in this scope outside 
+	// the for loops
+    space::sout(&quot;2d array&quot;, arr, ROWS, COLS);
 
     return 0;
 }
@@ -607,281 +625,107 @@ we need to pass space::sout() <em>four</em> values, the ROW and COL index of the
 first element its comparing, and the ROW and COL index of the second 
 element its comparing.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="stack"><a class="header" href="#stack">Stack</a></h1>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="queue"><a class="header" href="#queue">Queue</a></h1>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="linked-lists"><a class="header" href="#linked-lists">Linked lists</a></h1>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="design"><a class="header" href="#design">Design</a></h1>
-<p>This chapter contains the design documents for the SPACE program.</p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="uiux"><a class="header" href="#uiux">UI/UX</a></h1>
-<p><img src="assets/sketch.jpg" alt="mockup" /></p>
-<h3 id="overview"><a class="header" href="#overview">Overview</a></h3>
-<p>The general layout of our application is a main visualization area on the 
-right with a sidebar on the left.</p>
-<h3 id="functionality"><a class="header" href="#functionality">Functionality</a></h3>
-<p>The user may drag a data.json file from their file explorer into the webpage. 
-The data structures saved in the data.json file will populate the side bar. 
-To visualize a data structure, click one of the elements in the side bar. 
-This will fill the visualization pane with a view of that data structure.</p>
-<h3 id="the-visualization-pane"><a class="header" href="#the-visualization-pane">The visualization pane</a></h3>
-<p>Hover your mouse over an element to see its value. 
-Use the media controls at the bottom to play/pause automatic iteration through 
-the save states of your structure. Use the bar to scrub through the save 
-states of your structure.</p>
-<h3 id="the-side-bar"><a class="header" href="#the-side-bar">The side bar</a></h3>
-<p>The sidebar contains a list of all data structures present in the data.json 
-file. Clicking on one will open it in the visualization pane. Only one 
-data structure may be visualized at a time. You can open the SPACE manual 
-by clicking the button at the bottom of the side bar.</p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="about-the-save-file"><a class="header" href="#about-the-save-file">About the save file</a></h1>
-<p>Each datastructure is an object.</p>
-<p>They main key for each object will be what the students variable name for that datastructure is
-e.g. pos_int[] is saved into the JSON file as an object with the name pos_int.</p>
-<p>Each object will have a type key and data key.
-The type key defines what type of datastructure the object is.
-The data key contains the contents of that datastructure.
-Every time a datastructure is saved, the contents of the datastructure are saved as an array in its JSON object.
-If multiple saves of the same datastructure occur, each datastructure save array is appened to the data key.</p>
-<h3 id="example"><a class="header" href="#example">Example</a></h3>
-<pre><code>{
-  &quot;vsevcoej&quot;: {
-	&quot;type&quot;: &quot;Array1D&quot;,
-	&quot;is_char&quot;: 0,
-	&quot;indices&quot;: [
-	  [0, 1],
-	  [0, 1],
-	  [1, 2],
-	  [1, 2],
-	  [2, 3],
-	  [3, 4],
-	  [3, 4],
-	  [4, 5],
-	  [4, 5],
-	  [5, 6],
-	  [5, 6],
-	  [6, 7],
-	  [6, 7],
-	  [7, 8],
-	  [0, 1],
-	  [1, 2],
-	  [2, 3],
-	  [2, 3],
-	  [3, 4],
-	  [3, 4],
-	  [4, 5],
-	  [4, 5],
-	  [5, 6],
-	  [5, 6],
-	  [6, 7],
-	  [0, 1],
-	  [1, 2],
-	  [2, 3],
-	  [2, 3],
-	  [3, 4],
-	  [4, 5],
-	  [4, 5],
-	  [5, 6],
-	  [0, 1],
-	  [1, 2],
-	  [1, 2],
-	  [2, 3],
-	  [3, 4],
-	  [3, 4],
-	  [4, 5],
-	  [0, 1],
-	  [0, 1],
-	  [1, 2],
-	  [2, 3],
-	  [3, 4],
-	  [0, 1],
-	  [1, 2],
-	  [2, 3],
-	  [0, 1],
-	  [1, 2],
-	  [0, 1]
-	],
-	&quot;data&quot;: [
-	  [-32, -57, -51, -17, -47, -59, -44, -51, -5],
-	  [-57, -32, -51, -17, -47, -59, -44, -51, -5],
-	  [-57, -32, -51, -17, -47, -59, -44, -51, -5],
-	  [-57, -51, -32, -17, -47, -59, -44, -51, -5],
-	  [-57, -51, -32, -17, -47, -59, -44, -51, -5],
-	  [-57, -51, -32, -17, -47, -59, -44, -51, -5],
-	  [-57, -51, -32, -47, -17, -59, -44, -51, -5],
-	  [-57, -51, -32, -47, -17, -59, -44, -51, -5],
-	  [-57, -51, -32, -47, -59, -17, -44, -51, -5],
-	  [-57, -51, -32, -47, -59, -17, -44, -51, -5],
-	  [-57, -51, -32, -47, -59, -44, -17, -51, -5],
-	  [-57, -51, -32, -47, -59, -44, -17, -51, -5],
-	  [-57, -51, -32, -47, -59, -44, -51, -17, -5],
-	  [-57, -51, -32, -47, -59, -44, -51, -17, -5],
-	  [-57, -51, -32, -47, -59, -44, -51, -17, -5],
-	  [-57, -51, -32, -47, -59, -44, -51, -17, -5],
-	  [-57, -51, -32, -47, -59, -44, -51, -17, -5],
-	  [-57, -51, -47, -32, -59, -44, -51, -17, -5],
-	  [-57, -51, -47, -32, -59, -44, -51, -17, -5],
-	  [-57, -51, -47, -59, -32, -44, -51, -17, -5],
-	  [-57, -51, -47, -59, -32, -44, -51, -17, -5],
-	  [-57, -51, -47, -59, -44, -32, -51, -17, -5],
-	  [-57, -51, -47, -59, -44, -32, -51, -17, -5],
-	  [-57, -51, -47, -59, -44, -51, -32, -17, -5],
-	  [-57, -51, -47, -59, -44, -51, -32, -17, -5],
-	  [-57, -51, -47, -59, -44, -51, -32, -17, -5],
-	  [-57, -51, -47, -59, -44, -51, -32, -17, -5],
-	  [-57, -51, -47, -59, -44, -51, -32, -17, -5],
-	  [-57, -51, -59, -47, -44, -51, -32, -17, -5],
-	  [-57, -51, -59, -47, -44, -51, -32, -17, -5],
-	  [-57, -51, -59, -47, -44, -51, -32, -17, -5],
-	  [-57, -51, -59, -47, -51, -44, -32, -17, -5],
-	  [-57, -51, -59, -47, -51, -44, -32, -17, -5],
-	  [-57, -51, -59, -47, -51, -44, -32, -17, -5],
-	  [-57, -51, -59, -47, -51, -44, -32, -17, -5],
-	  [-57, -59, -51, -47, -51, -44, -32, -17, -5],
-	  [-57, -59, -51, -47, -51, -44, -32, -17, -5],
-	  [-57, -59, -51, -47, -51, -44, -32, -17, -5],
-	  [-57, -59, -51, -51, -47, -44, -32, -17, -5],
-	  [-57, -59, -51, -51, -47, -44, -32, -17, -5],
-	  [-57, -59, -51, -51, -47, -44, -32, -17, -5],
-	  [-59, -57, -51, -51, -47, -44, -32, -17, -5],
-	  [-59, -57, -51, -51, -47, -44, -32, -17, -5],
-	  [-59, -57, -51, -51, -47, -44, -32, -17, -5],
-	  [-59, -57, -51, -51, -47, -44, -32, -17, -5],
-	  [-59, -57, -51, -51, -47, -44, -32, -17, -5],
-	  [-59, -57, -51, -51, -47, -44, -32, -17, -5],
-	  [-59, -57, -51, -51, -47, -44, -32, -17, -5],
-	  [-59, -57, -51, -51, -47, -44, -32, -17, -5],
-	  [-59, -57, -51, -51, -47, -44, -32, -17, -5],
-	  [-59, -57, -51, -51, -47, -44, -32, -17, -5]
-	]
-  },
-  &quot;zdnyfqmh&quot;: {
-	&quot;type&quot;: &quot;Array1D&quot;,
-	&quot;is_char&quot;: 0,
-	&quot;indices&quot;: [
-	  [0, 1],
-	  [1, 2],
-	  [2, 3],
-	  [2, 3],
-	  [3, 4],
-	  [3, 4],
-	  [4, 5],
-	  [4, 5],
-	  [5, 6],
-	  [5, 6],
-	  [6, 7],
-	  [6, 7],
-	  [7, 8],
-	  [7, 8],
-	  [0, 1],
-	  [1, 2],
-	  [1, 2],
-	  [2, 3],
-	  [3, 4],
-	  [3, 4],
-	  [4, 5],
-	  [5, 6],
-	  [5, 6],
-	  [6, 7],
-	  [6, 7],
-	  [0, 1],
-	  [1, 2],
-	  [2, 3],
-	  [2, 3],
-	  [3, 4],
-	  [4, 5],
-	  [4, 5],
-	  [5, 6],
-	  [5, 6],
-	  [0, 1],
-	  [1, 2],
-	  [1, 2],
-	  [2, 3],
-	  [3, 4],
-	  [4, 5],
-	  [0, 1],
-	  [0, 1],
-	  [1, 2],
-	  [2, 3],
-	  [3, 4],
-	  [0, 1],
-	  [1, 2],
-	  [2, 3],
-	  [0, 1],
-	  [1, 2],
-	  [0, 1]
-	],
-	&quot;data&quot;: [
-	  [-21, 9, 29, 7, 25, -26, 26, 11, 13],
-	  [-21, 9, 29, 7, 25, -26, 26, 11, 13],
-	  [-21, 9, 29, 7, 25, -26, 26, 11, 13],
-	  [-21, 9, 7, 29, 25, -26, 26, 11, 13],
-	  [-21, 9, 7, 29, 25, -26, 26, 11, 13],
-	  [-21, 9, 7, 25, 29, -26, 26, 11, 13],
-	  [-21, 9, 7, 25, 29, -26, 26, 11, 13],
-	  [-21, 9, 7, 25, -26, 29, 26, 11, 13],
-	  [-21, 9, 7, 25, -26, 29, 26, 11, 13],
-	  [-21, 9, 7, 25, -26, 26, 29, 11, 13],
-	  [-21, 9, 7, 25, -26, 26, 29, 11, 13],
-	  [-21, 9, 7, 25, -26, 26, 11, 29, 13],
-	  [-21, 9, 7, 25, -26, 26, 11, 29, 13],
-	  [-21, 9, 7, 25, -26, 26, 11, 13, 29],
-	  [-21, 9, 7, 25, -26, 26, 11, 13, 29],
-	  [-21, 9, 7, 25, -26, 26, 11, 13, 29],
-	  [-21, 7, 9, 25, -26, 26, 11, 13, 29],
-	  [-21, 7, 9, 25, -26, 26, 11, 13, 29],
-	  [-21, 7, 9, 25, -26, 26, 11, 13, 29],
-	  [-21, 7, 9, -26, 25, 26, 11, 13, 29],
-	  [-21, 7, 9, -26, 25, 26, 11, 13, 29],
-	  [-21, 7, 9, -26, 25, 26, 11, 13, 29],
-	  [-21, 7, 9, -26, 25, 11, 26, 13, 29],
-	  [-21, 7, 9, -26, 25, 11, 26, 13, 29],
-	  [-21, 7, 9, -26, 25, 11, 13, 26, 29],
-	  [-21, 7, 9, -26, 25, 11, 13, 26, 29],
-	  [-21, 7, 9, -26, 25, 11, 13, 26, 29],
-	  [-21, 7, 9, -26, 25, 11, 13, 26, 29],
-	  [-21, 7, -26, 9, 25, 11, 13, 26, 29],
-	  [-21, 7, -26, 9, 25, 11, 13, 26, 29],
-	  [-21, 7, -26, 9, 25, 11, 13, 26, 29],
-	  [-21, 7, -26, 9, 11, 25, 13, 26, 29],
-	  [-21, 7, -26, 9, 11, 25, 13, 26, 29],
-	  [-21, 7, -26, 9, 11, 13, 25, 26, 29],
-	  [-21, 7, -26, 9, 11, 13, 25, 26, 29],
-	  [-21, 7, -26, 9, 11, 13, 25, 26, 29],
-	  [-21, -26, 7, 9, 11, 13, 25, 26, 29],
-	  [-21, -26, 7, 9, 11, 13, 25, 26, 29],
-	  [-21, -26, 7, 9, 11, 13, 25, 26, 29],
-	  [-21, -26, 7, 9, 11, 13, 25, 26, 29],
-	  [-21, -26, 7, 9, 11, 13, 25, 26, 29],
-	  [-26, -21, 7, 9, 11, 13, 25, 26, 29],
-	  [-26, -21, 7, 9, 11, 13, 25, 26, 29],
-	  [-26, -21, 7, 9, 11, 13, 25, 26, 29],
-	  [-26, -21, 7, 9, 11, 13, 25, 26, 29],
-	  [-26, -21, 7, 9, 11, 13, 25, 26, 29],
-	  [-26, -21, 7, 9, 11, 13, 25, 26, 29],
-	  [-26, -21, 7, 9, 11, 13, 25, 26, 29],
-	  [-26, -21, 7, 9, 11, 13, 25, 26, 29],
-	  [-26, -21, 7, 9, 11, 13, 25, 26, 29],
-	  [-26, -21, 7, 9, 11, 13, 25, 26, 29]
-	]
-  }
+<p>This is how you use space::sout() to visualize stacks. </p>
+<pre><code>#include &lt;iostream&gt;
+#include &lt;stack&gt;
+
+// include the space.hpp file
+#include &quot;space.hpp&quot;
+
+int main(void)
+{
+	// initialize a stack of ints
+	std::stack&lt;int&gt; int_stack;
+
+	// push some elements to the stack
+	int_stack.push(4);
+	int_stack.push(2);
+	int_stack.push(6);
+	int_stack.push(9);
+	int_stack.push(1);
+	int_stack.push(3);
+
+	// call space to save the stack to memeory
+	space::sout(&quot;int_stack&quot;, int_stack);
+
 }
 </code></pre>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="functions"><a class="header" href="#functions">Functions</a></h1>
-<p>SPACE.hpp contains two main functions. The space::sout() function is used 
-by the student in their programs to output their data structures into a 
-data.json file. The space::save() function is used by the SPACE.hpp 
-program to take the output of space::sout(), convert it to JSON, and output 
-it into a data.json file. The student never uses space::save() in their 
-program.</p>
+<blockquote>
+<p>space::sout(&quot;int_stack&quot;, int_stack);</p>
+</blockquote>
+<p>This is how we call space::sout() when dealing with stacks. 
+All we need it the name of the data structure as a string, 
+and the data structure itself.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="queue"><a class="header" href="#queue">Queue</a></h1>
+<p>This is how you use space::sout() to visualize queues. </p>
+<pre><code>#include &lt;iostream&gt;
+#include &lt;queue&gt;
+
+// include the space.hpp file
+#include &quot;space.hpp&quot;
+
+int main(void)
+{
+	// initialize a queue of ints
+	std::queue&lt;int&gt; int_queue;
+
+	// push some elements to the queue
+	int_queue.push(4);
+	int_queue.push(2);
+	int_queue.push(6);
+	int_queue.push(9);
+	int_queue.push(1);
+	int_queue.push(3);
+
+	// call space to save the queue to memeory
+	space::sout(&quot;int_queue&quot;, int_queue);
+
+}
+</code></pre>
+<blockquote>
+<p>space::sout(&quot;int_queue&quot;, int_queue);</p>
+</blockquote>
+<p>This is how we call space::sout() when dealing with queues. 
+All we need it the name of the data structure as a string, 
+and the data structure itself.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="vector"><a class="header" href="#vector">Vector</a></h1>
+<p>This is how you use space::sout() to visualize vectors. </p>
+<pre><code>#include &lt;iostream&gt;
+#include &lt;vector&gt;
+
+// include the space.hpp file
+#include &quot;space.hpp&quot;
+
+int main(void)
+{
+	// initialize a vector of ints
+	std::vector&lt;int&gt; int_vector;
+
+	// push_back some elements to the vector
+	int_vector.push_back(4);
+	int_vector.push_back(2);
+	int_vector.push_back(6);
+	int_vector.push_back(9);
+	int_vector.push_back(1);
+	int_vector.push_back(3);
+
+	// call space to save the vector to memeory
+	space::sout(&quot;int_vector&quot;, int_vector);
+
+}
+</code></pre>
+<blockquote>
+<p>space::sout(&quot;int_vector&quot;, int_vector);</p>
+</blockquote>
+<p>This is how we call space::sout() when dealing with vectors. 
+All we need it the name of the data structure as a string, 
+and the data structure itself.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="linked-lists"><a class="header" href="#linked-lists">Linked lists</a></h1>
+<p>There is an example program that demonstrates using 
+SPACE with linked lists in the SPACE/examples/ directory.</p>
 <div style="break-before: page; page-break-before: always;"></div><pre><code>void space::sout()
 </code></pre>
 <h3 id="examples-1"><a class="header" href="#examples-1">Examples</a></h3>
-<h4 id="array"><a class="header" href="#array">Array</a></h4>
-<pre><code>int array_size = 3;
-int joke[array_size] = {6,7,8,9};
-space::sout(&quot;joke&quot;, joke, array_size);
-</code></pre>
-<h4 id="array-with-indicies-of-sorting-algorithm"><a class="header" href="#array-with-indicies-of-sorting-algorithm">Array with indicies of sorting algorithm</a></h4>
-<pre><code>space::sout(&quot;joke&quot;, joke, array_size, i, j);
-</code></pre>
 <blockquote>
 <p>See the <a href="examples.html">Examples</a> chapter for more detailed examples with more data structures.</p>
 </blockquote>
@@ -891,32 +735,51 @@ If you modify the data structure you must call space::sout() again if you
 want to save the updated structure. At the end of your program the stored 
 memory will be outout to the data.json file.</p>
 <h3 id="syntax"><a class="header" href="#syntax">Syntax</a></h3>
-<pre><code>space::sout(STRING name_of_data_structure, data_structure, INT size_of_data_structure);
-</code></pre>
-<p>data_structure may be of any type aside from string.</p>
-<h3 id="parameters"><a class="header" href="#parameters">Parameters</a></h3>
+<h5 id="stacks-queues-vectors"><a class="header" href="#stacks-queues-vectors">Stacks, Queues, Vectors</a></h5>
 <pre><code>space::sout(
-STRING name_of_array, /* if your array is named &quot;joke&quot; pass in &quot;joke&quot; as a string in double quotes */
-INT array, /* pass in the array */
-INT size_of_array /* pass in the size of the array */
+	&quot;my_STL&quot;, 		// name of data structure
+	data_structure	// data structure itself
+);
 </code></pre>
+<h5 id="array"><a class="header" href="#array">Array</a></h5>
+<pre><code>space::sout(
+	&quot;my_array&quot;, 	// name of data structure
+	data_structure,	// data structure itself
+	size_of_array	// size (length) of array
+);
+</code></pre>
+<h5 id="array-with-indicies"><a class="header" href="#array-with-indicies">Array with indicies</a></h5>
+<pre><code>space::sout(
+	&quot;my_array&quot;,		// name of data structure 
+	data_structure,	// data structure itself
+	size, 		// size (length) of array
+	index_one, 		// index 1
+	index_two		// index 2
+);
+</code></pre>
+<h5 id="2d-array"><a class="header" href="#2d-array">2D array</a></h5>
+<pre><code>space::sout(
+    &quot;2d array&quot;, 	// name of data structure
+    array_2d, 		// data structure itself
+    ROWS, COLS		// size of 2d array
+);
+</code></pre>
+<h5 id="2d-array-with-indicies"><a class="header" href="#2d-array-with-indicies">2D array with indicies</a></h5>
+<pre><code>space::sout(
+	&quot;2d array&quot;, 	// name of data structure
+	array_2d, 		// data structure itself
+	ROWS, COLS, 	// size of 2d array
+	j, k, 		// index 1 (x,y)
+	j, k+1		// index 2 (x,y)
+);
+</code></pre>
+<h3 id="types"><a class="header" href="#types">Types</a></h3>
+<p>All supported data structures can work with types 
+<em>int, float, double, bool, char</em>, and <em>wide char</em> 
+<strong>EXCEPT LINKED LISTS!</strong> 
+Linked lists only support int, float, double, and bool.</p>
 <h3 id="returns"><a class="header" href="#returns">Returns</a></h3>
 <p>N/A because space::sout() is a void function.</p>
-<div style="break-before: page; page-break-before: always;"></div><pre><code>void space::save()
-</code></pre>
-<h3 id="example-1"><a class="header" href="#example-1">Example</a></h3>
-<p>N/A</p>
-<h3 id="description-1"><a class="header" href="#description-1">Description</a></h3>
-<p>A backend funciton that formats the memory stored by space::sout() as JSON and 
-outputs it to the file data.json.</p>
-<h4 id="future-design"><a class="header" href="#future-design">Future design</a></h4>
-<p>There is only one save function; space::sout() gets overloaded.</p>
-<h3 id="syntax-1"><a class="header" href="#syntax-1">Syntax</a></h3>
-<p>N/A</p>
-<h3 id="parameters-1"><a class="header" href="#parameters-1">Parameters</a></h3>
-<p>N/A</p>
-<h3 id="returns-1"><a class="header" href="#returns-1">Returns</a></h3>
-<p>N/A, it is a void function.</p>
 
                     </main>
 
@@ -935,22 +798,6 @@ outputs it to the file data.json.</p>
 
         </div>
 
-        <!-- Livereload script (if served using the cli tool) -->
-        <script>
-            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
-            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
-            const socket = new WebSocket(wsAddress);
-            socket.onmessage = function (event) {
-                if (event.data === "reload") {
-                    socket.close();
-                    location.reload();
-                }
-            };
-
-            window.onbeforeunload = function() {
-                socket.close();
-            }
-        </script>
 
 
 

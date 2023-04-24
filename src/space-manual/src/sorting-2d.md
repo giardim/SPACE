@@ -60,8 +60,6 @@ How we save indicies also has to be adjusted to work with 2 dimenstion arrays.
 Lets copy our program above and modify it to save the indicies of the 
 bubble sort.
 
-# someone pls check the indicies are correct 
-
 	#include <iostream>
 	#include <algorithm>
 
@@ -92,8 +90,10 @@ bubble sort.
 	        }
 	    }
 
-		// Save the final state of the 2d array
-	    space::sout("2d array", arr, ROWS, COLS, j, k, j, k+1);
+		// Save the final state of the 2d array without indicies 
+		// because the indicies are not available in this scope outside 
+		// the for loops
+	    space::sout("2d array", arr, ROWS, COLS);
 
 	    return 0;
 	}

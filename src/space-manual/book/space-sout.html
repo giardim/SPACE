@@ -81,7 +81,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="index.html">Introduction</a></li><li class="chapter-item expanded "><a href="installation.html"><strong aria-hidden="true">1.</strong> Installing Space</a></li><li class="chapter-item expanded "><a href="tutorial.html"><strong aria-hidden="true">2.</strong> Tutorial</a></li><li class="chapter-item expanded "><a href="examples.html"><strong aria-hidden="true">3.</strong> Examples</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="sorting-array.html"><strong aria-hidden="true">3.1.</strong> Sorting Array</a></li><li class="chapter-item expanded "><a href="indicies.html"><strong aria-hidden="true">3.2.</strong> Saving Indicies</a></li><li class="chapter-item expanded "><a href="sorting-2d.html"><strong aria-hidden="true">3.3.</strong> Sorting 2D Array</a></li><li class="chapter-item expanded "><a href="stack.html"><strong aria-hidden="true">3.4.</strong> Stack</a></li><li class="chapter-item expanded "><a href="queue.html"><strong aria-hidden="true">3.5.</strong> Queue</a></li><li class="chapter-item expanded "><a href="linked-list.html"><strong aria-hidden="true">3.6.</strong> Linked lists</a></li></ol></li><li class="chapter-item expanded "><a href="design.html"><strong aria-hidden="true">4.</strong> Design documents</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ui.html"><strong aria-hidden="true">4.1.</strong> UI/UX</a></li><li class="chapter-item expanded "><a href="output-file.html"><strong aria-hidden="true">4.2.</strong> data.json</a></li></ol></li><li class="chapter-item expanded "><a href="functions.html"><strong aria-hidden="true">5.</strong> Functions</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="space-sout.html" class="active"><strong aria-hidden="true">5.1.</strong> space::sout()</a></li><li class="chapter-item expanded "><a href="space-save.html"><strong aria-hidden="true">5.2.</strong> space::save()</a></li></ol></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="index.html">Introduction</a></li><li class="chapter-item expanded "><a href="installation.html"><strong aria-hidden="true">1.</strong> Installing Space</a></li><li class="chapter-item expanded "><a href="tutorial.html"><strong aria-hidden="true">2.</strong> Tutorial</a></li><li class="chapter-item expanded "><a href="examples.html"><strong aria-hidden="true">3.</strong> Examples</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="sorting-array.html"><strong aria-hidden="true">3.1.</strong> Sorting Array</a></li><li class="chapter-item expanded "><a href="indicies.html"><strong aria-hidden="true">3.2.</strong> Saving Indicies</a></li><li class="chapter-item expanded "><a href="sorting-2d.html"><strong aria-hidden="true">3.3.</strong> Sorting 2D Array</a></li><li class="chapter-item expanded "><a href="stack.html"><strong aria-hidden="true">3.4.</strong> Stack</a></li><li class="chapter-item expanded "><a href="queue.html"><strong aria-hidden="true">3.5.</strong> Queue</a></li><li class="chapter-item expanded "><a href="vector.html"><strong aria-hidden="true">3.6.</strong> Vector</a></li><li class="chapter-item expanded "><a href="linked-list.html"><strong aria-hidden="true">3.7.</strong> Linked lists</a></li></ol></li><li class="chapter-item expanded "><a href="space-sout.html" class="active"><strong aria-hidden="true">4.</strong> space::sout()</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -145,14 +145,6 @@
                         <pre><code>void space::sout()
 </code></pre>
 <h3 id="examples"><a class="header" href="#examples">Examples</a></h3>
-<h4 id="array"><a class="header" href="#array">Array</a></h4>
-<pre><code>int array_size = 3;
-int joke[array_size] = {6,7,8,9};
-space::sout(&quot;joke&quot;, joke, array_size);
-</code></pre>
-<h4 id="array-with-indicies-of-sorting-algorithm"><a class="header" href="#array-with-indicies-of-sorting-algorithm">Array with indicies of sorting algorithm</a></h4>
-<pre><code>space::sout(&quot;joke&quot;, joke, array_size, i, j);
-</code></pre>
 <blockquote>
 <p>See the <a href="examples.html">Examples</a> chapter for more detailed examples with more data structures.</p>
 </blockquote>
@@ -162,15 +154,49 @@ If you modify the data structure you must call space::sout() again if you
 want to save the updated structure. At the end of your program the stored 
 memory will be outout to the data.json file.</p>
 <h3 id="syntax"><a class="header" href="#syntax">Syntax</a></h3>
-<pre><code>space::sout(STRING name_of_data_structure, data_structure, INT size_of_data_structure);
-</code></pre>
-<p>data_structure may be of any type aside from string.</p>
-<h3 id="parameters"><a class="header" href="#parameters">Parameters</a></h3>
+<h5 id="stacks-queues-vectors"><a class="header" href="#stacks-queues-vectors">Stacks, Queues, Vectors</a></h5>
 <pre><code>space::sout(
-STRING name_of_array, /* if your array is named &quot;joke&quot; pass in &quot;joke&quot; as a string in double quotes */
-INT array, /* pass in the array */
-INT size_of_array /* pass in the size of the array */
+	&quot;my_STL&quot;, 		// name of data structure
+	data_structure	// data structure itself
+);
 </code></pre>
+<h5 id="array"><a class="header" href="#array">Array</a></h5>
+<pre><code>space::sout(
+	&quot;my_array&quot;, 	// name of data structure
+	data_structure,	// data structure itself
+	size_of_array	// size (length) of array
+);
+</code></pre>
+<h5 id="array-with-indicies"><a class="header" href="#array-with-indicies">Array with indicies</a></h5>
+<pre><code>space::sout(
+	&quot;my_array&quot;,		// name of data structure 
+	data_structure,	// data structure itself
+	size, 		// size (length) of array
+	index_one, 		// index 1
+	index_two		// index 2
+);
+</code></pre>
+<h5 id="2d-array"><a class="header" href="#2d-array">2D array</a></h5>
+<pre><code>space::sout(
+    &quot;2d array&quot;, 	// name of data structure
+    array_2d, 		// data structure itself
+    ROWS, COLS		// size of 2d array
+);
+</code></pre>
+<h5 id="2d-array-with-indicies"><a class="header" href="#2d-array-with-indicies">2D array with indicies</a></h5>
+<pre><code>space::sout(
+	&quot;2d array&quot;, 	// name of data structure
+	array_2d, 		// data structure itself
+	ROWS, COLS, 	// size of 2d array
+	j, k, 		// index 1 (x,y)
+	j, k+1		// index 2 (x,y)
+);
+</code></pre>
+<h3 id="types"><a class="header" href="#types">Types</a></h3>
+<p>All supported data structures can work with types 
+<em>int, float, double, bool, char</em>, and <em>wide char</em> 
+<strong>EXCEPT LINKED LISTS!</strong> 
+Linked lists only support int, float, double, and bool.</p>
 <h3 id="returns"><a class="header" href="#returns">Returns</a></h3>
 <p>N/A because space::sout() is a void function.</p>
 
@@ -178,13 +204,10 @@ INT size_of_array /* pass in the size of the array */
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                            <a rel="prev" href="functions.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="linked-list.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
 
-                            <a rel="next" href="space-save.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
-                                <i class="fa fa-angle-right"></i>
-                            </a>
 
                         <div style="clear: both"></div>
                     </nav>
@@ -192,33 +215,14 @@ INT size_of_array /* pass in the size of the array */
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                    <a rel="prev" href="functions.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="linked-list.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
 
-                    <a rel="next" href="space-save.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
-                        <i class="fa fa-angle-right"></i>
-                    </a>
             </nav>
 
         </div>
 
-        <!-- Livereload script (if served using the cli tool) -->
-        <script>
-            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
-            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
-            const socket = new WebSocket(wsAddress);
-            socket.onmessage = function (event) {
-                if (event.data === "reload") {
-                    socket.close();
-                    location.reload();
-                }
-            };
-
-            window.onbeforeunload = function() {
-                socket.close();
-            }
-        </script>
 
 
 
