@@ -18,13 +18,14 @@ int main(void)
     std::stack<char> char_stack;
 
     // Below is a loop to fill the stacks with values
-    for (int i = 97; i < 102; ++i)
+    for (int i = 97; i < 97 + 26; i += 5)
     {
         int_stack.push(i);
         float_stack.push(i + .5);
         double_stack.push(i + .8);
         bool_stack.push(i);
         char_stack.push(i);
+        //If you want to see each step of the stack as it is inserted, you would call the sout function here
     }
 
     // Now that the stacks are full, we can call our function to save the data into a JSON file

@@ -18,13 +18,14 @@ int main(void)
     std::queue<char> char_queue;
 
     // Below is a loop to fill the queues with values
-    for (int i = 97; i < 102; ++i)
+    for (int i = 97; i < 97 + 26; i += 5)
     {
         int_queue.push(i);
         float_queue.push(i + .5);
         double_queue.push(i + .8);
         bool_queue.push(i);
         char_queue.push(i);
+        //If you want to see each step of the queue as it is inserted, you would call the sout function here
     }
 
     // Now that the queues are full, we can call our function to save the data into a JSON file
