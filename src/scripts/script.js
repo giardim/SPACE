@@ -58,6 +58,7 @@ function setup() {
         });
         $('.data-structure').eq(0).click();
         $('#view-settings button').eq(0).click();
+        $('#dropzone').removeClass('active');
         $('#sidebar, #sidebar-h, #player-h, #data-structures, #canvas, #manual, #controls').addClass('active');
         const interval = setInterval(windowResized); setTimeout(() => clearInterval(interval), 500);
       }
@@ -90,6 +91,7 @@ function setup() {
   });
 
   $('#controls').attr('data-play', 1);
+  $('#dropzone').addClass('active');
   $('#sidebar, #sidebar-h, #player-h, #data-structures, #canvas, #manual, #controls').removeClass('active');
   const interval = setInterval(windowResized); setTimeout(() => clearInterval(interval), 500);
 }

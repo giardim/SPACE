@@ -13,6 +13,24 @@ body {
   width: 100vw;
 }
 
+#dropzone {
+  align-items: center;
+  background: inherit;
+  border: 2px dashed var(--fg);
+  box-sizing: border-box;
+  color: inherit;
+  display: none;
+  height: calc(100vh - 20px);
+  justify-content: center;
+  margin: 10px;
+  position: fixed;
+  width: calc(100vw - 20px);
+}
+
+#dropzone.active {
+  display: flex;
+}
+
 #sidebar {
   background: var(--sidebar-bg);
   box-sizing: border-box;
