@@ -1804,7 +1804,7 @@ public:
   static void sout(std::string name, std::vector<int> vector)
   {
     int initSize = vector.size();
-    data[name]["type"] = "1DVector";
+    data[name]["type"] = "Vector1D";
     data[name]["is_char"] = "0";
     istream.str("");
     istream << "[" << -1 << ", " << -1 << "]";
@@ -1822,7 +1822,7 @@ public:
   static void sout(std::string name, std::vector<double> vector)
   {
     int initSize = vector.size();
-    data[name]["type"] = "1DVector";
+    data[name]["type"] = "Vector1D";
     data[name]["is_char"] = "0";
     istream.str("");
     istream << "[" << -1 << ", " << -1 << "]";
@@ -1840,7 +1840,7 @@ public:
   static void sout(std::string name, std::vector<float> vector)
   {
     int initSize = vector.size();
-    data[name]["type"] = "1DVector";
+    data[name]["type"] = "Vector1D";
     data[name]["is_char"] = "0";
     istream.str("");
     istream << "[" << -1 << ", " << -1 << "]";
@@ -1858,7 +1858,7 @@ public:
   static void sout(std::string name, std::vector<bool> vector)
   {
     int initSize = vector.size();
-    data[name]["type"] = "1DVector";
+    data[name]["type"] = "Vector1D";
     data[name]["is_char"] = "0";
     istream.str("");
     istream << "[" << -1 << ", " << -1 << "]";
@@ -1876,7 +1876,7 @@ public:
   static void sout(std::string name, std::vector<char> vector)
   {
     int initSize = vector.size();
-    data[name]["type"] = "1DVector";
+    data[name]["type"] = "Vector1D";
     data[name]["is_char"] = "1";
     istream.str("");
     istream << "[" << -1 << ", " << -1 << "]";
@@ -1894,7 +1894,7 @@ public:
   static void sout(std::string name, std::vector<wchar_t> vector)
   {
     int initSize = vector.size();
-    data[name]["type"] = "1DVector";
+    data[name]["type"] = "Vector1D";
     data[name]["is_char"] = "1";
     istream.str("");
     istream << "[" << -1 << ", " << -1 << "]";
@@ -1911,7 +1911,7 @@ public:
 
   static void sout(std::string name, std::vector<std::vector<int> > vector)
   {
-    data[name]["type"] = "2DVector";
+    data[name]["type"] = "Vector2D";
     data[name]["is_char"] = "0";
     istream.str("");
     istream << "[" << -1 << ", " << -1 << "]";
@@ -1934,7 +1934,7 @@ public:
 
   static void sout(std::string name, std::vector<std::vector<float> > vector)
   {
-    data[name]["type"] = "2DVector";
+    data[name]["type"] = "Vector2D";
     data[name]["is_char"] = "0";
     istream.str("");
     istream << "[" << -1 << ", " << -1 << "]";
@@ -1957,7 +1957,7 @@ public:
 
   static void sout(std::string name, std::vector<std::vector<double> > vector)
   {
-    data[name]["type"] = "2DVector";
+    data[name]["type"] = "Vector2D";
     data[name]["is_char"] = "0";
     istream.str("");
     istream << "[" << -1 << ", " << -1 << "]";
@@ -1980,7 +1980,7 @@ public:
 
   static void sout(std::string name, std::vector<std::vector<bool> > vector)
   {
-    data[name]["type"] = "2DVector";
+    data[name]["type"] = "Vector2D";
     data[name]["is_char"] = "0";
     istream.str("");
     istream << "[" << -1 << ", " << -1 << "]";
@@ -2003,7 +2003,7 @@ public:
 
   static void sout(std::string name, std::vector<std::vector<char> > vector)
   {
-    data[name]["type"] = "2DVector";
+    data[name]["type"] = "Vector2D";
     data[name]["is_char"] = "1";
     istream.str("");
     istream << "[" << -1 << ", " << -1 << "]";
@@ -2026,7 +2026,7 @@ public:
 
   static void sout(std::string name, std::vector<std::vector<wchar_t> > vector)
   {
-    data[name]["type"] = "2DVector";
+    data[name]["type"] = "Vector2D";
     data[name]["is_char"] = "1";
     istream.str("");
     istream << "[" << -1 << ", " << -1 << "]";
