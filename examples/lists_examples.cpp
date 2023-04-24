@@ -18,13 +18,14 @@ int main(void)
     std::list<char> char_list;
 
     // Below is a loop to fill the lists with values
-    for (int i = 97; i < 102; ++i)
+    for (int i = 97; i < 97 + 26; i += 5)
     {
         int_list.push_front(i);
         float_list.push_front(i + .5);
         double_list.push_front(i + .8);
         bool_list.push_front(i);
         char_list.push_front(i);
+        //If you want to see each step of the list as it is inserted, you would call the sout function here
     }
 
     // Now that the lists are full, we can call our function to save the data into a JSON file
