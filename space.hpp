@@ -8,8 +8,8 @@
 #include <list>
 #include <map>
 #include <queue>
-#include <sstream>
 #include <set>
+#include <sstream>
 #include <stack>
 #include <vector>
 
@@ -1577,7 +1577,7 @@ public:
   static void sout(std::string name, std::queue<int> queue)
   {
     int initSize = queue.size();
-    data[name]["type"] = "queue";
+    data[name]["type"] = "Queue";
     data[name]["is_char"] = "0";
     istream.str("");
     istream << "[" << -1 << ", " << -1 << "]";
@@ -1596,7 +1596,7 @@ public:
   static void sout(std::string name, std::queue<float> queue)
   {
     int initSize = queue.size();
-    data[name]["type"] = "queue";
+    data[name]["type"] = "Queue";
     data[name]["is_char"] = "0";
     istream.str("");
     istream << "[" << -1 << ", " << -1 << "]";
@@ -1615,7 +1615,7 @@ public:
   static void sout(std::string name, std::queue<double> queue)
   {
     int initSize = queue.size();
-    data[name]["type"] = "queue";
+    data[name]["type"] = "Queue";
     data[name]["is_char"] = "0";
     istream.str("");
     istream << "[" << -1 << ", " << -1 << "]";
@@ -1634,7 +1634,7 @@ public:
   static void sout(std::string name, std::queue<bool> queue)
   {
     int initSize = queue.size();
-    data[name]["type"] = "queue";
+    data[name]["type"] = "Queue";
     data[name]["is_char"] = "0";
     istream.str("");
     istream << "[" << -1 << ", " << -1 << "]";
@@ -1653,7 +1653,7 @@ public:
   static void sout(std::string name, std::queue<char> queue)
   {
     int initSize = queue.size();
-    data[name]["type"] = "queue";
+    data[name]["type"] = "Queue";
     data[name]["is_char"] = "1";
     istream.str("");
     istream << "[" << -1 << ", " << -1 << "]";
@@ -1672,7 +1672,7 @@ public:
   static void sout(std::string name, std::queue<wchar_t> queue)
   {
     int initSize = queue.size();
-    data[name]["type"] = "queue";
+    data[name]["type"] = "Queue";
     data[name]["is_char"] = "1";
     istream.str("");
     istream << "[" << -1 << ", " << -1 << "]";
@@ -1691,7 +1691,7 @@ public:
   static void sout(std::string name, std::list<int> list)
   {
     int initSize = list.size();
-    data[name]["type"] = "list";
+    data[name]["type"] = "List";
     data[name]["is_char"] = "0";
     istream.str("");
     istream << "[" << -1 << ", " << -1 << "]";
@@ -1710,7 +1710,7 @@ public:
   static void sout(std::string name, std::list<float> list)
   {
     int initSize = list.size();
-    data[name]["type"] = "list";
+    data[name]["type"] = "List";
     data[name]["is_char"] = "0";
     istream.str("");
     istream << "[" << -1 << ", " << -1 << "]";
@@ -1729,7 +1729,7 @@ public:
   static void sout(std::string name, std::list<double> list)
   {
     int initSize = list.size();
-    data[name]["type"] = "list";
+    data[name]["type"] = "List";
     data[name]["is_char"] = "0";
     istream.str("");
     istream << "[" << -1 << ", " << -1 << "]";
@@ -1748,7 +1748,7 @@ public:
   static void sout(std::string name, std::list<bool> list)
   {
     int initSize = list.size();
-    data[name]["type"] = "list";
+    data[name]["type"] = "List";
     data[name]["is_char"] = "0";
     istream.str("");
     istream << "[" << -1 << ", " << -1 << "]";
@@ -1767,7 +1767,7 @@ public:
   static void sout(std::string name, std::list<char> list)
   {
     int initSize = list.size();
-    data[name]["type"] = "list";
+    data[name]["type"] = "List";
     data[name]["is_char"] = "1";
     istream.str("");
     istream << "[" << -1 << ", " << -1 << "]";
@@ -1786,7 +1786,7 @@ public:
   static void sout(std::string name, std::list<wchar_t> list)
   {
     int initSize = list.size();
-    data[name]["type"] = "list";
+    data[name]["type"] = "List";
     data[name]["is_char"] = "1";
     istream.str("");
     istream << "[" << -1 << ", " << -1 << "]";
@@ -2161,7 +2161,6 @@ public:
     data[name]["indices"] += "      " + istream.str() + ",\n";
     data[name]["data"] += "      " + dstream.str() + ",\n";
   }
-
 };
 
 std::map<std::string, std::map<std::string, std::string> > space::data;
