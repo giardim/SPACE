@@ -2,15 +2,16 @@
 #define SPACE
 
 #include <cstdlib>
+#include <deque>
 #include <fstream>
 #include <iostream>
 #include <list>
 #include <map>
 #include <queue>
 #include <sstream>
+#include <set>
 #include <stack>
 #include <vector>
-#include <set>
 
 class space
 {
@@ -2046,6 +2047,121 @@ public:
     data[name]["indices"] += "      " + istream.str() + ",\n";
     data[name]["data"] += "      " + dstream.str() + ",\n";
   }
+
+  static void sout(std::string name, std::deque<int> deque)
+  {
+    int initSize = deque.size();
+    data[name]["type"] = "Deque";
+    data[name]["is_char"] = "0";
+    istream.str("");
+    istream << "[" << -1 << ", " << -1 << "]";
+    dstream.str("");
+    dstream << "[";
+    for (int i = 0; i < initSize; i++)
+    {
+      dstream << deque.front() << (i < initSize - 1 ? ", " : "");
+      deque.pop_front();
+    }
+    dstream << "]";
+    data[name]["indices"] += "      " + istream.str() + ",\n";
+    data[name]["data"] += "      " + dstream.str() + ",\n";
+  }
+
+  static void sout(std::string name, std::deque<float> deque)
+  {
+    int initSize = deque.size();
+    data[name]["type"] = "Deque";
+    data[name]["is_char"] = "0";
+    istream.str("");
+    istream << "[" << -1 << ", " << -1 << "]";
+    dstream.str("");
+    dstream << "[";
+    for (int i = 0; i < initSize; i++)
+    {
+      dstream << deque.front() << (i < initSize - 1 ? ", " : "");
+      deque.pop_front();
+    }
+    dstream << "]";
+    data[name]["indices"] += "      " + istream.str() + ",\n";
+    data[name]["data"] += "      " + dstream.str() + ",\n";
+  }
+
+  static void sout(std::string name, std::deque<double> deque)
+  {
+    int initSize = deque.size();
+    data[name]["type"] = "Deque";
+    data[name]["is_char"] = "0";
+    istream.str("");
+    istream << "[" << -1 << ", " << -1 << "]";
+    dstream.str("");
+    dstream << "[";
+    for (int i = 0; i < initSize; i++)
+    {
+      dstream << deque.front() << (i < initSize - 1 ? ", " : "");
+      deque.pop_front();
+    }
+    dstream << "]";
+    data[name]["indices"] += "      " + istream.str() + ",\n";
+    data[name]["data"] += "      " + dstream.str() + ",\n";
+  }
+
+  static void sout(std::string name, std::deque<bool> deque)
+  {
+    int initSize = deque.size();
+    data[name]["type"] = "Deque";
+    data[name]["is_char"] = "0";
+    istream.str("");
+    istream << "[" << -1 << ", " << -1 << "]";
+    dstream.str("");
+    dstream << "[";
+    for (int i = 0; i < initSize; i++)
+    {
+      dstream << deque.front() << (i < initSize - 1 ? ", " : "");
+      deque.pop_front();
+    }
+    dstream << "]";
+    data[name]["indices"] += "      " + istream.str() + ",\n";
+    data[name]["data"] += "      " + dstream.str() + ",\n";
+  }
+
+  static void sout(std::string name, std::deque<char> deque)
+  {
+    int initSize = deque.size();
+    data[name]["type"] = "Deque";
+    data[name]["is_char"] = "1";
+    istream.str("");
+    istream << "[" << -1 << ", " << -1 << "]";
+    dstream.str("");
+    dstream << "[";
+    for (int i = 0; i < initSize; i++)
+    {
+      dstream << (int)deque.front() << (i < initSize - 1 ? ", " : "");
+      deque.pop_front();
+    }
+    dstream << "]";
+    data[name]["indices"] += "      " + istream.str() + ",\n";
+    data[name]["data"] += "      " + dstream.str() + ",\n";
+  }
+
+  static void sout(std::string name, std::deque<wchar_t> deque)
+  {
+    int initSize = deque.size();
+    data[name]["type"] = "Deque";
+    data[name]["is_char"] = "1";
+    istream.str("");
+    istream << "[" << -1 << ", " << -1 << "]";
+    dstream.str("");
+    dstream << "[";
+    for (int i = 0; i < initSize; i++)
+    {
+      dstream << (int)deque.front() << (i < initSize - 1 ? ", " : "");
+      deque.pop_front();
+    }
+    dstream << "]";
+    data[name]["indices"] += "      " + istream.str() + ",\n";
+    data[name]["data"] += "      " + dstream.str() + ",\n";
+  }
+
 };
 
 std::map<std::string, std::map<std::string, std::string> > space::data;

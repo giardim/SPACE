@@ -10,12 +10,6 @@
 	- [Sorting 2D Array](sorting-2d.md)
 	- [Stack](stack.md)
 	- [Queue](queue.md)
+	- [Vector](vector.md)
 	- [Linked lists](linked-list.md)
-
-- [Design documents](design.md)
-	- [UI/UX](ui.md)
-	- [data.json](output-file.md)
-
-- [Functions](functions.md)
-	- [space::sout()](space-sout.md)
-	- [space::save()](space-save.md)
+- [space::sout()](space-sout.md)

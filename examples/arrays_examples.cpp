@@ -11,8 +11,8 @@ int main (void){
     // Note: these arrays are initialized as integers
     //      however, SPACE supports ints, floats, doubles,
     //      bools, chars, and wchar_t data types
-    int one_dimentional_array[5] = {1, 2, 3, 4, 5};
-    int two_dimentional_array[3][3] = {{1,2,3}, {4, 5, 6}, {7, 8, 9}};
+    int one_dimentional_array[5] = {10, 20, 30, 40, 50};
+    int two_dimentional_array[3][3] = {{10,20,30}, {40, 50, 60}, {70, 80, 90}};
 
     // Below we are calling the sout function with one dimentioal arrays
     // Note: The sout function take three mandatory parameters and two optional 

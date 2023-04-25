@@ -18,13 +18,14 @@ int main(void)
     std::vector<char> char_vector;
 
     // Below is a loop to fill the vectors with values
-    for (int i = 97; i < 102; ++i)
+    for (int i = 97; i < 97 + 26; i += 5)
     {
         int_vector.push_back(i);
         float_vector.push_back(i + .5);
         double_vector.push_back(i + .8);
         bool_vector.push_back(i);
         char_vector.push_back(i);
+        //If you want to see each step of the vector as it is inserted, you would call the sout function here
     }
 
     // Now that the vectors are full, we can call our function to save the data into a JSON file
