@@ -63,10 +63,7 @@ class Stack {
     rectMode(CENTER);
     textAlign(CENTER, CENTER);
     const data = [0, ...this.data.data[this.step]];
-    if (this.step > 0) {
-      const X = (0 + 0.5) * width / data.length;
-      const Y = height / 2;
-      const S = width / data.length;
+    if (this.step) {
       if (this.data.data[this.step - 1].length < this.data.data[this.step].length) {
         data[0] = svg.arrowr;
       }
@@ -74,6 +71,9 @@ class Stack {
         data[0] = svg.arrowl;
       }
       const D = data[0];
+      const X = (0 + 0.5) * width / data.length;
+      const Y = height / 2;
+      const S = width / data.length;
       fill(theme.sbg); stroke(theme.bg);
       square(X, Y, S);
       fill(theme.fg); stroke(theme.sfg);
