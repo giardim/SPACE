@@ -1,6 +1,7 @@
 /*
 This program is to show the user how to use our product to save and store
     STL vectors
+    Written By Michael Giardina And Christian Gregory
 */
 
 #include <iostream>

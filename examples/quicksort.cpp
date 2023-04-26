@@ -7,6 +7,8 @@ This program is to show the user how SPACE is used in a quicksort algorithm
 When you compile and run this program, a data.json file will either be
     created or overwritten. Drag and drop that file into the browser app
     to visualize how a sorting algorithm is accomplished.
+    
+    Written By Michael Giardina And Christian Gregory
 */
 
 #include <cstdlib>
