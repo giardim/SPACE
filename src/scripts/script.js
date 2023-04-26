@@ -1,5 +1,5 @@
 const controls = { play: 0 };
-const space = { Array1D, Array2D, Vector1D, Vector2D, Stack };
+const space = { Array1D, Array2D, Vector1D, Vector2D, Stack, Queue };
 const theme = {};
 const svg = {
   arrowl: {
