@@ -25,7 +25,16 @@ int main(void)
         double_stack.push(i + .8);
         bool_stack.push(i);
         char_stack.push(i);
-        //If you want to see each step of the stack as it is inserted, you would call the sout function here
+
+        // We can now call the sout function, which will save each step of filling the stack
+        // Note: for stacks, our sout function takes two parameters, the name of the array as a string
+        //      and the stack itself
+        space::sout("int_stack", int_stack);
+        space::sout("float_stack", float_stack);
+        space::sout("double_stack", double_stack);
+        space::sout("bool_stack", bool_stack);
+        space::sout("char_stack", char_stack);
+        
     }
 
     // Now that the stacks are full, we can call our function to save the data into a JSON file
@@ -37,8 +46,8 @@ int main(void)
     space::sout("bool_stack", bool_stack);
     space::sout("char_stack", char_stack);
 
-    // Notice how a data.JSON file has either been created or overwritten,
-    //      you can now drag and drop that data.JSON file into the browser app
+    // Notice how a data.json file has either been created or overwritten,
+    //      you can now drag and drop that data.json file into the browser app
     //      to visualize your stack
 
     return 0;

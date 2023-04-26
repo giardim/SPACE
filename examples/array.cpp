@@ -36,8 +36,8 @@ int main (void){
     // sout function without indices
     space::sout("two_dimentional_array_yes_indicies", two_dimentional_array, 3, 3, 1, 2, 3, 4);
 
-    // Notice how a data.JSON file has either been created or overwritten,
-    //      you can now drag and drop that data.JSON file into the browser app
+    // Notice how a data.json file has either been created or overwritten,
+    //      you can now drag and drop that data.json file into the browser app
     //      to visualize your queue
 
 

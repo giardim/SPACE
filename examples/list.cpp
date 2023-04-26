@@ -25,7 +25,16 @@ int main(void)
         double_list.push_front(i + .8);
         bool_list.push_front(i);
         char_list.push_front(i);
-        //If you want to see each step of the list as it is inserted, you would call the sout function here
+
+        // We can now call the sout function, which will save each step of filling the list
+        // Note: for lists, our sout function takes two parameters, the name of the array as a string
+        //      and the list itself
+        space::sout("int_list", int_list);
+        space::sout("float_list", float_list);
+        space::sout("double_list", double_list);
+        space::sout("bool_list", bool_list);
+        space::sout("char_list", char_list);
+        
     }
 
     // Now that the lists are full, we can call our function to save the data into a JSON file
@@ -37,8 +46,8 @@ int main(void)
     space::sout("bool_list", bool_list);
     space::sout("char_list", char_list);
 
-    // Notice how a data.JSON file has either been created or overwritten,
-    //      you can now drag and drop that data.JSON file into the browser app
+    // Notice how a data.json file has either been created or overwritten,
+    //      you can now drag and drop that data.json file into the browser app
     //      to visualize your list
 
     return 0;

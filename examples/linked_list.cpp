@@ -39,8 +39,8 @@ int main(void)
     //      and the list itself
     space::sout("linked list", curr);
 
-    // Notice how a data.JSON file has either been created or overwritten,
-    //      you can now drag and drop that data.JSON file into the browser app
+    // Notice how a data.json file has either been created or overwritten,
+    //      you can now drag and drop that data.json file into the browser app
     //      to visualize your list
 
     return 0;

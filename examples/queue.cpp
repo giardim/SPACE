@@ -25,7 +25,16 @@ int main(void)
         double_queue.push(i + .8);
         bool_queue.push(i);
         char_queue.push(i);
-        //If you want to see each step of the queue as it is inserted, you would call the sout function here
+
+        // We can now call the sout function, which will save each step of filling the queue
+        // Note: for queues, our sout function takes two parameters, the name of the array as a string
+        //      and the queue itself
+        space::sout("int_queue", int_queue);
+        space::sout("float_queue", float_queue);
+        space::sout("double_queue", double_queue);
+        space::sout("bool_queue", bool_queue);
+        space::sout("char_queue", char_queue);
+        
     }
 
     // Now that the queues are full, we can call our function to save the data into a JSON file
@@ -37,8 +46,8 @@ int main(void)
     space::sout("bool_queue", bool_queue);
     space::sout("char_queue", char_queue);
 
-    // Notice how a data.JSON file has either been created or overwritten,
-    //      you can now drag and drop that data.JSON file into the browser app
+    // Notice how a data.json file has either been created or overwritten,
+    //      you can now drag and drop that data.json file into the browser app
     //      to visualize your queue
 
     return 0;

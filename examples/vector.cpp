@@ -25,7 +25,16 @@ int main(void)
         double_vector.push_back(i + .8);
         bool_vector.push_back(i);
         char_vector.push_back(i);
-        //If you want to see each step of the vector as it is inserted, you would call the sout function here
+
+        // We can now call the sout function, which will save each step of filling the vector
+        // Note: for vectors, our sout function takes two parameters, the name of the array as a string
+        //      and the vector itself
+        space::sout("int_vector", int_vector);
+        space::sout("float_vector", float_vector);
+        space::sout("double_vector", double_vector);
+        space::sout("bool_vector", bool_vector);
+        space::sout("char_vector", char_vector);
+        
     }
 
     // Now that the vectors are full, we can call our function to save the data into a JSON file
@@ -37,8 +46,8 @@ int main(void)
     space::sout("bool_vector", bool_vector);
     space::sout("char_vector", char_vector);
 
-    // Notice how a data.JSON file has either been created or overwritten,
-    //      you can now drag and drop that data.JSON file into the browser app
+    // Notice how a data.json file has either been created or overwritten,
+    //      you can now drag and drop that data.json file into the browser app
     //      to visualize your vector
 
     return 0;

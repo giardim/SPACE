@@ -25,7 +25,16 @@ int main(void)
         double_deque.push_front(i + .8);
         bool_deque.push_front(i);
         char_deque.push_front(i);
-        //If you want to see each step of the deque as it is inserted, you would call the sout function here
+
+        // We can now call the sout function, which will save each step of filling the deque
+        // Note: for deques, our sout function takes two parameters, the name of the array as a string
+        //      and the deque itself
+        space::sout("int_deque", int_deque);
+        space::sout("float_deque", float_deque);
+        space::sout("double_deque", double_deque);
+        space::sout("bool_deque", bool_deque);
+        space::sout("char_deque", char_deque);
+        
     }
 
     // Now that the deques are full, we can call our function to save the data into a JSON file
@@ -37,8 +46,8 @@ int main(void)
     space::sout("bool_deque", bool_deque);
     space::sout("char_deque", char_deque);
 
-    // Notice how a data.JSON file has either been created or overwritten,
-    //      you can now drag and drop that data.JSON file into the browser app
+    // Notice how a data.json file has either been created or overwritten,
+    //      you can now drag and drop that data.json file into the browser app
     //      to visualize your deque
 
     return 0;
