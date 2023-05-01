@@ -23,7 +23,9 @@ delete any other files in the extracted folder). This should mean that the
 space.hpp file and your program file are in the same directory
 2. Open the index.html file with a web browser
 3. Click the manual button on the browser app to view detailed instructions 
-on using SPACE
+on using SPACE (you may need to drag-and-drop) the data.json file from the 
+SPACE folder into the browser app once you open the index.html file with 
+the web browser to see the manual button)
 
 ### Authors
 
