@@ -24,3 +24,13 @@ space.hpp file and your program file are in the same directory
 2. Open the index.html file with a web browser
 3. Click the manual button on the browser app to view detailed instructions 
 on using SPACE
+
+### Authors
+
+This project was created in the spring semester of 2023 for Prof. Confer's 
+CS370 Software Engineering class by:
+
+* Sean Smith <smiths14@sunypoly.edu>
+* Michael Giardina <giardim@sunypoly.edu>
+* Sazzad Ibrahim <ibrahis@sunypoly.edu>
+* Christian Gregory <middlec@sunypoly.edu>
